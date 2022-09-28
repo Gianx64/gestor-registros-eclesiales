@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
-@section('template_title')
-    Create Baptism
-@endsection
+@section('title', 'Crear Bautismo')
+
+@section('content_header')
+    <h1>Crear Bautismo</h1>
+@stop
 
 @section('content')
     <section class="content container-fluid">
@@ -12,9 +14,6 @@
                 @includeif('partials.errors')
 
                 <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title">Create Baptism</span>
-                    </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('baptisms.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf

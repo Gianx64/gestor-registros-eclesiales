@@ -2,21 +2,21 @@
 
 namespace Database\Seeders;
 
+use App\Models\Certificate;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
         $this->call(RoleSeeder::class);
 
         $this->call(UserSeeder::class);
+
+        $this->call(MarriageSeeder::class);
+
+        $this->call(ConfirmationSeeder::class);
+
+        $this->call(BaptismSeeder::class);
     }
 }

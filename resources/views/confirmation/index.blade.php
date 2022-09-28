@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
-@section('template_title')
-    Confirmation
-@endsection
+@section('title', 'Confirmaciones')
+
+@section('content_header')
+    <h1>Confirmaciones</h1>
+@stop
 
 @section('content')
     <div class="container-fluid">
@@ -12,13 +14,9 @@
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
-                            <span id="card_title">
-                                {{ __('Confirmation') }}
-                            </span>
-
                              <div class="float-right">
                                 <a href="{{ route('confirmations.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('Crear Confirmación') }}
                                 </a>
                               </div>
                         </div>
@@ -34,31 +32,19 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
-                                        
-										<th>Numlibro</th>
-										<th>Numpag</th>
-										<th>Lugardecelebracion</th>
-										<th>Celebrante</th>
-										<th>Rutconfirmado</th>
-										<th>Feccel</th>
-										<th>Confirmado</th>
-										<th>Apellidopaterno</th>
-										<th>Apellidomaterno</th>
-										<th>Padre</th>
-										<th>Madre</th>
+                                        <th>ID</th>
+										<th>Número Libro</th>
+										<th>Número Página</th>
+										<th>Rut Confirmado</th>
+										<th>Nombres Confirmado</th>
+										<th>Apellido Paterno</th>
+										<th>Apellido Materno</th>
 										<th>Padrino</th>
 										<th>Madrina</th>
-										<th>Lugarbautizo</th>
-										<th>Fecbautizo</th>
-										<th>Numlibrobautizo</th>
-										<th>Numpagbautizo</th>
-										<th>Notas</th>
-										<th>Parroco</th>
-										<th>Doyfe</th>
-										<th>Usuario Modificacion</th>
-										<th>Status</th>
-
+										<th>Lugar Bautizo</th>
+										<th>Fecha Bautizo</th>
+										<th>Número Libro Bautizo</th>
+										<th>Número Página Bautizo</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -92,11 +78,11 @@
 
                                             <td>
                                                 <form action="{{ route('confirmations.destroy',$confirmation->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('confirmations.show',$confirmation->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('confirmations.edit',$confirmation->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('confirmations.show',$confirmation->id) }}"><i class="fa fa-fw fa-eye"></i> Mostrar</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('confirmations.edit',$confirmation->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
                                                 </form>
                                             </td>
                                         </tr>

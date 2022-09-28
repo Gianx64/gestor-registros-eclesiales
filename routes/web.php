@@ -63,16 +63,4 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::apiResource('marriages', MarriageController::class);
     Route::apiResource('confirmations', ConfirmationController::class);
     Route::apiResource('baptisms', BaptismController::class);
-    
-    /** -------------------------------------- RUTAS REGISTROS MATRIMONIOS REGISTRADOS --------------------------------------------- */
-    //Route::get('marriages/show/{marriage}', [MarriageController::class, 'show'])->name('marriages.show');
-    //Route::put('marriages/show/{marriage}', [MarriageController::class, 'ingresarRegistro'])->name('marriages.ingresarRegistro');
-    
-    /** -------------------------------------- RUTAS REGISTROS CONFIRMACIONES REGISTRADOS --------------------------------------------- */
-    //Route::get('confirmations/show/{confirmation}', [ConfirmationController::class, 'show'])->name('confirmations.show');
-    //Route::put('confirmations/show/{confirmation}', [ConfirmationController::class, 'ingresarRegistro'])->name('confirmations.ingresarRegistro');
-
-    /** -------------------------------------- RUTAS REGISTROS BAUTIZOS REGISTRADOS --------------------------------------------- */
-    //Route::get('baptisms/show/{baptism}', [BaptismController::class, 'show'])->name('baptisms.show');
-    //Route::put('baptisms/show/{baptism}', [BaptismController::class, 'ingresarRegistro'])->name('baptisms.ingresarRegistro');
 });

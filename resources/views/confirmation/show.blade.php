@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
-@section('template_title')
-    {{ $confirmation->name ?? 'Show Confirmation' }}
-@endsection
+@section('title', 'Mostrar Confirmación')
+
+@section('content_header')
+    <h1>Mostrar Confirmación</h1>
+@stop
 
 @section('content')
     <section class="content container-fluid">
@@ -10,9 +12,6 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <div class="float-left">
-                            <span class="card-title">Show Confirmation</span>
-                        </div>
                         <div class="float-right">
                             <a class="btn btn-primary" href="{{ route('confirmations.index') }}"> Back</a>
                         </div>

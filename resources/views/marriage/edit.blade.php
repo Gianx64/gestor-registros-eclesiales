@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
-@section('template_title')
-    Update Marriage
-@endsection
+@section('title', 'Editar Matrimonio')
+
+@section('content_header')
+    <h1>Editar Matrimonio</h1>
+@stop
 
 @section('content')
     <section class="content container-fluid">
@@ -12,9 +14,6 @@
                 @includeif('partials.errors')
 
                 <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title">Update Marriage</span>
-                    </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('marriages.update', $marriage->id) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}

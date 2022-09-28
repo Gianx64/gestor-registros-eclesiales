@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
-@section('template_title')
-    {{ $user->name ?? 'Mostrar Usuario' }}
-@endsection
+@section('title', 'Mostrar Usuario')
+
+@section('content_header')
+    <h1>{{ $user->name ?? 'Mostrar Usuario' }}</h1>
+@stop
 
 @section('content')
     <section class="content container-fluid">
@@ -10,9 +12,6 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <div class="float-left">
-                            <span class="card-title">Mostrar Usuario</span>
-                        </div>
                         <div class="float-right">
                             <a class="btn btn-primary" href="{{ route('users.index') }}"> Back</a>
                         </div>
@@ -21,15 +20,15 @@
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Name:</strong>
+                            <strong>Nombre:</strong>
                             {{ $user->name ?? 'Nombre de usuario no encontrado' }}
                         </div>
                         <div class="form-group">
-                            <strong>Email:</strong>
+                            <strong>Correo Electrónico:</strong>
                             {{ $user->email ?? 'Correo de usuario no encontrado' }}
                         </div>
                         <div class="form-group">
-                            <strong>Role:</strong>
+                            <strong>Rol:</strong>
                             {{ $user->role ?? 'Rol de usuario no encontrado' }}
                         </div>
 

@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
-@section('template_title')
-    Create Marriage
-@endsection
+@section('title', 'Crear Matrimonio')
+
+@section('content_header')
+    <h1>Crear Matrimonio</h1>
+@stop
 
 @section('content')
     <section class="content container-fluid">
@@ -12,9 +14,6 @@
                 @includeif('partials.errors')
 
                 <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title">Create Marriage</span>
-                    </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('marriages.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf

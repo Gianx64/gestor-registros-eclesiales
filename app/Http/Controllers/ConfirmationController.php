@@ -48,7 +48,7 @@ class ConfirmationController extends Controller
         $confirmation = Confirmation::create($request->all());
 
         return redirect()->route('confirmations.index')
-            ->with('success', 'Confirmation created successfully.');
+            ->with('success', 'Confirmación creada exitosamente.');
     }
 
     /**
@@ -91,7 +91,7 @@ class ConfirmationController extends Controller
         $confirmation->update($request->all());
 
         return redirect()->route('confirmations.index')
-            ->with('success', 'Confirmation updated successfully');
+            ->with('success', 'Confirmación editada exitosamente.');
     }
 
     /**
@@ -104,6 +104,6 @@ class ConfirmationController extends Controller
         $confirmation = Confirmation::find($id)->delete();
 
         return redirect()->route('confirmations.index')
-            ->with('success', 'Confirmation deleted successfully');
+            ->with('success', 'Confirmación eliminada exitosamente.');
     }
 }

@@ -48,7 +48,7 @@ class BaptismController extends Controller
         $baptism = Baptism::create($request->all());
 
         return redirect()->route('baptisms.index')
-            ->with('success', 'Baptism created successfully.');
+            ->with('success', 'Bautismo creado exitosamente.');
     }
 
     /**
@@ -91,7 +91,7 @@ class BaptismController extends Controller
         $baptism->update($request->all());
 
         return redirect()->route('baptisms.index')
-            ->with('success', 'Baptism updated successfully');
+            ->with('success', 'Bautismo editado exitosamente.');
     }
 
     /**
@@ -104,6 +104,6 @@ class BaptismController extends Controller
         $baptism = Baptism::find($id)->delete();
 
         return redirect()->route('baptisms.index')
-            ->with('success', 'Baptism deleted successfully');
+            ->with('success', 'Bautismo eliminado exitosamente.');
     }
 }

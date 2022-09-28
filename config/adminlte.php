@@ -252,8 +252,8 @@ return [
     |
     */
 
-    'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'use_route_url' => true,
+    'dashboard_url' => '',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -307,15 +307,9 @@ return [
             'text' => 'search',
         ],*/
         [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
-        [
-            'text' => 'Dashboard',
-            'url'  => 'dashboard',
+            'text' => 'Vista Inicial',
+            'url'  => '',
             'icon' => 'fas fa-fw fa-home',
-            'can' => 'home'
         ],
         [
             'text' => 'Usuarios',
@@ -339,11 +333,10 @@ return [
             'can' => 'roles.index',
             'active' => ['roles/*']
         ],
-        ['header' => 'Creación de Registros', 'can' => 'baptisms.index'],
-        ['header' => 'Lista de Registros', 'can' => 'List.register'],
         [
             'text'    => 'Registros Eclesiales',
             'icon'    => 'fas fa-fw fa-bible',
+            'can' => 'marriages.index',
             'submenu' => [
                 [
                     'text'    => 'Matrimonios',
@@ -353,10 +346,12 @@ return [
                         [
                             'text' => 'Crear Nuevo Registro',
                             'url'     => 'marriages/create',
+                            'can' => 'marriages.create',
                         ],
                         [
                             'text' => 'Lista de Registros',
                             'url'     => 'marriages',
+                            'can' => 'marriages.index',
                         ],
                     ],
                 ],
@@ -367,11 +362,13 @@ return [
                     'submenu' => [
                         [
                             'text' => 'Crear Nuevo Registro',
-                            'url' => 'confirmations/create'
+                            'url' => 'confirmations/create',
+                            'can' => 'confirmations.create',
                         ],
                         [
                             'text' => 'Lista de Registros',
-                            'url' => 'confirmations'
+                            'url' => 'confirmations',
+                            'can' => 'confirmations.index',
                         ],
                     ],
                 ],
@@ -382,11 +379,14 @@ return [
                     'submenu' => [
                         [
                             'text' => 'Crear Nuevo Registro',
-                            'url' => 'baptisms/create'
+                            'url' => 'baptisms/create',
+                            'can' => 'baptisms.create',
                         ],
                         [
                             'text' => 'Lista de Registros',
-                            'url' => 'baptisms'
+                            'url' => 'baptisms',
+                            'can' => 'baptisms.index',
+
                         ],
                     ],
                 ],

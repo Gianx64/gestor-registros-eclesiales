@@ -48,7 +48,7 @@ class MarriageController extends Controller
         $marriage = Marriage::create($request->all());
 
         return redirect()->route('marriages.index')
-            ->with('success', 'Marriage created successfully.');
+            ->with('success', 'Matrimonio creado exitosamente.');
     }
 
     /**
@@ -91,7 +91,7 @@ class MarriageController extends Controller
         $marriage->update($request->all());
 
         return redirect()->route('marriages.index')
-            ->with('success', 'Marriage updated successfully');
+            ->with('success', 'Matrimonio editado exitosamente.');
     }
 
     /**
@@ -104,7 +104,7 @@ class MarriageController extends Controller
         $marriage = Marriage::find($id)->delete();
 
         return redirect()->route('marriages.index')
-            ->with('success', 'Marriage deleted successfully');
+            ->with('success', 'Matrimonio eliminado exitosamente.');
     }
 /*
 	public function certificate(Marriage $marriage)

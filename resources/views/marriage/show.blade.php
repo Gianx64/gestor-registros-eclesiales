@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
-@section('template_title')
-    {{ $marriage->name ?? 'Show Marriage' }}
-@endsection
+@section('title', 'Mostrar Matrimonio')
+
+@section('content_header')
+    <h1>Mostrar Matrimonio</h1>
+@stop
 
 @section('content')
     <section class="content container-fluid">
@@ -10,9 +12,6 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <div class="float-left">
-                            <span class="card-title">Show Marriage</span>
-                        </div>
                         <div class="float-right">
                             <a class="btn btn-primary" href="{{ route('marriages.index') }}"> Back</a>
                         </div>

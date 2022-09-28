@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
-@section('template_title')
-    Usuarios
-@endsection
+@section('title', 'Usuarios')
+
+@section('content_header')
+    <h1>Usuarios</h1>
+@stop
 
 @section('content')
     <div class="container-fluid">
@@ -18,7 +20,7 @@
 
                              <div class="float-right">
                                 <a href="{{ route('users.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Crear Nuevo') }}
+                                  {{ __('Crear Usuario') }}
                                 </a>
                               </div>
                         </div>

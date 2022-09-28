@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
-@section('template_title')
-    Baptism
-@endsection
+@section('title', 'Bautismos')
+
+@section('content_header')
+    <h1>Bautismos</h1>
+@stop
 
 @section('content')
     <div class="container-fluid">
@@ -12,13 +14,9 @@
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
-                            <span id="card_title">
-                                {{ __('Baptism') }}
-                            </span>
-
                              <div class="float-right">
                                 <a href="{{ route('baptisms.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('Crear Bautizo') }}
                                 </a>
                               </div>
                         </div>
@@ -34,31 +32,23 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
-                                        
+                                        <th>ID</th>
 										<th>Rut</th>
-										<th>Numlibro</th>
-										<th>Numpag</th>
+										<th>Número Libro</th>
+										<th>Número Página</th>
 										<th>Nombres</th>
-										<th>Apellidopaterno</th>
-										<th>Apellidomaterno</th>
-										<th>Lugardenacimiento</th>
-										<th>Fecnac</th>
-										<th>Papanombre</th>
-										<th>Papaapellido</th>
-										<th>Mamanombre</th>
-										<th>Mamaapellido</th>
+										<th>Apellido Paterno</th>
+										<th>Apellido Materno</th>
+										<th>Lugar Nacimiento</th>
+										<th>Fecha Nacimiento</th>
+										<th>Papa nombre</th>
+										<th>Papa apellido</th>
+										<th>Mama nombre</th>
+										<th>Mama apellido</th>
 										<th>Padrino</th>
 										<th>Madrina</th>
-										<th>Lugardecelebracion</th>
-										<th>Feccel</th>
-										<th>Ministro</th>
-										<th>Parroco</th>
-										<th>Notas</th>
-										<th>Doyfe</th>
-										<th>Usuario Modificacion</th>
-										<th>Status</th>
-
+										<th>Lugar Celebración</th>
+										<th>Fecha Celebración</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -92,11 +82,11 @@
 
                                             <td>
                                                 <form action="{{ route('baptisms.destroy',$baptism->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('baptisms.show',$baptism->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('baptisms.edit',$baptism->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('baptisms.show',$baptism->id) }}"><i class="fa fa-fw fa-eye"></i> Mostrar</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('baptisms.edit',$baptism->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
                                                 </form>
                                             </td>
                                         </tr>

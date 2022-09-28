@@ -1,4 +1,4 @@
-@extends('adminlte::page')
+@extends('layouts.app')
 
 @section('title', 'Página Inicial')
 
@@ -20,7 +20,13 @@
 
             <div class="w-full p-6">
                 <p class="text-gray-700">
-                    Bienvenido a Parroquia test, por favor, inicie sesión.
+                    Bienvenido a Parroquia test
+                    @auth
+                    .
+                    @else
+                    , por favor, 
+                    <a href="/users/login">inicie sesión</a>.
+                    @endauth
                 </p>
             </div>
         </section>

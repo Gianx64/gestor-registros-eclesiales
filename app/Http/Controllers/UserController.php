@@ -46,6 +46,7 @@ class UserController extends Controller
     {
         request()->validate(User::$rules);
 
+        $request['password']=Hash::make($request['password']); //Se guarda la contraseña encriptada
         $user = User::create($request->all());
 
         return redirect()->route('users.index')
