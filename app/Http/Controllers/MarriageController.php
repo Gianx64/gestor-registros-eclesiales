@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Marriage;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\App;
 
 /**
  * Class MarriageController
@@ -106,9 +108,24 @@ class MarriageController extends Controller
         return redirect()->route('marriages.index')
             ->with('success', 'Matrimonio eliminado exitosamente.');
     }
-/*
+
 	public function certificate(Marriage $marriage)
     {
+		$pdf = App::make('dompdf.wrapper');
+		$pdf->loadHTML('<h1>Test</h1>');
+		return $pdf->stream();
+		/*
+		$dompdf = new Pdf();
+		$dompdf->loadHtml('hello world');
+		
+		// (Optional) Setup the paper size and orientation
+		$dompdf->setPaper('A4', 'landscape');
+		
+		// Render the HTML as PDF
+		$dompdf->render();
+		
+		// Output the generated PDF to Browser
+		$dompdf->stream();/*
 		$arrayBody = array(
 			"#NumerodeLibro",
 			"#NumerodePagina",
@@ -211,6 +228,6 @@ class MarriageController extends Controller
 			"
 		);
 
-		return $pdf->stream('certificadoMatrimonio.pdf');
-	}*/
+		return $pdf->stream('certificadoMatrimonio.pdf');*/
+	}
 }
