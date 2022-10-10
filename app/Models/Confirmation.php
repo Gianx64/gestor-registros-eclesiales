@@ -3,32 +3,35 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Confirmation
  *
  * @property $id
+ * @property $Rut
  * @property $NumLibro
  * @property $NumPag
- * @property $LugardeCelebracion
- * @property $Celebrante
- * @property $RutConfirmado
- * @property $FecCel
- * @property $Confirmado
+ * @property $Nombres
  * @property $ApellidoPaterno
  * @property $ApellidoMaterno
- * @property $Padre
- * @property $Madre
+ * @property $PapaNombre
+ * @property $PapaApellido
+ * @property $MamaNombre
+ * @property $MamaApellido
  * @property $Padrino
  * @property $Madrina
  * @property $LugarBautizo
  * @property $FecBautizo
  * @property $NumLibroBautizo
  * @property $NumPagBautizo
- * @property $Notas
+ * @property $Celebrante
+ * @property $LugCel
+ * @property $FecCel
  * @property $Parroco
+ * @property $Notas
  * @property $DoyFe
- * @property $Usuario_modificacion
+ * @property $updated_by
  * @property $status
  * @property $created_at
  * @property $updated_at
@@ -38,22 +41,20 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Confirmation extends Model
 {
+	use SoftDeletes;
     
     static $rules = [
-		'NumLibro' => 'required',
-		'NumPag' => 'required',
-		'LugardeCelebracion' => 'required',
-		'Celebrante' => 'required',
-		'RutConfirmado' => 'required',
-		'FecCel' => 'required',
-		'Confirmado' => 'required',
+		'Rut' => 'required',
+		'Nombres' => 'required',
+		'ApellidoPaterno' => 'required',
+		'ApellidoMaterno' => 'required',
 		'LugarBautizo' => 'required',
 		'FecBautizo' => 'required',
-		'NumLibroBautizo' => 'required',
-		'NumPagBautizo' => 'required',
+		'Celebrante' => 'required',
+		'LugCel' => 'required',
+		'FecCel' => 'required',
 		'Parroco' => 'required',
 		'DoyFe' => 'required',
-		'status' => 'required',
     ];
 
     protected $perPage = 20;
@@ -63,7 +64,7 @@ class Confirmation extends Model
      *
      * @var array
      */
-    protected $fillable = ['NumLibro','NumPag','LugardeCelebracion','Celebrante','RutConfirmado','FecCel','Confirmado','ApellidoPaterno','ApellidoMaterno','Padre','Madre','Padrino','Madrina','LugarBautizo','FecBautizo','NumLibroBautizo','NumPagBautizo','Notas','Parroco','DoyFe','Usuario_modificacion','status'];
+    protected $fillable = ['Rut','NumLibro','NumPag','Nombres','ApellidoPaterno','ApellidoMaterno','PapaNombre','PapaApellido','MamaNombre','MamaApellido','Padrino','Madrina','LugarBautizo','FecBautizo','NumLibroBautizo','NumPagBautizo','Celebrante','LugCel','FecCel','Parroco','Notas','DoyFe'];
 
 
 

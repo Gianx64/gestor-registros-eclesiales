@@ -33,18 +33,13 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>ID</th>
-										<th>Número Libro</th>
-										<th>Número Página</th>
-										<th>Rut Confirmado</th>
-										<th>Nombres Confirmado</th>
+										<th>Rut</th>
+										<th>Nombres</th>
 										<th>Apellido Paterno</th>
 										<th>Apellido Materno</th>
-										<th>Padrino</th>
-										<th>Madrina</th>
-										<th>Lugar Bautizo</th>
-										<th>Fecha Bautizo</th>
-										<th>Número Libro Bautizo</th>
-										<th>Número Página Bautizo</th>
+										<th>Lugar de Celebración</th>
+										<th>Fecha de Celebración</th>
+
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -52,33 +47,16 @@
                                     @foreach ($confirmations as $confirmation)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
-											<td>{{ $confirmation->NumLibro }}</td>
-											<td>{{ $confirmation->NumPag }}</td>
-											<td>{{ $confirmation->LugardeCelebracion }}</td>
-											<td>{{ $confirmation->Celebrante }}</td>
-											<td>{{ $confirmation->RutConfirmado }}</td>
-											<td>{{ $confirmation->FecCel }}</td>
-											<td>{{ $confirmation->Confirmado }}</td>
+											<td>{{ $confirmation->Rut }}</td>
+											<td>{{ $confirmation->Nombres }}</td>
 											<td>{{ $confirmation->ApellidoPaterno }}</td>
 											<td>{{ $confirmation->ApellidoMaterno }}</td>
-											<td>{{ $confirmation->Padre }}</td>
-											<td>{{ $confirmation->Madre }}</td>
-											<td>{{ $confirmation->Padrino }}</td>
-											<td>{{ $confirmation->Madrina }}</td>
-											<td>{{ $confirmation->LugarBautizo }}</td>
-											<td>{{ $confirmation->FecBautizo }}</td>
-											<td>{{ $confirmation->NumLibroBautizo }}</td>
-											<td>{{ $confirmation->NumPagBautizo }}</td>
-											<td>{{ $confirmation->Notas }}</td>
-											<td>{{ $confirmation->Parroco }}</td>
-											<td>{{ $confirmation->DoyFe }}</td>
-											<td>{{ $confirmation->Usuario_modificacion }}</td>
-											<td>{{ $confirmation->status }}</td>
+											<td>{{ $confirmation->LugCel }}</td>
+											<td>{{ $confirmation->FecCel }}</td>
 
                                             <td>
                                                 <form action="{{ route('confirmations.destroy',$confirmation->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('confirmations.show',$confirmation->id) }}"><i class="fa fa-fw fa-eye"></i> Mostrar</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('confirmations.show',$confirmation->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>
                                                     <a class="btn btn-sm btn-success" href="{{ route('confirmations.edit',$confirmation->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')

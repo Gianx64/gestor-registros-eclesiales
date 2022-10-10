@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Baptism
@@ -14,7 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property $Nombres
  * @property $ApellidoPaterno
  * @property $ApellidoMaterno
- * @property $LugardeNacimiento
+ * @property $LugNac
  * @property $FecNac
  * @property $PapaNombre
  * @property $PapaApellido
@@ -22,13 +23,13 @@ use Illuminate\Database\Eloquent\Model;
  * @property $MamaApellido
  * @property $Padrino
  * @property $Madrina
- * @property $LugardeCelebracion
+ * @property $LugCel
  * @property $FecCel
  * @property $Ministro
  * @property $Parroco
  * @property $Notas
  * @property $DoyFe
- * @property $Usuario_modificacion
+ * @property $updated_by
  * @property $status
  * @property $created_at
  * @property $updated_at
@@ -38,28 +39,20 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Baptism extends Model
 {
+	use SoftDeletes;
     
     static $rules = [
 		'Rut' => 'required',
-		'NumLibro' => 'required',
-		'NumPag' => 'required',
 		'Nombres' => 'required',
 		'ApellidoPaterno' => 'required',
 		'ApellidoMaterno' => 'required',
-		'LugardeNacimiento' => 'required',
+		'LugNac' => 'required',
 		'FecNac' => 'required',
-		'PapaNombre' => 'required',
-		'PapaApellido' => 'required',
-		'MamaNombre' => 'required',
-		'MamaApellido' => 'required',
-		'Padrino' => 'required',
-		'Madrina' => 'required',
-		'LugardeCelebracion' => 'required',
+		'LugCel' => 'required',
 		'FecCel' => 'required',
 		'Ministro' => 'required',
 		'Parroco' => 'required',
 		'DoyFe' => 'required',
-		'status' => 'required',
     ];
 
     protected $perPage = 20;
@@ -69,7 +62,7 @@ class Baptism extends Model
      *
      * @var array
      */
-    protected $fillable = ['Rut','NumLibro','NumPag','Nombres','ApellidoPaterno','ApellidoMaterno','LugardeNacimiento','FecNac','PapaNombre','PapaApellido','MamaNombre','MamaApellido','Padrino','Madrina','LugardeCelebracion','FecCel','Ministro','Parroco','Notas','DoyFe','Usuario_modificacion','status'];
+    protected $fillable = ['Rut','NumLibro','NumPag','Nombres','ApellidoPaterno','ApellidoMaterno','LugNac','FecNac','PapaNombre','PapaApellido','MamaNombre','MamaApellido','Padrino','Madrina','LugCel','FecCel','Ministro','Parroco','Notas','DoyFe'];
 
 
 

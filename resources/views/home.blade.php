@@ -25,7 +25,7 @@
                     .
                     @else
                     , por favor, 
-                    <a href="/users/login">inicie sesión</a>.
+                    <a href="/login">inicie sesión</a>.
                     @endauth
                 </p>
             </div>

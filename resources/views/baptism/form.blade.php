@@ -32,9 +32,9 @@
             {!! $errors->first('ApellidoMaterno', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('LugardeNacimiento') }}
-            {{ Form::text('LugardeNacimiento', $baptism->LugardeNacimiento, ['class' => 'form-control' . ($errors->has('LugardeNacimiento') ? ' is-invalid' : ''), 'placeholder' => 'Lugardenacimiento']) }}
-            {!! $errors->first('LugardeNacimiento', '<div class="invalid-feedback">:message</div>') !!}
+            {{ Form::label('LugNac') }}
+            {{ Form::text('LugNac', $baptism->LugNac, ['class' => 'form-control' . ($errors->has('LugNac') ? ' is-invalid' : ''), 'placeholder' => 'Lugnac']) }}
+            {!! $errors->first('LugNac', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('FecNac') }}
@@ -72,9 +72,9 @@
             {!! $errors->first('Madrina', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('LugardeCelebracion') }}
-            {{ Form::text('LugardeCelebracion', $baptism->LugardeCelebracion, ['class' => 'form-control' . ($errors->has('LugardeCelebracion') ? ' is-invalid' : ''), 'placeholder' => 'Lugardecelebracion']) }}
-            {!! $errors->first('LugardeCelebracion', '<div class="invalid-feedback">:message</div>') !!}
+            {{ Form::label('LugCel') }}
+            {{ Form::text('LugCel', $baptism->LugCel, ['class' => 'form-control' . ($errors->has('LugCel') ? ' is-invalid' : ''), 'placeholder' => 'Lugcel']) }}
+            {!! $errors->first('LugCel', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('FecCel') }}
@@ -100,16 +100,6 @@
             {{ Form::label('DoyFe') }}
             {{ Form::text('DoyFe', $baptism->DoyFe, ['class' => 'form-control' . ($errors->has('DoyFe') ? ' is-invalid' : ''), 'placeholder' => 'Doyfe']) }}
             {!! $errors->first('DoyFe', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('Usuario_modificacion') }}
-            {{ Form::text('Usuario_modificacion', $baptism->Usuario_modificacion, ['class' => 'form-control' . ($errors->has('Usuario_modificacion') ? ' is-invalid' : ''), 'placeholder' => 'Usuario Modificacion']) }}
-            {!! $errors->first('Usuario_modificacion', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('status') }}
-            {{ Form::text('status', $baptism->status, ['class' => 'form-control' . ($errors->has('status') ? ' is-invalid' : ''), 'placeholder' => 'Status']) }}
-            {!! $errors->first('status', '<div class="invalid-feedback">:message</div>') !!}
         </div>
 
     </div>
