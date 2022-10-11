@@ -13,99 +13,99 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('confirmations.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('confirmations.index') }}"> Volver</a>
                         </div>
                     </div>
 
                     <div class="card-body">
                         
                         <div class="form-group">
+                            <strong>Rut:</strong>
+                            {{ $confirmation->Rut ?? 'No encontrado' }}
+                        </div>
+                        <div class="form-group">
                             <strong>Numlibro:</strong>
-                            {{ $confirmation->NumLibro }}
+                            {{ $confirmation->NumLibro ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
                             <strong>Numpag:</strong>
-                            {{ $confirmation->NumPag }}
+                            {{ $confirmation->NumPag ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
-                            <strong>Lugardecelebracion:</strong>
-                            {{ $confirmation->LugardeCelebracion }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Celebrante:</strong>
-                            {{ $confirmation->Celebrante }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Rutconfirmado:</strong>
-                            {{ $confirmation->RutConfirmado }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Feccel:</strong>
-                            {{ $confirmation->FecCel }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Confirmado:</strong>
-                            {{ $confirmation->Confirmado }}
+                            <strong>Nombres:</strong>
+                            {{ $confirmation->Nombres ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
                             <strong>Apellidopaterno:</strong>
-                            {{ $confirmation->ApellidoPaterno }}
+                            {{ $confirmation->ApellidoPaterno ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
                             <strong>Apellidomaterno:</strong>
-                            {{ $confirmation->ApellidoMaterno }}
+                            {{ $confirmation->ApellidoMaterno ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
-                            <strong>Padre:</strong>
-                            {{ $confirmation->Padre }}
+                            <strong>Papanombre:</strong>
+                            {{ $confirmation->PapaNombre ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
-                            <strong>Madre:</strong>
-                            {{ $confirmation->Madre }}
+                            <strong>Papaapellido:</strong>
+                            {{ $confirmation->PapaApellido ?? 'No encontrado' }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Mamanombre:</strong>
+                            {{ $confirmation->MamaNombre ?? 'No encontrado' }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Mamaapellido:</strong>
+                            {{ $confirmation->MamaApellido ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
                             <strong>Padrino:</strong>
-                            {{ $confirmation->Padrino }}
+                            {{ $confirmation->Padrino ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
                             <strong>Madrina:</strong>
-                            {{ $confirmation->Madrina }}
+                            {{ $confirmation->Madrina ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
                             <strong>Lugarbautizo:</strong>
-                            {{ $confirmation->LugarBautizo }}
+                            {{ $confirmation->LugarBautizo ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
                             <strong>Fecbautizo:</strong>
-                            {{ $confirmation->FecBautizo }}
+                            {{ $confirmation->FecBautizo ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
                             <strong>Numlibrobautizo:</strong>
-                            {{ $confirmation->NumLibroBautizo }}
+                            {{ $confirmation->NumLibroBautizo ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
                             <strong>Numpagbautizo:</strong>
-                            {{ $confirmation->NumPagBautizo }}
+                            {{ $confirmation->NumPagBautizo ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
-                            <strong>Notas:</strong>
-                            {{ $confirmation->Notas }}
+                            <strong>Celebrante:</strong>
+                            {{ $confirmation->Celebrante ?? 'No encontrado' }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Lugcel:</strong>
+                            {{ $confirmation->LugCel ?? 'No encontrado' }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Feccel:</strong>
+                            {{ $confirmation->FecCel ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
                             <strong>Parroco:</strong>
-                            {{ $confirmation->Parroco }}
+                            {{ $confirmation->Parroco ?? 'No encontrado' }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Notas:</strong>
+                            {{ $confirmation->Notas ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
                             <strong>Doyfe:</strong>
-                            {{ $confirmation->DoyFe }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Usuario Modificacion:</strong>
-                            {{ $confirmation->Usuario_modificacion }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Status:</strong>
-                            {{ $confirmation->status }}
+                            {{ $confirmation->DoyFe ?? 'No encontrado' }}
                         </div>
 
                     </div>

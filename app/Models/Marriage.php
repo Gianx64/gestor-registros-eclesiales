@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Marriage
@@ -10,10 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property $id
  * @property $NumLibro
  * @property $NumPag
- * @property $CiudadCelebracion
- * @property $LugardeCelebracion
  * @property $Parroquia
- * @property $FechaCelebracion
  * @property $Impedimiento
  * @property $Celebrante
  * @property $RutEsposo
@@ -39,11 +37,12 @@ use Illuminate\Database\Eloquent\Model;
  * @property $NumLibroBautismoEsposa
  * @property $NumPagBautismoEsposa
  * @property $SiendoTestigo
- * @property $PaginaPartida
- * @property $Notas
+ * @property $LugCel
+ * @property $FecCel
  * @property $Parroco
+ * @property $Notas
  * @property $DoyFe
- * @property $Usuario_modificacion
+ * @property $updated_by
  * @property $status
  * @property $created_at
  * @property $updated_at
@@ -53,14 +52,10 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Marriage extends Model
 {
+	use SoftDeletes;
     
     static $rules = [
-		'NumLibro' => 'required',
-		'NumPag' => 'required',
-		'CiudadCelebracion' => 'required',
-		'LugardeCelebracion' => 'required',
 		'Parroquia' => 'required',
-		'FechaCelebracion' => 'required',
 		'Impedimiento' => 'required',
 		'Celebrante' => 'required',
 		'RutEsposo' => 'required',
@@ -82,10 +77,10 @@ class Marriage extends Model
 		'NumLibroBautismoEsposa' => 'required',
 		'NumPagBautismoEsposa' => 'required',
 		'SiendoTestigo' => 'required',
-		'PaginaPartida' => 'required',
+		'LugCel' => 'required',
+		'FecCel' => 'required',
 		'Parroco' => 'required',
 		'DoyFe' => 'required',
-		'status' => 'required',
     ];
 
     protected $perPage = 20;
@@ -95,7 +90,7 @@ class Marriage extends Model
      *
      * @var array
      */
-    protected $fillable = ['NumLibro','NumPag','CiudadCelebracion','LugardeCelebracion','Parroquia','FechaCelebracion','Impedimiento','Celebrante','RutEsposo','NombresEsposo','ApellidoPaternoEsposo','ApellidoMaternoEsposo','EstadoEsposo','PapaNombresEsposo','MamaNombresEsposo','EdadEsposo','ParroquiaBautismoEsposo','NumLibroBautismoEsposo','NumPagBautismoEsposo','RutEsposa','NombresEsposa','ApellidoPaternoEsposa','ApellidoMaternoEsposa','EstadoEsposa','PapaNombresEsposa','MamaNombresEsposa','EdadEsposa','ParroquiaBautismoEsposa','NumLibroBautismoEsposa','NumPagBautismoEsposa','SiendoTestigo','PaginaPartida','Notas','Parroco','DoyFe','Usuario_modificacion','status'];
+    protected $fillable = ['NumLibro','NumPag','Parroquia','Impedimiento','Celebrante','RutEsposo','NombresEsposo','ApellidoPaternoEsposo','ApellidoMaternoEsposo','EstadoEsposo','PapaNombresEsposo','MamaNombresEsposo','EdadEsposo','ParroquiaBautismoEsposo','NumLibroBautismoEsposo','NumPagBautismoEsposo','RutEsposa','NombresEsposa','ApellidoPaternoEsposa','ApellidoMaternoEsposa','EstadoEsposa','PapaNombresEsposa','MamaNombresEsposa','EdadEsposa','ParroquiaBautismoEsposa','NumLibroBautismoEsposa','NumPagBautismoEsposa','SiendoTestigo','LugCel','FecCel','Parroco','Notas','DoyFe'];
 
 
 

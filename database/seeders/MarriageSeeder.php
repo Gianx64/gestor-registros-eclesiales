@@ -17,10 +17,9 @@ class MarriageSeeder extends Seeder
         Marriage::create([
             'NumLibro'  => '03',
             'NumPag'  => '100',
-            'CiudadCelebracion'  => 'Arica',
-            'LugardeCelebracion'  => 'Sede Parroquial de arica',
+            'LugCel'  => 'Sede Parroquial de arica',
             'Parroquia' => 'Inmaculada Concepción',
-            'FechaCelebracion'  => '2007-02-22',
+            'FecCel'  => '2007-02-22',
             'Impedimiento'  => 'Ninguno',
             'Celebrante'  => 'P. José Vinés SSP',
             'RutEsposo'  => '20.687.135-5',
@@ -46,20 +45,18 @@ class MarriageSeeder extends Seeder
             'NumLibroBautismoEsposa'  => '26',
             'NumPagBautismoEsposa'  => '27',
             'SiendoTestigo'  => 'Toda la Familia',
-            'PaginaPartida'  => '1',
             'Notas' => 'Se confirmó el 07-12-2002 en P. Sta Cruz de Mayo por Mons. Ricardo Ezzoli',
             'Parroco'  => 'Pbro. Francisco Javier Manterola C.',
             'DoyFe'  => 'Pbro. Francisco Javier Manterola C.',
-            'Usuario_modificacion' => ''
+            'updated_by' => ''
         ]);
         
         Marriage::create([
             'NumLibro'  => '25',
             'NumPag'  => '245',
-            'CiudadCelebracion'  => 'B. O´Higgins',
-            'LugardeCelebracion'  => 'Sede Parroquial',
+            'LugCel'  => 'Sede Parroquial',
             'Parroquia' => 'B. O´Higgins 50',
-            'FechaCelebracion'  => '2000-07-07',
+            'FecCel'  => '2000-07-07',
             'Impedimiento'  => 'Ninguno',
             'Celebrante'  => 'Diácono  Florentino  Benites  Oyarzún',
             'RutEsposo'  => '12.357.159-7',
@@ -85,20 +82,18 @@ class MarriageSeeder extends Seeder
             'NumLibroBautismoEsposa'  => '258',
             'NumPagBautismoEsposa'  => '1',
             'SiendoTestigo'  => 'Nolvia Alvarez Fernández, Bernardo Maturana, Gustavo Henríquez Guevara y Francisco Rubio Collao',
-            'PaginaPartida'  => '2',
             'Notas' => '',
             'Parroco'  => 'Pbro. Francisco Javier Manterola C.',
             'DoyFe'  => 'Pbro. Francisco Javier Manterola C.',
-            'Usuario_modificacion' => ''
+            'updated_by' => ''
         ]);
         
         Marriage::create([
             'NumLibro'  => '30',
             'NumPag'  => '300',
-            'CiudadCelebracion'  => 'Santiago',
-            'LugardeCelebracion'  => 'Providencia',
+            'LugCel'  => 'Providencia',
             'Parroquia' => 'B. O´Higgins 50',
-            'FechaCelebracion'  => '2006-01-01',
+            'FecCel'  => '2006-01-01',
             'Impedimiento'  => 'ninguno',
             'Celebrante'  => 'Diác. Florentina Benites Oyarzún',
             'RutEsposo'  => '19.358.123.7',
@@ -124,11 +119,10 @@ class MarriageSeeder extends Seeder
             'NumLibroBautismoEsposa'  => '02',
             'NumPagBautismoEsposa'  => '12',
             'SiendoTestigo'  => 'María Madre del Verbo de Dios, Claudia  Virginia Pailamilla  Verdugo y Abraham Romero H',
-            'PaginaPartida'  => '3',
             'Notas' => 'Sin Notas Al Margen',
             'Parroco'  => 'Pbro. Francisco Javier Manterola C.',
             'DoyFe'  => 'Pbro. Francisco Javier Manterola C.',
-            'Usuario_modificacion' => ''
+            'updated_by' => ''
         ]);
     }
 }

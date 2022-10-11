@@ -14,32 +14,64 @@ class CreateBaptismsTable extends Migration
     public function up()
     {
         Schema::create('baptisms', function (Blueprint $table) {
-            $table->id();
+            $table->id()
+                  ->comment('Número identificador de bautizo.');
             $table->string('Rut', 20)
-                  ->unique();
-            $table->integer('NumLibro');
-            $table->integer('NumPag');
-            $table->string('Nombres', 60);
-            $table->string('ApellidoPaterno', 60);
-            $table->string('ApellidoMaterno', 60);
-            $table->string('LugardeNacimiento', 60);
-            $table->date('FecNac');
-            $table->string('PapaNombre', 60);
-            $table->string('PapaApellido', 60);
-            $table->string('MamaNombre', 60);
-            $table->string('MamaApellido', 60);
-            $table->string('Padrino', 60);
-            $table->string('Madrina', 60);
-            $table->string('LugardeCelebracion', 60);
-            $table->date('FecCel');
-            $table->string('Ministro', 60);
-            $table->string('Parroco', 60);
+                  ->unique()
+                  ->comment('Rut del bautizado.');
+            $table->integer('NumLibro')
+                  ->unsigned()
+                  ->nullable()
+                  ->comment('Número de libro del bautizo.');
+            $table->integer('NumPag')
+                  ->unsigned()
+                  ->nullable()
+                  ->comment('Número de página del bautizo.');
+            $table->string('Nombres', 60)
+                  ->comment('Nombres del bautizado.');
+            $table->string('ApellidoPaterno', 60)
+                  ->comment('Apellido paterno del bautizado.');
+            $table->string('ApellidoMaterno', 60)
+                  ->comment('Apellido materno del bautizado.');
+            $table->string('LugNac', 60)
+                  ->comment('Lugar de nacimiento del bautizado.');
+            $table->date('FecNac')
+                  ->comment('Fecha de nacimiento del bautizado.');
+            $table->string('PapaNombre', 60)
+                  ->nullable()
+                  ->comment('Nombres del padre del bautizado.');
+            $table->string('PapaApellido', 60)
+                  ->nullable()
+                  ->comment('Apellidos del padre del bautizado.');
+            $table->string('MamaNombre', 60)
+                  ->nullable()
+                  ->comment('Nombres de la madre del bautizado.');
+            $table->string('MamaApellido', 60)
+                  ->nullable()
+                  ->comment('Apellidos de la madre del bautizado.');
+            $table->string('Padrino', 60)
+                  ->nullable()
+                  ->comment('Nombre completo del padrino del bautizado.');
+            $table->string('Madrina', 60)
+                  ->nullable()
+                  ->comment('Nombre completo de la madrina del bautizado.');
+            $table->string('LugCel', 60)
+                  ->comment('Lugar de celebración del bautizo.');
+            $table->date('FecCel')
+                  ->comment('Fecha de celebración del bautizo.');
+            $table->string('Ministro', 60)
+                  ->comment('Nombre completo del ministro del bautizo.');
+            $table->string('Parroco', 60)
+                  ->comment('Nombre completo del párroco del bautizo.');
             $table->text('Notas')
-                  ->nullable();
+                  ->nullable()
+                  ->comment('Notas adicionales del bautizo.');
             $table->string('DoyFe', 60);
-            $table->string('Usuario_modificacion', 60)
-                  ->nullable();
-            $table->integer('status')->default(1);
+            $table->string('updated_by')
+                  ->nullable()
+                  ->comment('Nombre de usuario más reciente en manipular registro.');
+            $table->softDeletes()
+                  ->comment('Fecha cuando se eliminó el registro.');
             $table->timestamps();
         });
         //Schema::rename('baptisms', 'Bautizos');

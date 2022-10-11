@@ -12,24 +12,9 @@
             {!! $errors->first('NumPag', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('CiudadCelebracion') }}
-            {{ Form::text('CiudadCelebracion', $marriage->CiudadCelebracion, ['class' => 'form-control' . ($errors->has('CiudadCelebracion') ? ' is-invalid' : ''), 'placeholder' => 'Ciudadcelebracion']) }}
-            {!! $errors->first('CiudadCelebracion', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('LugardeCelebracion') }}
-            {{ Form::text('LugardeCelebracion', $marriage->LugardeCelebracion, ['class' => 'form-control' . ($errors->has('LugardeCelebracion') ? ' is-invalid' : ''), 'placeholder' => 'Lugardecelebracion']) }}
-            {!! $errors->first('LugardeCelebracion', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
             {{ Form::label('Parroquia') }}
             {{ Form::text('Parroquia', $marriage->Parroquia, ['class' => 'form-control' . ($errors->has('Parroquia') ? ' is-invalid' : ''), 'placeholder' => 'Parroquia']) }}
             {!! $errors->first('Parroquia', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('FechaCelebracion') }}
-            {{ Form::text('FechaCelebracion', $marriage->FechaCelebracion, ['class' => 'form-control' . ($errors->has('FechaCelebracion') ? ' is-invalid' : ''), 'placeholder' => 'Fechacelebracion']) }}
-            {!! $errors->first('FechaCelebracion', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('Impedimiento') }}
@@ -157,14 +142,14 @@
             {!! $errors->first('SiendoTestigo', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('PaginaPartida') }}
-            {{ Form::text('PaginaPartida', $marriage->PaginaPartida, ['class' => 'form-control' . ($errors->has('PaginaPartida') ? ' is-invalid' : ''), 'placeholder' => 'Paginapartida']) }}
-            {!! $errors->first('PaginaPartida', '<div class="invalid-feedback">:message</div>') !!}
+            {{ Form::label('LugCel') }}
+            {{ Form::text('LugCel', $marriage->LugCel, ['class' => 'form-control' . ($errors->has('LugCel') ? ' is-invalid' : ''), 'placeholder' => 'Lugcel']) }}
+            {!! $errors->first('LugCel', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('Notas') }}
-            {{ Form::text('Notas', $marriage->Notas, ['class' => 'form-control' . ($errors->has('Notas') ? ' is-invalid' : ''), 'placeholder' => 'Notas']) }}
-            {!! $errors->first('Notas', '<div class="invalid-feedback">:message</div>') !!}
+            {{ Form::label('FecCel') }}
+            {{ Form::text('FecCel', $marriage->FecCel, ['class' => 'form-control' . ($errors->has('FecCel') ? ' is-invalid' : ''), 'placeholder' => 'Feccel']) }}
+            {!! $errors->first('FecCel', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('Parroco') }}
@@ -172,19 +157,14 @@
             {!! $errors->first('Parroco', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
+            {{ Form::label('Notas') }}
+            {{ Form::text('Notas', $marriage->Notas, ['class' => 'form-control' . ($errors->has('Notas') ? ' is-invalid' : ''), 'placeholder' => 'Notas']) }}
+            {!! $errors->first('Notas', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
+        <div class="form-group">
             {{ Form::label('DoyFe') }}
             {{ Form::text('DoyFe', $marriage->DoyFe, ['class' => 'form-control' . ($errors->has('DoyFe') ? ' is-invalid' : ''), 'placeholder' => 'Doyfe']) }}
             {!! $errors->first('DoyFe', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('Usuario_modificacion') }}
-            {{ Form::text('Usuario_modificacion', $marriage->Usuario_modificacion, ['class' => 'form-control' . ($errors->has('Usuario_modificacion') ? ' is-invalid' : ''), 'placeholder' => 'Usuario Modificacion']) }}
-            {!! $errors->first('Usuario_modificacion', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('status') }}
-            {{ Form::text('status', $marriage->status, ['class' => 'form-control' . ($errors->has('status') ? ' is-invalid' : ''), 'placeholder' => 'Status']) }}
-            {!! $errors->first('status', '<div class="invalid-feedback">:message</div>') !!}
         </div>
 
     </div>

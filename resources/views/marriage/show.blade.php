@@ -13,7 +13,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('marriages.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('marriages.index') }}"> Volver</a>
                         </div>
                     </div>
 
@@ -28,28 +28,12 @@
                             {{ $marriage->NumPag ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
-                            <strong>Ciudadcelebracion:</strong>
-                            {{ $marriage->CiudadCelebracion ?? 'No encontrado' }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Lugardecelebracion:</strong>
-                            {{ $marriage->LugardeCelebracion ?? 'No encontrado' }}
-                        </div>
-                        <div class="form-group">
                             <strong>Parroquia:</strong>
                             {{ $marriage->Parroquia ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
-                            <strong>Fechacelebracion:</strong>
-                            {{ $marriage->FechaCelebracion ?? 'No encontrado' }}
-                        </div>
-                        <div class="form-group">
                             <strong>Impedimiento:</strong>
                             {{ $marriage->Impedimiento ?? 'No encontrado' }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Celebrante:</strong>
-                            {{ $marriage->Celebrante ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
                             <strong>Rutesposo:</strong>
@@ -144,28 +128,28 @@
                             {{ $marriage->SiendoTestigo ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
-                            <strong>Paginapartida:</strong>
-                            {{ $marriage->PaginaPartida ?? 'No encontrado' }}
+                            <strong>Celebrante:</strong>
+                            {{ $marriage->Celebrante ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
-                            <strong>Notas:</strong>
-                            {{ $marriage->Notas ?? 'No encontrado' }}
+                            <strong>Lugcel:</strong>
+                            {{ $marriage->LugCel ?? 'No encontrado' }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Feccel:</strong>
+                            {{ $marriage->FecCel ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
                             <strong>Parroco:</strong>
                             {{ $marriage->Parroco ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
+                            <strong>Notas:</strong>
+                            {{ $marriage->Notas ?? 'No encontrado' }}
+                        </div>
+                        <div class="form-group">
                             <strong>Doyfe:</strong>
                             {{ $marriage->DoyFe ?? 'No encontrado' }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Usuario Modificacion:</strong>
-                            {{ $marriage->Usuario_modificacion ?? 'No encontrado' }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Status:</strong>
-                            {{ $marriage->status ?? 'No encontrado' }}
                         </div>
 
                     </div>

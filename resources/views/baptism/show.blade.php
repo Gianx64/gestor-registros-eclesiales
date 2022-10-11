@@ -13,7 +13,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('baptisms.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('baptisms.index') }}"> Volver</a>
                         </div>
                     </div>
 
@@ -21,91 +21,83 @@
                         
                         <div class="form-group">
                             <strong>Rut:</strong>
-                            {{ $baptism->Rut }}
+                            {{ $baptism->Rut ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
                             <strong>Numlibro:</strong>
-                            {{ $baptism->NumLibro }}
+                            {{ $baptism->NumLibro ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
                             <strong>Numpag:</strong>
-                            {{ $baptism->NumPag }}
+                            {{ $baptism->NumPag ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
                             <strong>Nombres:</strong>
-                            {{ $baptism->Nombres }}
+                            {{ $baptism->Nombres ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
                             <strong>Apellidopaterno:</strong>
-                            {{ $baptism->ApellidoPaterno }}
+                            {{ $baptism->ApellidoPaterno ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
                             <strong>Apellidomaterno:</strong>
-                            {{ $baptism->ApellidoMaterno }}
+                            {{ $baptism->ApellidoMaterno ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
-                            <strong>Lugardenacimiento:</strong>
-                            {{ $baptism->LugardeNacimiento }}
+                            <strong>Lugnac:</strong>
+                            {{ $baptism->LugNac ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
                             <strong>Fecnac:</strong>
-                            {{ $baptism->FecNac }}
+                            {{ $baptism->FecNac ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
                             <strong>Papanombre:</strong>
-                            {{ $baptism->PapaNombre }}
+                            {{ $baptism->PapaNombre ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
                             <strong>Papaapellido:</strong>
-                            {{ $baptism->PapaApellido }}
+                            {{ $baptism->PapaApellido ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
                             <strong>Mamanombre:</strong>
-                            {{ $baptism->MamaNombre }}
+                            {{ $baptism->MamaNombre ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
                             <strong>Mamaapellido:</strong>
-                            {{ $baptism->MamaApellido }}
+                            {{ $baptism->MamaApellido ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
                             <strong>Padrino:</strong>
-                            {{ $baptism->Padrino }}
+                            {{ $baptism->Padrino ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
                             <strong>Madrina:</strong>
-                            {{ $baptism->Madrina }}
+                            {{ $baptism->Madrina ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
-                            <strong>Lugardecelebracion:</strong>
-                            {{ $baptism->LugardeCelebracion }}
+                            <strong>Lugcel:</strong>
+                            {{ $baptism->LugCel ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
                             <strong>Feccel:</strong>
-                            {{ $baptism->FecCel }}
+                            {{ $baptism->FecCel ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
                             <strong>Ministro:</strong>
-                            {{ $baptism->Ministro }}
+                            {{ $baptism->Ministro ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
                             <strong>Parroco:</strong>
-                            {{ $baptism->Parroco }}
+                            {{ $baptism->Parroco ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
                             <strong>Notas:</strong>
-                            {{ $baptism->Notas }}
+                            {{ $baptism->Notas ?? 'No encontrado' }}
                         </div>
                         <div class="form-group">
                             <strong>Doyfe:</strong>
-                            {{ $baptism->DoyFe }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Usuario Modificacion:</strong>
-                            {{ $baptism->Usuario_modificacion }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Status:</strong>
-                            {{ $baptism->status }}
+                            {{ $baptism->DoyFe ?? 'No encontrado' }}
                         </div>
 
                     </div>
