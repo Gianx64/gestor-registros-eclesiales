@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
 
 /**
  * Class UserController
@@ -33,7 +34,8 @@ class UserController extends Controller
     public function create()
     {
         $user = new User();
-        return view('user.create', compact('user'));
+        $roles = Role::all();
+        return view('user.create', compact('user', 'roles'));
     }
 
     /**
@@ -75,8 +77,9 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
+        $roles = Role::all();
 
-        return view('user.edit', compact('user'));
+        return view('user.edit', compact('user', 'roles'));
     }
 
     /**
@@ -95,6 +98,35 @@ class UserController extends Controller
 
         return redirect()->route('users.index')
             ->with('success', 'Usuario actualizado exitosamente.');
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function assign($id)
+    {
+        $user = User::find($id);
+        $roles = Role::all();
+
+        return view('user.assign', compact('user', 'roles'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  User $user
+     * @return \Illuminate\Http\Response
+     */
+    public function updateRole(Request $request, User $user)
+    {
+        $user->roles()->sync($request->roles);
+
+        return redirect()->route('users.index')
+            ->with('success', 'Rol asignado exitosamente.');
     }
 
     /**

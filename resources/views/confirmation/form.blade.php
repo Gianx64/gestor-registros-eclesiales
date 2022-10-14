@@ -1,119 +1,129 @@
-<div class="box box-info padding-1">
-    <div class="box-body">
-        
-        <div class="form-group">
-            {{ Form::label('Rut') }}
-            {{ Form::text('Rut', $confirmation->Rut, ['class' => 'form-control' . ($errors->has('Rut') ? ' is-invalid' : ''), 'placeholder' => 'Rut']) }}
-            {!! $errors->first('Rut', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('NumLibro') }}
-            {{ Form::text('NumLibro', $confirmation->NumLibro, ['class' => 'form-control' . ($errors->has('NumLibro') ? ' is-invalid' : ''), 'placeholder' => 'Numlibro']) }}
-            {!! $errors->first('NumLibro', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('NumPag') }}
-            {{ Form::text('NumPag', $confirmation->NumPag, ['class' => 'form-control' . ($errors->has('NumPag') ? ' is-invalid' : ''), 'placeholder' => 'Numpag']) }}
-            {!! $errors->first('NumPag', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('Nombres') }}
-            {{ Form::text('Nombres', $confirmation->Nombres, ['class' => 'form-control' . ($errors->has('Nombres') ? ' is-invalid' : ''), 'placeholder' => 'Nombres']) }}
-            {!! $errors->first('Nombres', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('ApellidoPaterno') }}
-            {{ Form::text('ApellidoPaterno', $confirmation->ApellidoPaterno, ['class' => 'form-control' . ($errors->has('ApellidoPaterno') ? ' is-invalid' : ''), 'placeholder' => 'Apellidopaterno']) }}
-            {!! $errors->first('ApellidoPaterno', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('ApellidoMaterno') }}
-            {{ Form::text('ApellidoMaterno', $confirmation->ApellidoMaterno, ['class' => 'form-control' . ($errors->has('ApellidoMaterno') ? ' is-invalid' : ''), 'placeholder' => 'Apellidomaterno']) }}
-            {!! $errors->first('ApellidoMaterno', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('PapaNombre') }}
-            {{ Form::text('PapaNombre', $confirmation->PapaNombre, ['class' => 'form-control' . ($errors->has('PapaNombre') ? ' is-invalid' : ''), 'placeholder' => 'Papanombre']) }}
-            {!! $errors->first('PapaNombre', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('PapaApellido') }}
-            {{ Form::text('PapaApellido', $confirmation->PapaApellido, ['class' => 'form-control' . ($errors->has('PapaApellido') ? ' is-invalid' : ''), 'placeholder' => 'Papaapellido']) }}
-            {!! $errors->first('PapaApellido', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('MamaNombre') }}
-            {{ Form::text('MamaNombre', $confirmation->MamaNombre, ['class' => 'form-control' . ($errors->has('MamaNombre') ? ' is-invalid' : ''), 'placeholder' => 'Mamanombre']) }}
-            {!! $errors->first('MamaNombre', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('MamaApellido') }}
-            {{ Form::text('MamaApellido', $confirmation->MamaApellido, ['class' => 'form-control' . ($errors->has('MamaApellido') ? ' is-invalid' : ''), 'placeholder' => 'Mamaapellido']) }}
-            {!! $errors->first('MamaApellido', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('Padrino') }}
-            {{ Form::text('Padrino', $confirmation->Padrino, ['class' => 'form-control' . ($errors->has('Padrino') ? ' is-invalid' : ''), 'placeholder' => 'Padrino']) }}
-            {!! $errors->first('Padrino', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('Madrina') }}
-            {{ Form::text('Madrina', $confirmation->Madrina, ['class' => 'form-control' . ($errors->has('Madrina') ? ' is-invalid' : ''), 'placeholder' => 'Madrina']) }}
-            {!! $errors->first('Madrina', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('LugarBautizo') }}
-            {{ Form::text('LugarBautizo', $confirmation->LugarBautizo, ['class' => 'form-control' . ($errors->has('LugarBautizo') ? ' is-invalid' : ''), 'placeholder' => 'Lugarbautizo']) }}
-            {!! $errors->first('LugarBautizo', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('FecBautizo') }}
-            {{ Form::text('FecBautizo', $confirmation->FecBautizo, ['class' => 'form-control' . ($errors->has('FecBautizo') ? ' is-invalid' : ''), 'placeholder' => 'Fecbautizo']) }}
-            {!! $errors->first('FecBautizo', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('NumLibroBautizo') }}
-            {{ Form::text('NumLibroBautizo', $confirmation->NumLibroBautizo, ['class' => 'form-control' . ($errors->has('NumLibroBautizo') ? ' is-invalid' : ''), 'placeholder' => 'Numlibrobautizo']) }}
-            {!! $errors->first('NumLibroBautizo', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('NumPagBautizo') }}
-            {{ Form::text('NumPagBautizo', $confirmation->NumPagBautizo, ['class' => 'form-control' . ($errors->has('NumPagBautizo') ? ' is-invalid' : ''), 'placeholder' => 'Numpagbautizo']) }}
-            {!! $errors->first('NumPagBautizo', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('Celebrante') }}
-            {{ Form::text('Celebrante', $confirmation->Celebrante, ['class' => 'form-control' . ($errors->has('Celebrante') ? ' is-invalid' : ''), 'placeholder' => 'Celebrante']) }}
-            {!! $errors->first('Celebrante', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('LugCel') }}
-            {{ Form::text('LugCel', $confirmation->LugCel, ['class' => 'form-control' . ($errors->has('LugCel') ? ' is-invalid' : ''), 'placeholder' => 'Lugcel']) }}
-            {!! $errors->first('LugCel', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('FecCel') }}
-            {{ Form::text('FecCel', $confirmation->FecCel, ['class' => 'form-control' . ($errors->has('FecCel') ? ' is-invalid' : ''), 'placeholder' => 'Feccel']) }}
-            {!! $errors->first('FecCel', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('Parroco') }}
-            {{ Form::text('Parroco', $confirmation->Parroco, ['class' => 'form-control' . ($errors->has('Parroco') ? ' is-invalid' : ''), 'placeholder' => 'Parroco']) }}
-            {!! $errors->first('Parroco', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('Notas') }}
-            {{ Form::text('Notas', $confirmation->Notas, ['class' => 'form-control' . ($errors->has('Notas') ? ' is-invalid' : ''), 'placeholder' => 'Notas']) }}
-            {!! $errors->first('Notas', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('DoyFe') }}
-            {{ Form::text('DoyFe', $confirmation->DoyFe, ['class' => 'form-control' . ($errors->has('DoyFe') ? ' is-invalid' : ''), 'placeholder' => 'Doyfe']) }}
-            {!! $errors->first('DoyFe', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-
-    </div>
-    <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">Ingresar</button>
-    </div>
+<!-- N° de libro y pagina -->
+<div class="form-group mt-4">
+	<div class="row">
+		<div class="col-3">
+			{!! Form::label('NumLibro', 'Número de Libro') !!}
+			{!! Form::number('NumLibro', null, ['class' => 'form-control']) !!}
+		</div>
+		<div class="col-3">
+			{!! Form::label('NumPag', 'Número de Pagina') !!}
+			{!! Form::number('NumPag', null, ['class' => 'form-control']) !!}
+		</div>
+		<div class="col-6">
+			{!! Form::label('LugCel', 'Lugar de Celebración') !!}
+			{!! Form::text('LugCel', null, ['class' => 'form-control']) !!}
+		</div>
+	</div>
+</div>
+<!-- Lugar de celebración, Celebrante y Fecha de celebración -->
+<div class="form-group mt-4">
+	<div class="row">
+		<div class="col-8">
+			{!! Form::label('Celebrante', 'Celebrante') !!}
+			{!! Form::text('Celebrante', null, ['class' => 'form-control']) !!}
+		</div>
+		<div class="col-4">
+			{!! Form::label('FecCel', 'Fecha de Celebración') !!}
+			{!! Form::date('FecCel', null, ['class' => 'form-control']) !!}
+		</div>
+	</div>
+</div>
+<!-- Datos del Confirmado, Nombres, apellidos, RUT -->
+<div class="form-group mt-4">
+	<div class="row">
+		<div class="col-6">
+			{!! Form::label('Nombres', 'Nombres') !!}
+			{!! Form::text('Nombres', null, ['class' => 'form-control']) !!}
+		</div>
+		<div class="col-6">
+			{!! Form::label('ApellidoPaterno', 'Apellido Paterno') !!}
+			{!! Form::text('ApellidoPaterno', null, ['class' => 'form-control']) !!}
+		</div>
+	</div>
+	<div class="row mt-4">
+		<div class="col-6">
+			{!! Form::label('ApellidoMaterno', 'Apellido Materno') !!}
+			{!! Form::text('ApellidoMaterno', null, ['class' => 'form-control']) !!}
+		</div>
+		<div class="col-6">
+			{!! Form::label('Rut', 'RUT') !!}
+			{!! Form::text('Rut', null, ['class' => 'form-control']) !!}
+		</div>
+	</div>
+</div>
+<!-- Nombres y Apellidos del padre, madre, padrino y madrina -->
+<div class="form-group mt-4">
+	<div class="row">
+		<div class="col-3">
+			{!! Form::label('PapaNombre', 'Nombres del Padre') !!}
+			{!! Form::text('PapaNombre', null, ['class' => 'form-control']) !!}
+		</div>
+		<div class="col-3">
+			{!! Form::label('PapaApellido', 'Apellidos del Padre') !!}
+			{!! Form::text('PapaApellido', null, ['class' => 'form-control']) !!}
+		</div>
+		<div class="col-3">
+			{!! Form::label('MamaNombre', 'Nombres de la Madre') !!}
+			{!! Form::text('MamaNombre', null, ['class' => 'form-control']) !!}
+		</div>
+		<div class="col-3">
+			{!! Form::label('MamaApellido', 'Apellidos de la Madre') !!}
+			{!! Form::text('MamaApellido', null, ['class' => 'form-control']) !!}
+		</div>
+	</div>
+	<div class="row mt-4">
+		<div class="col-6">
+			{!! Form::label('Padrino', 'Padrino') !!}
+			{!! Form::text('Padrino', null, ['class' => 'form-control']) !!}
+		</div>
+		<div class="col-6">
+			{!! Form::label('Madrina', 'Madrina') !!}
+			{!! Form::text('Madrina', null, ['class' => 'form-control']) !!}
+		</div>
+	</div>
+</div>
+<!-- Lugar de bautizo, Fecha de bautizo, número libro y pagina de bautizo -->
+<div class="form-group mt-4">
+	<div class="row">
+		<div class="col-8">
+			{!! Form::label('LugarBautizo', 'Lugar de Bautizo') !!}
+			{!! Form::text('LugarBautizo', null, ['class' => 'form-control']) !!}
+		</div>
+		<div class="col-4">
+			{!! Form::label('FecBautizo', 'Fecha del Bautizo') !!}
+			{!! Form::date('FecBautizo', null, ['class' => 'form-control']) !!}
+		</div>
+	</div>
+	<div class="row mt-4">
+		<div class="col-6">
+			{!! Form::label('NumLibroBautizo', 'Número de libro de Bautizo') !!}
+			{!! Form::number('NumLibroBautizo', null, ['class' => 'form-control']) !!}
+		</div>
+		<div class="col-6">
+			{!! Form::label('NumPagBautizo', 'Número de pagina de bautizo') !!}
+			{!! Form::number('NumPagBautizo', null, ['class' => 'form-control']) !!}    
+		</div>
+	</div>
+</div>
+<!-- Notas -->
+<div class="form-group mt-4">
+	<div class="row">
+		<div class="col-12">
+			{!! Form::label('Notas', 'Notas') !!}
+			{!! Form::textarea('Notas', null, ['class' => 'form-control']) !!}
+		</div>
+	</div>
+</div>
+<!-- Doy fe y Parroco-->
+<div class="form-group mt-4">
+	<div class="row">
+		<div class="col-6">
+			{!! Form::label('DoyFe', 'Doy Fe') !!}
+			{!! Form::text('DoyFe', null, ['class' => 'form-control']) !!}
+		</div>
+		<div class="col-6">
+			{!! Form::label('Parroco', 'Parroco') !!}
+			{!! Form::text('Parroco', null, ['class' => 'form-control']) !!}
+		</div>
+	</div>
 </div>

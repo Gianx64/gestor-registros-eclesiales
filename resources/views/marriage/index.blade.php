@@ -1,81 +1,24 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 
 @section('title', 'Matrimonios')
 
 @section('content_header')
-    <h1>Matrimonios</h1>
+	@if ($message = Session::get('success'))
+		<div class="alert alert-success">
+			<p>{{ $message }}</p>
+		</div>
+	@endif
+	@can('marriages.create')
+		<a class="btn btn-secondary float-right" href="{{route('marriages.create')}}">Agregar Registro</a>  
+	@endcan
+	<h1>Lista de Matrimonios</h1>
 @stop
 
 @section('content')
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="card">
-                    <div class="card-header">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
+	@livewire('marriage-index')
+@stop
 
-                             <div class="float-right">
-                                <a href="{{ route('marriages.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Crear Matrimonio') }}
-                                </a>
-                              </div>
-                        </div>
-                    </div>
-                    @if ($message = Session::get('success'))
-                        <div class="alert alert-success">
-                            <p>{{ $message }}</p>
-                        </div>
-                    @endif
-
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-striped table-hover">
-                                <thead class="thead">
-                                    <tr>
-                                        <th>ID</th>
-										<th>Rut Esposo</th>
-										<th>Nombres Esposo</th>
-										<th>Apellido Paterno Esposo</th>
-										<th>Apellido Materno Esposo</th>
-										<th>Rut Esposa</th>
-										<th>Nombres Esposa</th>
-										<th>Apellido Paterno Esposa</th>
-										<th>Apellido Materno Esposa</th>
-
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($marriages as $marriage)
-                                        <tr>
-                                            <td>{{ ++$i }}</td>
-											<td>{{ $marriage->RutEsposo }}</td>
-											<td>{{ $marriage->NombresEsposo }}</td>
-											<td>{{ $marriage->ApellidoPaternoEsposo }}</td>
-											<td>{{ $marriage->ApellidoMaternoEsposo }}</td>
-											<td>{{ $marriage->RutEsposa }}</td>
-											<td>{{ $marriage->NombresEsposa }}</td>
-											<td>{{ $marriage->ApellidoPaternoEsposa }}</td>
-											<td>{{ $marriage->ApellidoMaternoEsposa }}</td>
-
-                                            <td>
-                                                <form action="{{ route('marriages.destroy',$marriage->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('marriages.show',$marriage->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('marriages.edit',$marriage->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                {!! $marriages->links() !!}
-            </div>
-        </div>
-    </div>
+@section('js')
+	@include('swal-delete')
+	@livewireScripts
 @endsection

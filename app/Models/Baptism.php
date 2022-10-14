@@ -30,7 +30,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property $Notas
  * @property $DoyFe
  * @property $updated_by
- * @property $status
  * @property $created_at
  * @property $updated_at
  *
@@ -53,6 +52,7 @@ class Baptism extends Model
 		'Ministro' => 'required',
 		'Parroco' => 'required',
 		'DoyFe' => 'required',
+		'updated_by' => 'required',
     ];
 
     protected $perPage = 20;
@@ -62,7 +62,7 @@ class Baptism extends Model
      *
      * @var array
      */
-    protected $fillable = ['Rut','NumLibro','NumPag','Nombres','ApellidoPaterno','ApellidoMaterno','LugNac','FecNac','PapaNombre','PapaApellido','MamaNombre','MamaApellido','Padrino','Madrina','LugCel','FecCel','Ministro','Parroco','Notas','DoyFe'];
+    protected $fillable = ['Rut','NumLibro','NumPag','Nombres','ApellidoPaterno','ApellidoMaterno','LugNac','FecNac','PapaNombre','PapaApellido','MamaNombre','MamaApellido','Padrino','Madrina','LugCel','FecCel','Ministro','Parroco','Notas','DoyFe','updated_by'];
 
 
 

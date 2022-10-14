@@ -43,7 +43,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property $Notas
  * @property $DoyFe
  * @property $updated_by
- * @property $status
  * @property $created_at
  * @property $updated_at
  *
@@ -81,6 +80,7 @@ class Marriage extends Model
 		'FecCel' => 'required',
 		'Parroco' => 'required',
 		'DoyFe' => 'required',
+		'updated_by' => 'required',
     ];
 
     protected $perPage = 20;
@@ -90,7 +90,7 @@ class Marriage extends Model
      *
      * @var array
      */
-    protected $fillable = ['NumLibro','NumPag','Parroquia','Impedimiento','Celebrante','RutEsposo','NombresEsposo','ApellidoPaternoEsposo','ApellidoMaternoEsposo','EstadoEsposo','PapaNombresEsposo','MamaNombresEsposo','EdadEsposo','ParroquiaBautismoEsposo','NumLibroBautismoEsposo','NumPagBautismoEsposo','RutEsposa','NombresEsposa','ApellidoPaternoEsposa','ApellidoMaternoEsposa','EstadoEsposa','PapaNombresEsposa','MamaNombresEsposa','EdadEsposa','ParroquiaBautismoEsposa','NumLibroBautismoEsposa','NumPagBautismoEsposa','SiendoTestigo','LugCel','FecCel','Parroco','Notas','DoyFe'];
+    protected $fillable = ['NumLibro','NumPag','Parroquia','Impedimiento','Celebrante','RutEsposo','NombresEsposo','ApellidoPaternoEsposo','ApellidoMaternoEsposo','EstadoEsposo','PapaNombresEsposo','MamaNombresEsposo','EdadEsposo','ParroquiaBautismoEsposo','NumLibroBautismoEsposo','NumPagBautismoEsposo','RutEsposa','NombresEsposa','ApellidoPaternoEsposa','ApellidoMaternoEsposa','EstadoEsposa','PapaNombresEsposa','MamaNombresEsposa','EdadEsposa','ParroquiaBautismoEsposa','NumLibroBautismoEsposa','NumPagBautismoEsposa','SiendoTestigo','LugCel','FecCel','Parroco','Notas','DoyFe','updated_by'];
 
 
 

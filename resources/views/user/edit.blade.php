@@ -1,30 +1,25 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 
 @section('title', 'Editar Usuario')
 
 @section('content_header')
-    <h1>Editar Usuario</h1>
+  <div class="row">
+      <div class="col-8"> 
+          <h1>Editar Usuario</h1>
+      </div>
+      <div class="col">
+          <a class="btn btn-primary mr-2 float-right" href="{{ route('users.index') }}">Volver</a>
+      </div>
+  </div>
 @stop
 
 @section('content')
-    <section class="content container-fluid">
-        <div class="">
-            <div class="col-md-12">
-
-                @includeif('partials.errors')
-
-                <div class="card card-default">
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('users.update', $user->id) }}"  role="form" enctype="multipart/form-data">
-                            {{ method_field('PATCH') }}
-                            @csrf
-
-                            @include('user.form')
-
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-@endsection
+	<div class="card">
+		<div class="card-body">
+			{!! Form::model($user, ['route' => ['users.update', $user], 'method' => 'put']) !!}
+			@include('user.form')
+			{!! Form::submit('Ingresar', ['class' => 'btn btn-primary mt-2']) !!}
+			{!! Form::close() !!}
+		</div>
+	</div>
+@stop

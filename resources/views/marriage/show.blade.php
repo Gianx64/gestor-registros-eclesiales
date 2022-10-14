@@ -1,160 +1,174 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 
 @section('title', 'Mostrar Matrimonio')
 
 @section('content_header')
-    <h1>Mostrar Matrimonio</h1>
+	<div class="row">
+		<div class="col-8">   
+			<h1>
+				Registro Matrimonio de {{$marriage->NombresEsposo}} {{$marriage->ApellidoPaternoEsposo}} 
+				{{$marriage->ApellidoMaternoEsposo}} y {{$marriage->NombresEsposa}} {{$marriage->ApellidoPaternoEsposa}} 
+				{{$marriage->ApellidoMaternoEsposa}}
+			</h1>
+		</div>
+		<div class="col">   
+			<a class="btn btn-primary mr-2 float-right" href="{{ route('marriages.index') }}">Volver</a>
+			<a class="btn btn-success mr-2 float-right" href="{{route('descargarPDFMatrimonio', $marriage)}}">Crear Certificado</a>
+		</div>
+	</div>
 @stop
 
 @section('content')
-    <section class="content container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('marriages.index') }}"> Volver</a>
-                        </div>
-                    </div>
-
-                    <div class="card-body">
-                        
-                        <div class="form-group">
-                            <strong>Numlibro:</strong>
-                            {{ $marriage->NumLibro ?? 'No encontrado' }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Numpag:</strong>
-                            {{ $marriage->NumPag ?? 'No encontrado' }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Parroquia:</strong>
-                            {{ $marriage->Parroquia ?? 'No encontrado' }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Impedimiento:</strong>
-                            {{ $marriage->Impedimiento ?? 'No encontrado' }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Rutesposo:</strong>
-                            {{ $marriage->RutEsposo ?? 'No encontrado' }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Nombresesposo:</strong>
-                            {{ $marriage->NombresEsposo ?? 'No encontrado' }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Apellidopaternoesposo:</strong>
-                            {{ $marriage->ApellidoPaternoEsposo ?? 'No encontrado' }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Apellidomaternoesposo:</strong>
-                            {{ $marriage->ApellidoMaternoEsposo ?? 'No encontrado' }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Estadoesposo:</strong>
-                            {{ $marriage->EstadoEsposo ?? 'No encontrado' }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Papanombresesposo:</strong>
-                            {{ $marriage->PapaNombresEsposo ?? 'No encontrado' }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Mamanombresesposo:</strong>
-                            {{ $marriage->MamaNombresEsposo ?? 'No encontrado' }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Edadesposo:</strong>
-                            {{ $marriage->EdadEsposo ?? 'No encontrado' }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Parroquiabautismoesposo:</strong>
-                            {{ $marriage->ParroquiaBautismoEsposo ?? 'No encontrado' }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Numlibrobautismoesposo:</strong>
-                            {{ $marriage->NumLibroBautismoEsposo ?? 'No encontrado' }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Numpagbautismoesposo:</strong>
-                            {{ $marriage->NumPagBautismoEsposo ?? 'No encontrado' }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Rutesposa:</strong>
-                            {{ $marriage->RutEsposa ?? 'No encontrado' }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Nombresesposa:</strong>
-                            {{ $marriage->NombresEsposa ?? 'No encontrado' }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Apellidopaternoesposa:</strong>
-                            {{ $marriage->ApellidoPaternoEsposa ?? 'No encontrado' }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Apellidomaternoesposa:</strong>
-                            {{ $marriage->ApellidoMaternoEsposa ?? 'No encontrado' }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Estadoesposa:</strong>
-                            {{ $marriage->EstadoEsposa ?? 'No encontrado' }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Papanombresesposa:</strong>
-                            {{ $marriage->PapaNombresEsposa ?? 'No encontrado' }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Mamanombresesposa:</strong>
-                            {{ $marriage->MamaNombresEsposa ?? 'No encontrado' }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Edadesposa:</strong>
-                            {{ $marriage->EdadEsposa ?? 'No encontrado' }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Parroquiabautismoesposa:</strong>
-                            {{ $marriage->ParroquiaBautismoEsposa ?? 'No encontrado' }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Numlibrobautismoesposa:</strong>
-                            {{ $marriage->NumLibroBautismoEsposa ?? 'No encontrado' }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Numpagbautismoesposa:</strong>
-                            {{ $marriage->NumPagBautismoEsposa ?? 'No encontrado' }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Siendotestigo:</strong>
-                            {{ $marriage->SiendoTestigo ?? 'No encontrado' }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Celebrante:</strong>
-                            {{ $marriage->Celebrante ?? 'No encontrado' }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Lugcel:</strong>
-                            {{ $marriage->LugCel ?? 'No encontrado' }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Feccel:</strong>
-                            {{ $marriage->FecCel ?? 'No encontrado' }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Parroco:</strong>
-                            {{ $marriage->Parroco ?? 'No encontrado' }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Notas:</strong>
-                            {{ $marriage->Notas ?? 'No encontrado' }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Doyfe:</strong>
-                            {{ $marriage->DoyFe ?? 'No encontrado' }}
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-@endsection
+	<div class="card">
+		<div class="card-body">
+			{{-- N° de libro y pagina --}}
+			<table class="table table-bordered mb-4 mt-4">
+				<tr>
+					<th>N° Libro</th>
+					<th>N° Pagina</th>
+				</tr>
+				<tr>
+					<td>{{$marriage->NumLibro}}</td>
+					<td>{{$marriage->NumPag}}</td>
+				</tr>
+			</table>				
+			{{-- Lugar de celebración, Celebrante y Fecha de celebración --}}
+			<table class="table table-bordered mb-4">
+				<tr>
+					<th>Lugar de Celebración</th>
+					<th>Parroquia</th>                    
+					<th>Fecha de Celebración</th>
+				</tr>
+				<tr>
+					<td>{{$marriage->LugCel}}</td>
+					<td>{{$marriage->Parroquia}}</td>
+					<td>{{$marriage->FecCel}}</td>
+				</tr>
+			</table>				
+			{{-- Impedimiento y Celebrante --}}
+			<table class="table table-bordered mb-4">
+				<tr>
+					<th>Impedimiento</th>
+					<th>Celebrante</th>
+				</tr>
+				<tr>
+					<td>{{$marriage->Impedimiento}}</td>
+					<td>{{$marriage->Celebrante}}</td>
+				</tr>
+			</table>
+			{{-- Datos Esposo --}}
+			<table class="table table-bordered mb-4">
+				<h1 class="h3 mb-4">Esposo</h1>
+				<tr>
+					<th>Nombres</th>
+					<th>Apellido Paterno</th>                    
+					<th>Apellido Materno</th>
+				</tr>
+				<tr>
+					<td>{{$marriage->NombresEsposo}}</td>
+					<td>{{$marriage->ApellidoPaternoEsposo}}</td>
+					<td>{{$marriage->ApellidoMaternoEsposo}}</td>	
+				</tr>
+				<tr>
+					<th>RUT</th>
+					<th>Estado</th>
+					<th>Edad</th>
+				</tr>
+				<tr>
+					<td>{{$marriage->RutEsposo}}</td>
+					<td>{{$marriage->EstadoEsposo}}</td>
+					<td>{{$marriage->EdadEsposo}}</td>
+				</tr>
+				<tr>
+					<th>Padre</th>
+					<th>Madre</th>
+					<th>Parroquia Bautismo</th>
+				</tr>
+				<tr>
+					<td>{{$marriage->PapaNombresEsposo}}</td>
+					<td>{{$marriage->MamaNombresEsposo}}</td>
+					<td>{{$marriage->ParroquiaBautismoEsposo}}</td>
+				</tr>
+				<tr>
+					<th>Numero de Libro de Bautismo</th>
+					<th>Numero de Pagina de Bautismo</th>
+				</tr>
+				<tr>
+					<td>{{$marriage->NumLibroBautismoEsposo}}</td>
+					<td>{{$marriage->NumPagBautismoEsposo}}</td>
+				</tr>
+			</table>
+			{{-- Datos Esposa --}}
+			<table class="table table-bordered mb-4">
+				<h1 class="h3 mb-4">Esposa</h1>
+				<tr>
+					<th>Nombres</th>
+					<th>Apellido Paterno</th>                    
+					<th>Apellido Materno</th>
+				</tr>
+				<tr>
+					<td>{{$marriage->NombresEsposa}}</td>
+					<td>{{$marriage->ApellidoPaternoEsposa}}</td>
+					<td>{{$marriage->ApellidoMaternoEsposa}}</td>
+				</tr>
+				<tr>
+					<th>RUT</th>
+					<th>Estado</th>
+					<th>Edad</th>
+				</tr>
+				<tr>
+					<td>{{$marriage->RutEsposa}}</td>
+					<td>{{$marriage->EstadoEsposa}}</td>
+					<td>{{$marriage->EdadEsposa}}</td>
+				</tr>
+				<tr>
+					<th>Padre</th>
+					<th>Madre</th>
+					<th>Parroquia Bautismo</th>
+				</tr>
+				<tr>
+					<td>{{$marriage->PapaNombresEsposa}}</td>
+					<td>{{$marriage->MamaNombresEsposa}}</td>
+					<td>{{$marriage->ParroquiaBautismoEsposa}}</td>
+				</tr>
+				<tr>
+					<th>Numero de Libro de Bautismo</th>
+					<th>Numero de Pagina de Bautismo</th>
+				</tr>
+				<tr>
+					<td>{{$marriage->NumLibroBautismoEsposa}}</td>
+					<td>{{$marriage->NumPagBautismoEsposa}}</td>
+				</tr>
+			</table>
+			{{-- Siendo testigo --}}
+			<table class="table table-bordered mb-4">
+				<tr>
+					<th>Siendo Testigos</th>
+				</tr>
+				<tr>
+					<td>{{$marriage->SiendoTestigo}}</td>
+				</tr>
+			</table>
+			{{-- Notas --}}
+			<table class="table table-bordered mb-4">
+				<tr>
+					<th>Notas</th>
+				</tr>
+				<tr>
+					<td>{{$marriage->Notas}}</td>
+				</tr>
+			</table>
+			{{-- Pagina Partida, Parroco y Doy Fe --}} 
+			<table class="table table-bordered mb-4">
+				<tr>
+					<th>Parroco</th>
+					<th>Doy Fe</th>
+				</tr>
+				<tr>
+					<td>{{$marriage->Parroco}}</td>
+					<td>{{$marriage->DoyFe}}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+@stop

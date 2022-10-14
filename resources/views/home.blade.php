@@ -20,11 +20,11 @@
 
             <div class="w-full p-6">
                 <p class="text-gray-700">
-                    Bienvenido a Parroquia test
+                    Bienvenido a Parroquia test,
                     @auth
-                    .
+                    {{ auth()->user()->name }}.
                     @else
-                    , por favor, 
+                    por favor, 
                     <a href="/login">inicie sesión</a>.
                     @endauth
                 </p>

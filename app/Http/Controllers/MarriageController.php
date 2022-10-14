@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Marriage;
 use Illuminate\Http\Request;
-use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\App;
 
 /**
@@ -112,27 +111,108 @@ class MarriageController extends Controller
 	public function certificate(Marriage $marriage)
     {
 		$pdf = App::make('dompdf.wrapper');
-		$pdf->loadHTML('<h1>Test</h1>');
-		return $pdf->stream();
-		/*
-		$dompdf = new Pdf();
-		$dompdf->loadHtml('hello world');
-		
-		// (Optional) Setup the paper size and orientation
-		$dompdf->setPaper('A4', 'landscape');
-		
-		// Render the HTML as PDF
-		$dompdf->render();
-		
-		// Output the generated PDF to Browser
-		$dompdf->stream();/*
-		$arrayBody = array(
-			"#NumerodeLibro",
-			"#NumerodePagina",
-			"#CiudaddeCelebracion",
-			"#LugardeCelebacion",
-			"#Parroquia",
-			"#FechadeCelebracion",
+		$certificate = '<!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<meta http-equiv="X-UA-Compatible" content="ie=edge">
+			<title>Certificado de Matrimonio</title>
+			<style>
+				img {
+					max-width: 20%;
+					height: auto;	
+				}
+			</style>
+		</head>
+		<body>
+			<header>
+				<div class="container">
+					<img
+						src="../storage/app/public/utem.png" 
+						alt="Logo de la Parroquia"
+					>
+					<h1 style = "position: absolute; top: 5%; left: 30%;">Certificado de Matrimonio</h1>
+					<hr>
+				</div>
+			</header>
+			<section>
+				<table width="100%">
+					<tr>
+						<th><h3>Esposo</h3></th>
+						<th><h3>Esposa</h3></th>
+					</tr>
+					<tr>
+						<td>Nombres: #NombresEsposo</td>
+						<td>Nombre: #NombresEsposa</td>
+					</tr>
+					<tr>
+						<td>Apellido paterno: #ApellidoPaternoEsposo</td>
+						<td>Apellido paterno: #ApellidoPaternoEsposa</td>
+					</tr>
+					<tr>
+						<td>Apellido materno: #ApellidoMaternoEsposo</td>
+						<td>Apellido materno: #ApellidoMaternoEsposa</td>
+					</tr>
+					<tr>
+						<td>Rut: #RutEsposo</td>
+						<td>Rut: #RutEsposa</td>
+					</tr>
+					<tr>
+						<td>Estado: #EstadoEsposo</td>
+						<td>Estado: #EstadoEsposa</td>
+					</tr>
+					<tr>
+						<td>Edad: #EdadEsposo</td>
+						<td>Edad: #EdadEsposa</td>
+					</tr>
+					<tr>
+						<td>Padre: #PapaNombresEsposo</td>
+						<td>Padre: #PapaNombresEsposa</td>
+					</tr>
+					<tr>
+						<td>Madre: #MamaNombresEsposo</td>
+						<td>Madre: #MamaNombresEsposa</td>
+					</tr>
+					<tr>
+						<td>Parroquia del bautizo: #ParroquiaBautismoEsposo</td>
+						<td>Parroquia del bautizo: #ParroquiaBautismoEsposa</td>
+					</tr>
+					<tr>
+						<td>Número de libro de bautizo: #NumLibroBautismoEsposo</td>
+						<td>Número de libro de bautizo: #NumLibroBautismoEsposa</td>
+					</tr>
+					<tr>
+						<td>Número de página de bautizo: #NumPagBautismoEsposo</td>
+						<td>Número de página de bautizo: #NumPagBautismoEsposa</td>
+					</tr>
+				</table>
+				<h3>Matrimonio</h3>
+				<ul>					
+					<li>Número de libro: #NumLibro</li>
+					<li>Número de página: #NumPag</li>
+					<li>Lugar de celebración: #LugCel</li>
+					<li>Parroquia: #Parroquia</li>
+					<li>Fecha de Celebración: #FecCel</li>
+					<li>Impedimiento: #Impedimiento</li>
+					<li>Celebrante: #Celebrante</li>
+					<li>Siendo testigo: #SiendoTestigo</li>
+					<li>Notas: #Notas</li>
+					<li>Parroco: #Parroco</li>
+					<li>Doy fe: #DoyFe</li>
+				</ul>
+			</section>
+			<footer>
+				<img 
+					src="../storage/app/public/sello.png" 
+					alt="Firma y/o Sello"
+				>
+			</footer>
+		</body>
+		</html>';
+		$search = array(
+			"#LugCel",
+			"#FecCel",
 			"#Impedimiento",
 			"#Celebrante",
 			"#NombresEsposo",
@@ -141,36 +221,34 @@ class MarriageController extends Controller
 			"#RutEsposo",
 			"#EstadoEsposo",
 			"#EdadEsposo",
-			"#PadreEsposo",
-			"#MadreEsposo",
-			"#ParroquiaBautizoEsposo",
-			"#NumeroLibroBautizoEsposo",
-			"#NumeroPaginaBautizoEsposo",
+			"#PapaNombresEsposo",
+			"#MamaNombresEsposo",
+			"#ParroquiaBautismoEsposo",
+			"#NumLibroBautismoEsposo",
+			"#NumPagBautismoEsposo",
 			"#NombresEsposa",
 			"#ApellidoPaternoEsposa",
 			"#ApellidoMaternoEsposa",
 			"#RutEsposa",
 			"#EstadoEsposa",
 			"#EdadEsposa",
-			"#PadreEsposa",
-			"#MadreEsposa",
-			"#ParroquiaBautizoEsposa",
-			"#NumeroLibroBautizoEsposa",
-			"#NumeroPaginaBautizoEsposa",
+			"#PapaNombresEsposa",
+			"#MamaNombresEsposa",
+			"#ParroquiaBautismoEsposa",
+			"#NumLibroBautismoEsposa",
+			"#NumPagBautismoEsposa",
 			"#SiendoTestigo",
 			"#Notas",
-			"#PaginaPartida",
 			"#Parroco",
-			"#DoyFe"
+			"#DoyFe",
+			"#Parroquia",
+			"#NumLibro",
+			"#NumPag",
 		);
 
-		$data = array(
-			$marriage->NumLibro,
-			$marriage->NumPag,
-			$marriage->CiudadCelebracion,
-			$marriage->LugardeCelebracion,
-			$marriage->Parroquia,
-			$marriage->FechaCelebracion,
+		$replace = array(
+			$marriage->LugCel,
+			$marriage->FecCel,
 			$marriage->Impedimiento,
 			$marriage->Celebrante,
 			$marriage->NombresEsposo,
@@ -197,37 +275,17 @@ class MarriageController extends Controller
 			$marriage->NumPagBautismoEsposa,
 			$marriage->SiendoTestigo,
 			$marriage->Notas,
-			$marriage->PaginaPartida,
 			$marriage->Parroco,
-			$marriage->DoyFe
+			$marriage->DoyFe,
+			$marriage->Parroquia,
+			$marriage->NumLibro,
+			$marriage->NumPag,
 		);
 
-		$pdf = App::make('dompdf.wrapper');
-		$pdf->loadHTML(
-			"
-				<!DOCTYPE html>
-					<head>
-						<title>Certificado de Matrimonio</title>
-						<style>
-							
-						</style>
-					</head>
-					<body>
-					<div class=\"container\"></div>
-						<header>
-							certificateHeader
-						</header>
-						<section>
-							{$data}
-						</section>
-						<footer>
-							certificateFooter
-						</footer>
-					</body>
-				</html>
-			"
-		);
+		$certificate = str_replace($search, $replace, $certificate);
+		$pdf->loadHTML($certificate);
+		//$pdf->render();
 
-		return $pdf->stream('certificadoMatrimonio.pdf');*/
+		return $pdf->stream('certificadoMatrimonio.pdf');
 	}
 }
