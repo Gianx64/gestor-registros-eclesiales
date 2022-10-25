@@ -31,10 +31,10 @@
 
 								@can('users.edit')
 									<td>
-										<a class="btn btn-primary float-right" href="{{route('users.edit', $user)}}">Editar</a>
+										<a class="btn btn-primary float-right" href="{{route('users.assign', $user)}}">Dar Rol</a>
 									</td>
 									<td>
-										<a class="btn btn-primary float-left" href="{{route('users.assign', $user)}}">Dar Rol</a>
+										<a class="btn btn-success float-left" href="{{route('users.edit', $user)}}">Editar</a>
 									</td>
 								@endcan
 

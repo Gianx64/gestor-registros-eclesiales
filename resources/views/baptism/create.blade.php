@@ -24,6 +24,7 @@
                     <div class="card-body">
                         {!! Form::open(['route' => 'baptisms.store', 'autocomplete' => 'off']) !!}
                             @csrf
+                            @include('errors')
                             @include('baptism.form')
                             {{-- Guardar el nombre del usaurio que modifica el registro --}}
                             {!! Form::hidden('updated_by', auth()->user()->name) !!}

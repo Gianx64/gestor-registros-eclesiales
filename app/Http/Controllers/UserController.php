@@ -46,7 +46,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(User::$rules);
+        request()->validate(User::$rules, User::$message);
 
         $request['password']=Hash::make($request['password']); //Se guarda la contraseña encriptada
         $user = User::create($request->all());
@@ -91,7 +91,7 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        request()->validate(User::$rules);
+        request()->validate(User::$rules, User::$message);
 
         $request['password']=Hash::make($request['password']); //Se guarda la contraseña encriptada
         $user->update($request->all());

@@ -17,8 +17,9 @@
 	<div class="card">
 		<div class="card-body">
 			{!! Form::model($user, ['route' => ['users.update', $user], 'method' => 'put']) !!}
-			@include('user.form')
-			{!! Form::submit('Ingresar', ['class' => 'btn btn-primary mt-2']) !!}
+                @include('errors')
+                @include('user.form')
+                {!! Form::submit('Ingresar', ['class' => 'btn btn-primary mt-2']) !!}
 			{!! Form::close() !!}
 		</div>
 	</div>

@@ -33,7 +33,12 @@
 						<td>{{$baptism->Madrina}}</td>
 						@can('baptisms.show')
 							<td width="10px">
-								<a class="btn btn-primary float-right" href="{{route('baptisms.show', $baptism->id)}}">Mostrar</a>
+								<a href="{{route('baptisms.show', $baptism->id)}}" class="btn btn-primary float-right">Mostrar</a>
+							</td>
+						@endcan
+						@can('baptisms.edit')
+							<td width="10px">
+								<a href="{{route('baptisms.edit', $baptism->id)}}" class="btn btn-success float-right">Editar</a>
 							</td>
 						@endcan
 						@can('baptisms.destroy')

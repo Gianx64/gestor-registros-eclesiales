@@ -36,6 +36,11 @@
 								<a href="{{route('confirmations.show', $confirmation->id)}}" class="btn btn-primary float-right">Mostrar</a>
 							</td>
 						@endcan
+						@can('confirmations.edit')
+							<td width="10px">
+								<a href="{{route('confirmations.edit', $confirmation->id)}}" class="btn btn-success float-right">Editar</a>
+							</td>
+						@endcan
 						@can('confirmations.destroy')
 							<td width="10px">
 								<form action="{{route('confirmations.destroy', $confirmation->id)}}" class="swal-delete" method="POST">

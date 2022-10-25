@@ -18,6 +18,7 @@
 		<div class="card-body">
 			<div class="form-group container-fluid">
 				{!! Form::open(['route' => 'users.store', 'autocomplete' => 'off']) !!}
+					@include('errors')
 					@include('user.form')
 					<h4>Listado de Roles</h4>
 					@foreach ($roles as $role)

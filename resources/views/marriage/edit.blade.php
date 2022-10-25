@@ -25,6 +25,7 @@
                         {!! Form::model($marriage, ['route' => ['marriages.update', $marriage], 
                             'method' => 'put', 'autocomplete' => 'off']) !!}
                             @csrf
+                            @include('errors')
                             @include('marriage.form')
                             {{-- Guardar el nombre del usaurio que modifica el registro --}}
                             {!! Form::hidden('updated_by', auth()->user()->name) !!}

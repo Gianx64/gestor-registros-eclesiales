@@ -44,7 +44,7 @@ class MarriageController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Marriage::$rules);
+        request()->validate(Marriage::$rules, Marriage::$message);
 
         $marriage = Marriage::create($request->all());
 
@@ -87,7 +87,7 @@ class MarriageController extends Controller
      */
     public function update(Request $request, Marriage $marriage)
     {
-        request()->validate(Marriage::$rules);
+        request()->validate(Marriage::$rules, Marriage::$message);
 
         $marriage->update($request->all());
 

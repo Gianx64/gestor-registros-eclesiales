@@ -93,7 +93,7 @@
 					<th>Numero de pagina Bautizo</th>
 				</tr>
 				<tr>
-					<td>{{$confirmation->LugarBautizo}}</td>
+					<td>{{$confirmation->LugBautizo}}</td>
 					<td>{{$confirmation->FecBautizo}}</td>
 					<td>{{$confirmation->NumLibroBautizo}}</td>
 					<td>{{$confirmation->NumPagBautizo}}</td>

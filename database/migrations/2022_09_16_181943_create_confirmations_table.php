@@ -51,7 +51,7 @@ class CreateConfirmationsTable extends Migration
             $table->string('Madrina', 60)
                   ->nullable()
                   ->comment('Nombre completo de la madrina del confirmado.');
-            $table->string('LugarBautizo', 60)
+            $table->string('LugBautizo', 60)
                   ->comment('Lugar de celebración del bautizo.');
             $table->date('FecBautizo')
                   ->comment('Fecha de celebración del bautizo.');

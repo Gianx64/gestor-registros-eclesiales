@@ -25,6 +25,7 @@
                         {!! Form::model($confirmation, ['route' => ['confirmations.update', $confirmation], 
                             'method' => 'put', 'autocomplete' => 'off']) !!}
                             @csrf
+                            @include('errors')
                             @include('confirmation.form')
                             {{-- Guardar el nombre del usaurio que modifica el registro --}}
                             {!! Form::hidden('updated_by', auth()->user()->name) !!}

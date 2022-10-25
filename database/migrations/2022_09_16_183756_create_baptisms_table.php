@@ -34,6 +34,7 @@ class CreateBaptismsTable extends Migration
             $table->string('ApellidoMaterno', 60)
                   ->comment('Apellido materno del bautizado.');
             $table->string('LugNac', 60)
+                  ->nullable()
                   ->comment('Lugar de nacimiento del bautizado.');
             $table->date('FecNac')
                   ->comment('Fecha de nacimiento del bautizado.');

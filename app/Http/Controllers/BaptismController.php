@@ -44,7 +44,7 @@ class BaptismController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Baptism::$rules);
+        request()->validate(Baptism::$rules, Baptism::$message);
 
         $baptism = Baptism::create($request->all());
 
@@ -87,7 +87,7 @@ class BaptismController extends Controller
      */
     public function update(Request $request, Baptism $baptism)
     {
-        request()->validate(Baptism::$rules);
+        request()->validate(Baptism::$rules, Baptism::$message);
 
         $baptism->update($request->all());
 

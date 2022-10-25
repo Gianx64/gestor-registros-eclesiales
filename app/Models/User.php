@@ -29,9 +29,17 @@ class User extends Authenticatable
     use HasRoles;
     
     static $rules = [
-		'name' => 'required',
-		'email' => 'required',
-		'password' => 'required',
+		'name' => 'required|string',
+		'email' => 'required|string|unique:users,email',
+		'password' => 'required|string|confirmed',
+    ];
+
+    static $message = [
+        'name.required' => 'El nombre de usuario es requerido',
+        'email.required' => 'El email es requerido',
+        'email.unique' => 'El email ya está registrado',
+        'password.required' => 'La contraseña es requerida',
+        'password.confirmed' => 'Las contraseñas no coinciden'
     ];
 
     protected $perPage = 20;

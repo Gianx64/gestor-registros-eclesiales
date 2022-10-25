@@ -86,8 +86,8 @@
 <div class="form-group mt-4">
 	<div class="row">
 		<div class="col-8">
-			{!! Form::label('LugarBautizo', 'Lugar de Bautizo') !!}
-			{!! Form::text('LugarBautizo', null, ['class' => 'form-control']) !!}
+			{!! Form::label('LugBautizo', 'Lugar de Bautizo') !!}
+			{!! Form::text('LugBautizo', null, ['class' => 'form-control']) !!}
 		</div>
 		<div class="col-4">
 			{!! Form::label('FecBautizo', 'Fecha del Bautizo') !!}

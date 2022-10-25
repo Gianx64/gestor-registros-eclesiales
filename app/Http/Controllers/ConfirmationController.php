@@ -44,7 +44,7 @@ class ConfirmationController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Confirmation::$rules);
+        request()->validate(Confirmation::$rules, Confirmation::$message);
 
         $confirmation = Confirmation::create($request->all());
 
@@ -87,7 +87,7 @@ class ConfirmationController extends Controller
      */
     public function update(Request $request, Confirmation $confirmation)
     {
-        request()->validate(Confirmation::$rules);
+        request()->validate(Confirmation::$rules, Confirmation::$message);
 
         $confirmation->update($request->all());
 

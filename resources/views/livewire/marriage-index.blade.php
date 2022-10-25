@@ -40,6 +40,11 @@
 								<a href="{{route('marriages.show', $marriage->id)}}" class="btn btn-primary float-right btn-sm">Mostrar</a>
 							</td>
 						@endcan
+						@can('marriages.edit')
+							<td width="10px">
+								<a href="{{route('marriages.edit', $marriage->id)}}" class="btn btn-success float-right btn-sm">Editar</a>
+							</td>
+						@endcan
 						@can('marriages.destroy')
 							<td width="10px">
 								<form action="{{route('marriages.destroy', $marriage->id)}}" class="swal-delete" method="POST">
