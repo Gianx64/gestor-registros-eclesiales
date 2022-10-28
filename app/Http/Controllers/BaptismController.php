@@ -12,6 +12,14 @@ use Illuminate\Support\Facades\App;
  */
 class BaptismController extends Controller
 {
+	public function __construct() {
+		$this->middleware('can:baptisms.index')->only('index');
+		$this->middleware('can:baptisms.edit')->only('edit', 'update');
+		$this->middleware('can:baptisms.create')->only('create', 'store');
+		$this->middleware('can:baptisms.show')->only('show');
+		$this->middleware('can:baptisms.destroy')->only('destroy');
+	}
+
     /**
      * Display a listing of the resource.
      *

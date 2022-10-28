@@ -23,13 +23,13 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'Secretaria1',
             'email' => 'secretaria1@gmail.com',
-            'password' => bcrypt('123456789'),
+            'password' => bcrypt('secret'),
         ])->assignRole('Secretaria');
 
         User::create([
             'name' => 'Secretaria2',
             'email' => 'secretaria2@gmail.com',
-            'password' => bcrypt('123456789'),
+            'password' => bcrypt('secret'),
         ])->assignRole('Secretaria');
     }
 }

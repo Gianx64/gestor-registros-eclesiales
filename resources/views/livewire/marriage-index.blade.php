@@ -1,10 +1,6 @@
 <div class="card">
 	<div class="card-header">
-		<input 
-			wire:model="search" 
-			class="form-control" 
-			placeholder="Ingrese un nombre/apellido/rut del Esposo o Esposa"
-		>
+		<input wire:model="search" class="form-control" placeholder="Ingrese un nombre/apellido/rut del Esposo o Esposa">
 	</div>  
 	@if ($marriages->count())
 	<div class="card-body">

@@ -22,8 +22,8 @@
 			<h4>Listado de Roles</h4>
 			@foreach ($roles as $role)
 				<div>
-				{!! Form::label($role->id, $role->name) !!}
 				{!! Form::checkbox('roles[]', $role->id, null, ['class' => 'mr-1']) !!}
+				{!! Form::label($role->id, $role->name) !!}
 				</div>
 			@endforeach	
 			{!! Form::submit('Ingresar', ['class' => 'btn btn-primary mt-2']) !!}

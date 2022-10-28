@@ -1,11 +1,7 @@
 <div>
 	<div class="card">			
 		<div class="card-header">
-				<input 
-					wire:model="search" 
-					class="form-control" 
-					placeholder="Ingrese el nombre o correo de un usuario"
-				>
+				<input wire:model="search" class="form-control" placeholder="Ingrese el nombre o correo de un usuario">
 		</div>
 		@if ($users->count())		
 			<div class="card-body">
@@ -50,18 +46,17 @@
 							</tr>
 						@endforeach
 					</tbody>
-						
 				</table>
 			</div>
 				
-				<div class="card-footer">
-						{{$users->links()}}
-				</div>
+			<div class="card-footer">
+				{{$users->links()}}
+			</div>
 
-				@else
-						<div class="card-body">
-								<strong>No existe el Usuario o Email Ingresado ...</strong>
-						</div>
+		@else
+			<div class="card-body">
+				<strong>No existe el Usuario o Email Ingresado ...</strong>
+			</div>
 		@endif
 	</div>
 </div>

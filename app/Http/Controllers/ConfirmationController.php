@@ -12,6 +12,14 @@ use Illuminate\Support\Facades\App;
  */
 class ConfirmationController extends Controller
 {
+	public function __construct() {
+		$this->middleware('can:confirmations.index')->only('index');
+		$this->middleware('can:confirmations.edit')->only('edit', 'update');
+		$this->middleware('can:confirmations.create')->only('create', 'store');
+		$this->middleware('can:confirmations.show')->only('show');
+		$this->middleware('can:confirmations.destroy')->only('destroy');
+	}
+
     /**
      * Display a listing of the resource.
      *

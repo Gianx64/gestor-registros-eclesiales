@@ -9,7 +9,7 @@
 		</div>
 	@endif
 	@can('users.create')
-		<a class="btn btn-secondary float-right" href="{{route('users.create')}}">Crear Usuario</a>  
+		<a class="btn btn-secondary float-right" href="{{route('users.create')}}">Crear Usuario</a>
 	@endcan
 	<h1>Lista de Usuarios</h1>
 @stop

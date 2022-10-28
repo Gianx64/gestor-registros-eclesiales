@@ -21,13 +21,6 @@ class RoleSeeder extends Seeder
 		$role2 = Role::create(['name' => 'Secretaria']);
 
 		//---------------------- PERMISOS ---------------------------
-
-		//---------------------- Dashboard ---------------------------
-		Permission::create([
-			'name' => 'home',
-			'description' => 'Ver dashboard'
-		])->syncRoles([$role1, $role2]);
-
 		// ----------------------- Usuarios ---------------------------
 		Permission::create([
 			'name' => 'users.index',
@@ -90,7 +83,7 @@ class RoleSeeder extends Seeder
 
 		Permission::create([
 			'name' => 'baptisms.destroy',
-			'description' => 'Elimiar registros de bautizos'
+			'description' => 'Eliminar registros de bautizos'
 		])->syncRoles([$role1, $role2]);
 
 		Permission::create([
@@ -116,7 +109,7 @@ class RoleSeeder extends Seeder
 
 		Permission::create([
 			'name' => 'confirmations.destroy',
-			'description' => 'Elimiar registros de confirmaciones'
+			'description' => 'Eliminar registros de confirmaciones'
 		])->syncRoles([$role1, $role2]);
 
 		Permission::create([
@@ -142,7 +135,7 @@ class RoleSeeder extends Seeder
 
 		Permission::create([
 			'name' => 'marriages.destroy',
-			'description' => 'Elimiar registros de matrimonios'
+			'description' => 'Eliminar registros de matrimonios'
 		])->syncRoles([$role1, $role2]);
 
 		Permission::create([

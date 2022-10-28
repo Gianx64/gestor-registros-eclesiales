@@ -12,6 +12,14 @@ use Illuminate\Support\Facades\App;
  */
 class MarriageController extends Controller
 {
+	public function __construct() {
+		$this->middleware('can:marriages.index')->only('index');
+		$this->middleware('can:marriages.edit')->only('edit', 'update');
+		$this->middleware('can:marriages.create')->only('create', 'store');
+		$this->middleware('can:marriages.show')->only('show');
+		$this->middleware('can:marriages.destroy')->only('destroy');
+	}
+
     /**
      * Display a listing of the resource.
      *

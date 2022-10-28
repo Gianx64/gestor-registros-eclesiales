@@ -1,10 +1,6 @@
 <div class="card">
 	<div class="card-header">
-		<input 
-			wire:model="search" 
-			class="form-control" 
-			placeholder="Ingrese un nombre/apellido/rut/padrino/madrina de la persona"
-		>
+		<input wire:model="search" class="form-control" placeholder="Ingrese un nombre/apellido/rut/padrino/madrina de la persona">
 	</div>
 	@if ($confirmations->count())
 	<div class="card-body">
