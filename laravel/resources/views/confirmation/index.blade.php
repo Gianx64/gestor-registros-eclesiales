@@ -1,0 +1,24 @@
+@extends('adminlte::page')
+
+@section('title', 'Confirmaciones')
+
+@section('content_header')
+	@if ($message = Session::get('success'))
+		<div class="alert alert-success">
+			<p>{{ $message }}</p>
+		</div>
+	@endif
+	@can('confirmations.create')
+		<a href="{{route('confirmations.create')}}" class="btn btn-secondary float-right">Agregar Registro</a>
+	@endcan
+	<h1>Lista de Confirmaciones</h1>
+@stop
+
+@section('content')
+	@livewire('confirmation-index')
+@stop
+
+@section('js')
+	@include('swal-delete')
+	@livewireScripts
+@endsection
