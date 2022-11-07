@@ -24,7 +24,7 @@
                             @include('errors')
                             @include('marriage.form')
                             {{-- Guardar el nombre del usaurio que modifica el registro --}}
-                            {!! Form::hidden('updated_by', auth()->user()->name) !!}
+                            {!! Form::hidden('updated_by', auth()->user()->email) !!}
                             {!! Form::submit('Agregar Registro', ['class' => 'btn btn-primary']) !!}
                         {!! Form::close() !!}
                     </div>
