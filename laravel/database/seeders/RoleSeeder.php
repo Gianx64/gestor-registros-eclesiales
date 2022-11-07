@@ -63,32 +63,36 @@ class RoleSeeder extends Seeder
 			'name' => 'roles.destroy',
 			'description' => 'Eliminar roles'])
 		->syncRoles([$role1]);
-
-
-		// ----------------------- Bautizos ----------------------------
+		
+		// ----------------------- Matrimonios ----------------------------
 		Permission::create([
-			'name' => 'baptisms.index',
-			'description' => 'Ver listado de los bautizos'
+			'name' => 'marriages.index',
+			'description' => 'Ver listado matrimonios'
 		])->syncRoles([$role1, $role2]);
 
 		Permission::create([
-			'name' => 'baptisms.create',
-			'description' => 'Crear registros de bautizos'
+			'name' => 'marriages.create',
+			'description' => 'Crear registros de matrimonios'
 		])->syncRoles([$role1, $role2]);
 
 		Permission::create([
-			'name' => 'baptisms.edit',
-			'description' => 'Actualizar registros de bautizos'
+			'name' => 'marriages.edit',
+			'description' => 'Actualizar registros de matrimonios'
 		])->syncRoles([$role1, $role2]);
 
 		Permission::create([
-			'name' => 'baptisms.destroy',
-			'description' => 'Eliminar registros de bautizos'
+			'name' => 'marriages.destroy',
+			'description' => 'Eliminar registros de matrimonios'
 		])->syncRoles([$role1, $role2]);
 
 		Permission::create([
-			'name' => 'baptisms.show',
-			'description' => 'Mostrar registros de bautizos'
+			'name' => 'marriages.show',
+			'description' => 'Mostrar registros de matrimonios'
+		])->syncRoles([$role1, $role2]);
+
+		Permission::create([
+			'name' => 'marriages.export',
+			'description' => 'Exportar registros de matrimonios'
 		])->syncRoles([$role1, $role2]);
 
 		// ----------------------- Confirmaciones ----------------------------
@@ -116,31 +120,41 @@ class RoleSeeder extends Seeder
 			'name' => 'confirmations.show',
 			'description' => 'Mostrar registros de confirmaciones'
 		])->syncRoles([$role1, $role2]);
-		
-		// ----------------------- Matrimonios ----------------------------
+
 		Permission::create([
-			'name' => 'marriages.index',
-			'description' => 'Ver listado matrimonios'
+			'name' => 'confirmations.export',
+			'description' => 'Exportar registros de confirmaciones'
+		])->syncRoles([$role1, $role2]);
+
+		// ----------------------- Bautizos ----------------------------
+		Permission::create([
+			'name' => 'baptisms.index',
+			'description' => 'Ver listado de los bautizos'
 		])->syncRoles([$role1, $role2]);
 
 		Permission::create([
-			'name' => 'marriages.create',
-			'description' => 'Crear registros de matrimonios'
+			'name' => 'baptisms.create',
+			'description' => 'Crear registros de bautizos'
 		])->syncRoles([$role1, $role2]);
 
 		Permission::create([
-			'name' => 'marriages.edit',
-			'description' => 'Actualizar registros de matrimonios'
+			'name' => 'baptisms.edit',
+			'description' => 'Actualizar registros de bautizos'
 		])->syncRoles([$role1, $role2]);
 
 		Permission::create([
-			'name' => 'marriages.destroy',
-			'description' => 'Eliminar registros de matrimonios'
+			'name' => 'baptisms.destroy',
+			'description' => 'Eliminar registros de bautizos'
 		])->syncRoles([$role1, $role2]);
 
 		Permission::create([
-			'name' => 'marriages.show',
-			'description' => 'Mostrar registros de matrimonios'
+			'name' => 'baptisms.show',
+			'description' => 'Mostrar registros de bautizos'
+		])->syncRoles([$role1, $role2]);
+
+		Permission::create([
+			'name' => 'baptisms.export',
+			'description' => 'Exportar registros de bautizos'
 		])->syncRoles([$role1, $role2]);
     }
 }

@@ -11,6 +11,9 @@
 	@can('baptisms.create')
 		<a class="btn btn-secondary float-right" href="{{route('baptisms.create')}}">Agregar Registro</a>  
 	@endcan
+	@can('baptisms.export')
+	<a class="btn btn-success float-right" href="{{route('baptisms.export')}}">Exportar Bautizos</a>
+	@endcan
 	<h1>Lista de Bautizos</h1>
 @stop
 

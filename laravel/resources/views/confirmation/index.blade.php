@@ -11,6 +11,9 @@
 	@can('confirmations.create')
 		<a href="{{route('confirmations.create')}}" class="btn btn-secondary float-right">Agregar Registro</a>
 	@endcan
+	@can('confirmations.export')
+	<a class="btn btn-success float-right" href="{{route('confirmations.export')}}">Exportar Confirmaciones</a>
+	@endcan
 	<h1>Lista de Confirmaciones</h1>
 @stop
 

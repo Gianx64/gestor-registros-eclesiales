@@ -11,7 +11,7 @@
 		</div>
 		<div class="col">
             <a class="btn btn-primary mr-2 float-right" href="{{ route('confirmations.index') }}">Volver</a>
-			<a class="btn btn-success mr-2 float-right" href="{{route('descargarPDFConfirmacion', $confirmation)}}">Crear certificado</a>
+			<a class="btn btn-success mr-2 float-right" href="{{route('confirmation.pdf', $confirmation)}}">Certificado PDF</a>
 		</div>
 	</div>
 @stop

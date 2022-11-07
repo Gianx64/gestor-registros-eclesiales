@@ -11,6 +11,9 @@
 	@can('marriages.create')
 		<a class="btn btn-secondary float-right" href="{{route('marriages.create')}}">Agregar Registro</a>  
 	@endcan
+	@can('marriages.export')
+	<a class="btn btn-success float-right" href="{{route('marriages.export')}}">Exportar Matrimonios</a>
+	@endcan
 	<h1>Lista de Matrimonios</h1>
 @stop
 

@@ -13,7 +13,7 @@
 		</div>
 		<div class="col">   
 			<a class="btn btn-primary mr-2 float-right" href="{{ route('marriages.index') }}">Volver</a>
-			<a class="btn btn-success mr-2 float-right" href="{{route('descargarPDFMatrimonio', $marriage)}}">Crear Certificado</a>
+			<a class="btn btn-success mr-2 float-right" href="{{route('marriage.pdf', $marriage)}}">Certificado PDF</a>
 		</div>
 	</div>
 @stop
