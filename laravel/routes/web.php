@@ -44,21 +44,25 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('marriages', [MarriageController::class, 'index'])->name('marriages.index');
     Route::get('marriages/create', [MarriageController::class, 'create'])->name('marriages.create');
     Route::get('marriages/edit/{marriage}', [MarriageController::class, 'edit'])->name('marriages.edit');
+    Route::get('marriages/pdf/{marriage}', [MarriageController::class, 'certificate'])->name('marriage.pdf');
+    Route::get('marriages/export', [MarriageController::class, 'exportMarriages'])->name('marriages.export');
+    Route::post('marriages/import', [MarriageController::class, 'importMarriages'])->name('marriages.import');
 
     /** -------------------------------------- RUTAS CONFIRMACIONES --------------------------------------- */
     Route::get('confirmations', [ConfirmationController::class, 'index'])->name('confirmations.index');
     Route::get('confirmations/create', [ConfirmationController::class, 'create'])->name('confirmations.create');
     Route::get('confirmations/edit/{confirmation}', [ConfirmationController::class, 'edit'])->name('confirmations.edit');
+    Route::get('confirmations/pdf/{confirmation}', [ConfirmationController::class, 'certificate'])->name('confirmation.pdf');
+    Route::get('confirmations/export', [ConfirmationController::class, 'exportConfirmations'])->name('confirmations.export');
+    Route::post('confirmations/import', [ConfirmationController::class, 'importConfirmations'])->name('confirmations.import');
 
     /** -------------------------------------- RUTAS BAUTIZOS --------------------------------------------- */
     Route::get('baptisms', [BaptismController::class, 'index'])->name('baptisms.index');
     Route::get('baptisms/create', [BaptismController::class, 'create'])->name('baptisms.create');
     Route::get('baptisms/edit/{baptism}', [BaptismController::class, 'edit'])->name('baptisms.edit');
-
-    /** -------------------------------------- RUTAS CERTIFICADOS --------------------------------------------- */
-    Route::get('marriages/pdf/{marriage}', [MarriageController::class, 'certificate'])->name('descargarPDFMatrimonio');
-    Route::get('confirmations/pdf/{confirmation}', [ConfirmationController::class, 'certificate'])->name('descargarPDFConfirmacion');
-    Route::get('baptisms/pdf/{baptism}', [BaptismController::class, 'certificate'])->name('descargarPDFBautizo');
+    Route::get('baptisms/pdf/{baptism}', [BaptismController::class, 'certificate'])->name('baptism.pdf');
+    Route::get('baptisms/export', [BaptismController::class, 'exportBaptisms'])->name('baptisms.export');
+    Route::post('baptisms/import', [BaptismController::class, 'importBaptisms'])->name('baptisms.import');
 
     Route::apiResource('users', UserController::class); //->except('show')
     Route::apiResource('roles', RoleController::class);

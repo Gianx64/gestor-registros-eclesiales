@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\MarriagesExport;
 use App\Models\Marriage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Maatwebsite\Excel\Excel;
 
 /**
  * Class MarriageController
@@ -16,8 +18,9 @@ class MarriageController extends Controller
 		$this->middleware('can:marriages.index')->only('index');
 		$this->middleware('can:marriages.edit')->only('edit', 'update');
 		$this->middleware('can:marriages.create')->only('create', 'store');
-		$this->middleware('can:marriages.show')->only('show');
+		$this->middleware('can:marriages.show')->only('show','certificate');
 		$this->middleware('can:marriages.destroy')->only('destroy');
+		$this->middleware('can:marriages.export')->only('exportMarriages');
 	}
 
     /**
@@ -115,6 +118,10 @@ class MarriageController extends Controller
         return redirect()->route('marriages.index')
             ->with('success', 'Matrimonio eliminado exitosamente.');
     }
+
+	public function exportMarriages (Excel $csv) {
+		return $csv->download(new MarriagesExport, 'tabla-matrimonios.csv');
+	}
 
 	public function certificate(Marriage $marriage)
     {

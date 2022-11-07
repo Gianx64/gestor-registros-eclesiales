@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ConfirmationsExport;
 use App\Models\Confirmation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Maatwebsite\Excel\Excel;
 
 /**
  * Class ConfirmationController
@@ -16,8 +18,9 @@ class ConfirmationController extends Controller
 		$this->middleware('can:confirmations.index')->only('index');
 		$this->middleware('can:confirmations.edit')->only('edit', 'update');
 		$this->middleware('can:confirmations.create')->only('create', 'store');
-		$this->middleware('can:confirmations.show')->only('show');
+		$this->middleware('can:confirmations.show')->only('show','certificate');
 		$this->middleware('can:confirmations.destroy')->only('destroy');
+		$this->middleware('can:confirmations.export')->only('exportConfirmations');
 	}
 
     /**
@@ -115,6 +118,10 @@ class ConfirmationController extends Controller
         return redirect()->route('confirmations.index')
             ->with('success', 'Confirmación eliminada exitosamente.');
     }
+
+	public function exportConfirmations (Excel $csv) {
+		return $csv->download(new ConfirmationsExport, 'tabla-confirmaciones.csv');
+	}
 
 	public function certificate(Confirmation $confirmation)
     {

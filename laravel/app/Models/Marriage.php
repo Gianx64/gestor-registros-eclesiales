@@ -13,7 +13,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property $NumPag
  * @property $Parroquia
  * @property $Impedimiento
- * @property $Celebrante
  * @property $RutEsposo
  * @property $NombresEsposo
  * @property $ApellidoPaternoEsposo
@@ -37,6 +36,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property $NumLibroBautismoEsposa
  * @property $NumPagBautismoEsposa
  * @property $SiendoTestigo
+ * @property $Celebrante
  * @property $LugCel
  * @property $FecCel
  * @property $Parroco
@@ -56,7 +56,6 @@ class Marriage extends Model
     static $rules = [
         'Parroquia'               => 'required|string|max:60',
         'Impedimiento'            => 'required|string|max:60',
-        'Celebrante'              => 'required|string|max:60',
         'RutEsposo'               => ['required','string','max:20','regex:/^([1-9]|[1-9][0-9]).([0-9]){3}.([0-9]){3}-([K]|[0-9])/'],
         'ApellidoPaternoEsposo'   => 'required|string|max:60',
         'ApellidoMaternoEsposo'   => 'required|string|max:60',
@@ -78,6 +77,7 @@ class Marriage extends Model
         'NumLibroBautismoEsposa'  => 'required|numeric|integer',
         'NumPagBautismoEsposa'    => 'required|numeric|integer',
         'SiendoTestigo'           => 'required|string|max:100',
+        'Celebrante'              => 'required|string|max:60',
         'LugCel'                  => 'required|string|max:60',
         'FecCel'                  => 'required|date',
         'Parroco'                 => 'required|string|max:60',
@@ -108,10 +108,6 @@ class Marriage extends Model
         'Impedimiento.required' => 'El impedimiento es requerido',
         'Impedimiento.max'      => 'El campo impedimiento es requerido',
         'Impedimiento.string'   => 'El impedimiento debe ser una cadena de caracteres',
-
-        'Celebrante.required' => 'El celebrante es requerido',
-        'Celebrante.max'      => 'El campo celebrante es muy largo',
-        'Celebrante.string'   => 'El celebrante debe ser una cadena de caracteres',
         
         'RutEsposo.required' => 'El rut del esposo es requerido',
         'RutEsposo.max'      => 'El campo rut del esposo es muy largo',
@@ -196,6 +192,10 @@ class Marriage extends Model
         'SiendoTestigo.required' => 'El campo de los testigos es requerids',
         'SiendoTestigo.max'      => 'El campo de los testigos es muy largo',
         'SiendoTestigo.string'   => 'El campo de los testigos debe ser una cadena de caracteres',
+
+        'Celebrante.required' => 'El celebrante es requerido',
+        'Celebrante.max'      => 'El campo celebrante es muy largo',
+        'Celebrante.string'   => 'El celebrante debe ser una cadena de caracteres',
 
         'Notas.max' => 'El campo Notas no puede tener más de 100 caracteres',
 

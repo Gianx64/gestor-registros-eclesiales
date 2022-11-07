@@ -173,7 +173,4 @@ class Baptism extends Model
 		'DoyFe',
 		'updated_by'
 	];
-
-
-
 }

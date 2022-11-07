@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\BaptismsExport;
 use App\Models\Baptism;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Maatwebsite\Excel\Excel;
 
 /**
  * Class BaptismController
@@ -16,8 +18,9 @@ class BaptismController extends Controller
 		$this->middleware('can:baptisms.index')->only('index');
 		$this->middleware('can:baptisms.edit')->only('edit', 'update');
 		$this->middleware('can:baptisms.create')->only('create', 'store');
-		$this->middleware('can:baptisms.show')->only('show');
+		$this->middleware('can:baptisms.show')->only('show','certificate');
 		$this->middleware('can:baptisms.destroy')->only('destroy');
+		$this->middleware('can:baptisms.export')->only('exportBaptisms');
 	}
 
     /**
@@ -115,6 +118,10 @@ class BaptismController extends Controller
         return redirect()->route('baptisms.index')
             ->with('success', 'Bautismo eliminado exitosamente.');
     }
+
+	public function exportBaptisms (Excel $csv) {
+		return $csv->download(new BaptismsExport, 'tabla-bautizos.csv');
+	}
 
 	public function certificate(Baptism $baptism)
     {

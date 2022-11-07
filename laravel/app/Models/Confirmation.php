@@ -155,7 +155,4 @@ class Confirmation extends Model
      * @var array
      */
     protected $fillable = ['Rut','NumLibro','NumPag','Nombres','ApellidoPaterno','ApellidoMaterno','PapaNombre','PapaApellido','MamaNombre','MamaApellido','Padrino','Madrina','LugarBautizo','FecBautizo','NumLibroBautizo','NumPagBautizo','Celebrante','LugCel','FecCel','Parroco','Notas','DoyFe','updated_by'];
-
-
-
 }
