@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Exports\BaptismsExport;
+use App\Imports\BaptismsImport;
 use App\Models\Baptism;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -121,6 +122,25 @@ class BaptismController extends Controller
 
 	public function exportBaptisms (Excel $csv) {
 		return $csv->download(new BaptismsExport, 'tabla-bautizos.csv');
+	}
+
+	public function importView () {
+		return view('imports.importView');
+	}
+
+	public function importBaptism (Request $request) {
+		$file = time() . '-' . $request->file('urlBackup')->getClientOriginalName();
+
+		$import = new BaptismsImport;
+		$import->import(request()->file('urlBackup'), 'public');
+
+		if ($import->failures()->isNotEmpty()) {
+			return back()->withFailures($import->failures());
+		}
+
+		$request->file('urlBackup')->storeAs('public/app/import/baptisms', $file);
+
+		return back()->with('informacion', 'import');
 	}
 
 	public function certificate(Baptism $baptism)

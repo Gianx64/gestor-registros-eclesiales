@@ -46,7 +46,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('marriages/edit/{marriage}', [MarriageController::class, 'edit'])->name('marriages.edit');
     Route::get('marriages/pdf/{marriage}', [MarriageController::class, 'certificate'])->name('marriage.pdf');
     Route::get('marriages/export', [MarriageController::class, 'exportMarriages'])->name('marriages.export');
-    Route::post('marriages/import', [MarriageController::class, 'importMarriages'])->name('marriages.import');
+    Route::get('marriages/import', [MarriageController::class, 'importView'])->name('marriages.import');
+    Route::post('marriages/importPost', [MarriageController::class, 'importMarriages'])->name('marriages.importPost');
 
     /** -------------------------------------- RUTAS CONFIRMACIONES --------------------------------------- */
     Route::get('confirmations', [ConfirmationController::class, 'index'])->name('confirmations.index');

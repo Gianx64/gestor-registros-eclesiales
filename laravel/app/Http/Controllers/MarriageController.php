@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Exports\MarriagesExport;
+use App\Imports\MarriagesImport;
 use App\Models\Marriage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -121,6 +122,25 @@ class MarriageController extends Controller
 
 	public function exportMarriages (Excel $csv) {
 		return $csv->download(new MarriagesExport, 'tabla-matrimonios.csv');
+	}
+
+	public function importView () {
+		return view('imports.importView');
+	}
+
+	public function importMarriage (Request $request) {
+		$file = time() . '-' . $request->file('urlBackup')->getClientOriginalName();
+
+		$import = new MarriagesImport;
+		$import->import(request()->file('urlBackup'), 'public');
+
+		if ($import->failures()->isNotEmpty()) {
+			return back()->withFailures($import->failures());
+		}
+
+		$request->file('urlBackup')->storeAs('public/app/import/marriages', $file);
+
+		return back()->with('informacion', 'import');
 	}
 
 	public function certificate(Marriage $marriage)

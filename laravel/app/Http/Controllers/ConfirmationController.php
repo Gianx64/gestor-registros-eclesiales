@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Exports\ConfirmationsExport;
+use App\Imports\ConfirmationsImport;
 use App\Models\Confirmation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -121,6 +122,25 @@ class ConfirmationController extends Controller
 
 	public function exportConfirmations (Excel $csv) {
 		return $csv->download(new ConfirmationsExport, 'tabla-confirmaciones.csv');
+	}
+
+	public function importView () {
+		return view('imports.importView');
+	}
+
+	public function importConfirm (Request $request) {
+		$file = time() . '-' . $request->file('urlBackup')->getClientOriginalName();
+
+		$import = new ConfirmationsImport;
+		$import->import(request()->file('urlBackup'), 'public');
+
+		if ($import->failures()->isNotEmpty()) {
+			return back()->withFailures($import->failures());
+		}
+
+		$request->file('urlBackup')->storeAs('public/app/import/confirmations', $file);
+
+		return back()->with('informacion', 'import');
 	}
 
 	public function certificate(Confirmation $confirmation)
