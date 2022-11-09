@@ -127,8 +127,15 @@ class MarriageController extends Controller
 	public function importView () {
 		return view('imports.importView');
 	}
+/*
+	public function importMarriages (Request $request, Excel $csv) {
+		$csv->import(new MarriagesImport, $request->file);
 
-	public function importMarriage (Request $request) {
+        return redirect()->route('marriages.index')
+            ->with('success', 'Matrimonios importados exitosamente.');
+	}
+*/
+	public function importMarriages (Request $request) {
 		$file = time() . '-' . $request->file('urlBackup')->getClientOriginalName();
 
 		$import = new MarriagesImport;
@@ -138,9 +145,10 @@ class MarriageController extends Controller
 			return back()->withFailures($import->failures());
 		}
 
-		$request->file('urlBackup')->storeAs('public/app/import/marriages', $file);
+		$request->file('urlBackup')->storeAs('public/marriagesImport', $file);
 
-		return back()->with('informacion', 'import');
+        return redirect()->route('marriages.index')
+            ->with('success', 'Matrimonios importados exitosamente.');
 	}
 
 	public function certificate(Marriage $marriage)

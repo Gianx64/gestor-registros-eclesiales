@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
                   ->nullable()
                   ->comment('Fecha de verificación de correo electrónico del usuario.');
             $table->string('password')
-                  ->comment('Contaseña hasheada del usuario.');
+                  ->comment('Contraseña hasheada del usuario.');
             $table->rememberToken()
                   ->comment('Token de recuerdo del usuario.');
             $table->timestamps();

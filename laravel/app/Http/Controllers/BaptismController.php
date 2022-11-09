@@ -128,7 +128,7 @@ class BaptismController extends Controller
 		return view('imports.importView');
 	}
 
-	public function importBaptism (Request $request) {
+	public function importBaptisms (Request $request) {
 		$file = time() . '-' . $request->file('urlBackup')->getClientOriginalName();
 
 		$import = new BaptismsImport;
@@ -138,9 +138,10 @@ class BaptismController extends Controller
 			return back()->withFailures($import->failures());
 		}
 
-		$request->file('urlBackup')->storeAs('public/app/import/baptisms', $file);
+		$request->file('urlBackup')->storeAs('public/baptismsImport', $file);
 
-		return back()->with('informacion', 'import');
+        return redirect()->route('baptisms.index')
+            ->with('success', 'Bautizos importados exitosamente.');
 	}
 
 	public function certificate(Baptism $baptism)

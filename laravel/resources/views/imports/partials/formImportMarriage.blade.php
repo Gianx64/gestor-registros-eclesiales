@@ -3,12 +3,7 @@
     <h3>Matrimonios</h3>
   </div>
   <div class="card-body">
-    {!! 
-      Form::open([
-        'route' => 'marriages.importPost',
-        'files' => true,
-      ])
-    !!}
+    {!! Form::open(['route' => 'marriages.importPost', 'files' => true,]) !!}
       {!! Form::label('urlBackup', 'Solo permite archivos .csv') !!}
       {!! Form::file('urlBackup', ['class' => 'form-control-file']) !!}
 

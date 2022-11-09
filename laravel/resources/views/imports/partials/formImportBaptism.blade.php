@@ -3,12 +3,7 @@
     <h3>Bautizos</h3>
   </div>
   <div class="card-body">
-    {!! 
-      Form::open([
-        'route' => 'baptisms.importPost',
-        'files' => true,
-      ])
-    !!}
+    {!! Form::open(['route' => 'baptisms.importPost', 'files' => true]) !!}
       {!! Form::label('urlBackup', 'Solo permite archivos .csv') !!}
       {!! Form::file('urlBackup', ['class' => 'form-control-file']) !!}
 

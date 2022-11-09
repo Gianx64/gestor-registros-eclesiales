@@ -3,12 +3,7 @@
     <h3>Confirmaciones</h3>
   </div>
   <div class="card-body">
-    {!! 
-      Form::open([
-        'route' => 'confirmations.importPost',
-        'files' => true,
-      ])
-    !!}
+    {!! Form::open(['route' => 'confirmations.importPost', 'files' => true,]) !!}
       {!! Form::label('urlBackup', 'Solo permite archivos .csv') !!}
       {!! Form::file('urlBackup', ['class' => 'form-control-file']) !!}
 

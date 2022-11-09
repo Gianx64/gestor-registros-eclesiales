@@ -55,7 +55,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('confirmations/edit/{confirmation}', [ConfirmationController::class, 'edit'])->name('confirmations.edit');
     Route::get('confirmations/pdf/{confirmation}', [ConfirmationController::class, 'certificate'])->name('confirmation.pdf');
     Route::get('confirmations/export', [ConfirmationController::class, 'exportConfirmations'])->name('confirmations.export');
-    Route::post('confirmations/import', [ConfirmationController::class, 'importConfirmations'])->name('confirmations.import');
+    Route::get('confirmations/import', [ConfirmationController::class, 'importView'])->name('confirmations.import');
+    Route::post('confirmations/importPost', [ConfirmationController::class, 'importConfirmations'])->name('confirmations.importPost');
 
     /** -------------------------------------- RUTAS BAUTIZOS --------------------------------------------- */
     Route::get('baptisms', [BaptismController::class, 'index'])->name('baptisms.index');
@@ -63,7 +64,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('baptisms/edit/{baptism}', [BaptismController::class, 'edit'])->name('baptisms.edit');
     Route::get('baptisms/pdf/{baptism}', [BaptismController::class, 'certificate'])->name('baptism.pdf');
     Route::get('baptisms/export', [BaptismController::class, 'exportBaptisms'])->name('baptisms.export');
-    Route::post('baptisms/import', [BaptismController::class, 'importBaptisms'])->name('baptisms.import');
+    Route::get('baptisms/import', [BaptismController::class, 'importView'])->name('baptisms.import');
+    Route::post('baptisms/importPost', [BaptismController::class, 'importBaptisms'])->name('baptisms.importPost');
 
     Route::apiResource('users', UserController::class); //->except('show')
     Route::apiResource('roles', RoleController::class);

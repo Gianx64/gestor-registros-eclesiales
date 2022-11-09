@@ -128,7 +128,7 @@ class ConfirmationController extends Controller
 		return view('imports.importView');
 	}
 
-	public function importConfirm (Request $request) {
+	public function importConfirmations (Request $request) {
 		$file = time() . '-' . $request->file('urlBackup')->getClientOriginalName();
 
 		$import = new ConfirmationsImport;
@@ -138,9 +138,10 @@ class ConfirmationController extends Controller
 			return back()->withFailures($import->failures());
 		}
 
-		$request->file('urlBackup')->storeAs('public/app/import/confirmations', $file);
+		$request->file('urlBackup')->storeAs('public/confirmationsImport', $file);
 
-		return back()->with('informacion', 'import');
+        return redirect()->route('confirmations.index')
+            ->with('success', 'Confirmaciones importadas exitosamente.');
 	}
 
 	public function certificate(Confirmation $confirmation)
