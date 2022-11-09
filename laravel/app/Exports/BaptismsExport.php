@@ -39,6 +39,7 @@ class BaptismsExport implements
 			'Notas',
 			'DoyFe',
 			'updated_by',
+			'deleted_at',
 			'created_at',
 			'updated_at'
 		];
@@ -69,6 +70,7 @@ class BaptismsExport implements
 			$baptism->Notas,
 			$baptism->DoyFe,
 			$baptism->updated_by,
+			$baptism->deleted_at,
 			$baptism->created_at,
 			$baptism->updated_at
 		];

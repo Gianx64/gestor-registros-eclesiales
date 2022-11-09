@@ -52,6 +52,7 @@ class MarriagesExport implements
             'Notas',
             'DoyFe',
             'updated_by',
+			'deleted_at',
 			'created_at',
 			'updated_at'
         ];
@@ -95,6 +96,7 @@ class MarriagesExport implements
             $marriage->Notas,
             $marriage->DoyFe,
             $marriage->updated_by,
+            $marriage->deleted_at,
             $marriage->created_at,
             $marriage->updated_at
         ];

@@ -41,6 +41,7 @@ class ConfirmationsExport implements
             'Notas',
             'DoyFe',
             'updated_by',
+			'deleted_at',
 			'created_at',
 			'updated_at'
         ];
@@ -73,6 +74,7 @@ class ConfirmationsExport implements
             $confirmation->Notas,
             $confirmation->DoyFe,
             $confirmation->updated_by,
+            $confirmation->deleted_at,
             $confirmation->created_at,
             $confirmation->updated_at
 		];

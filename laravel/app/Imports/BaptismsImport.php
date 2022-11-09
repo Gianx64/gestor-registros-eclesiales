@@ -14,12 +14,12 @@ use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithValidation;
 
 class BaptismsImport implements 
-	ToModel,
-	WithHeadingRow,
 	SkipsOnError,
-	WithValidation,
 	SkipsOnFailure,
-	WithBatchInserts
+	ToModel,
+	WithBatchInserts,
+	WithHeadingRow,
+	WithValidation
 {
     use Importable, SkipsErrors, SkipsFailures;
     /**
@@ -51,6 +51,7 @@ class BaptismsImport implements
             'Notas' => $row['Notas'],
             'DoyFe' => $row['DoyFe'],
             'updated_by' => $row['updated_by'],
+			'deleted_at' => $row['deleted_at'],
 			'created_at' => $row['created_at'],
 			'updated_at' => $row['updated_at']
         ]);
