@@ -69,7 +69,7 @@ class CreateBaptismsTable extends Migration
                   ->comment('Notas adicionales del bautizo.');
             $table->string('DoyFe', 60);
             $table->string('updated_by')
-                  ->comment('Nombre de usuario más reciente en manipular registro.');
+                  ->comment('Correo de usuario más reciente en manipular registro.');
             $table->softDeletes()
                   ->comment('Fecha cuando se eliminó el registro.');
             $table->timestamps();

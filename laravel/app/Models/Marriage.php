@@ -81,8 +81,7 @@ class Marriage extends Model
         'LugCel'                  => 'required|string|max:60',
         'FecCel'                  => 'required|date',
         'Parroco'                 => 'required|string|max:60',
-        'DoyFe'                   => 'required|string|max:60',
-		'updated_by' 			  => 'required',
+        'DoyFe'                   => 'required|string|max:60'
     ];
 
     static $message = [

@@ -165,7 +165,7 @@ class ConfirmationController extends Controller
 			<header>
 				<div class="container">
 					<img
-						src="../storage/app/public/utem.png" 
+						src="../../storage/app/public/utem.png" 
 						alt="Logo de la Parroquia"
 					>
 					<h1 style = "position: absolute; top: 5%; left: 30%;">Certificado de Confirmación</h1>
@@ -196,7 +196,7 @@ class ConfirmationController extends Controller
 			</section>
 			<footer>
 				<img 
-					src="../storage/app/public/sello.png" 
+					src="../../storage/app/public/sello.png" 
 					alt="Firma y/o Sello"
 				>
 			</footer>

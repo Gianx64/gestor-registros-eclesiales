@@ -5,7 +5,7 @@
 @section('content_header')
 	<div class="row">
 		<div class="col-8"> 
-			<h1>Registrar Usuario</h1>
+			<h1>Registrar Usuario (Administrador)</h1>
 		</div>
 		<div class="col">
 			<a class="btn btn-primary mr-2 float-right" href="{{ route('users.index') }}">Volver</a>
