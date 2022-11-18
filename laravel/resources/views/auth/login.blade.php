@@ -11,6 +11,7 @@
             <a class="btn btn-primary mr-2 float-right" href="{{ route('register') }}">Registrarse</a>
         </div>
     </div>
+    @include('errors')
 @stop
 
 @section('content')

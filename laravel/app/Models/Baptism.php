@@ -41,7 +41,7 @@ class Baptism extends Model
 	use SoftDeletes;
     
     static $rules = [
-        'Rut'               => ['required','string','max:20','regex:/^([1-9]|[1-9][0-9]).([0-9]){3}.([0-9]){3}-([K]|[0-9])/'],
+        'Rut'               => ['unique:baptisms','required','string','max:20','regex:/^([1-9]|[1-9][0-9]).([0-9]){3}.([0-9]){3}-([K]|[0-9])/'],
         'NumLibro'          => 'numeric|min:0|integer',
         'NumPag'            => 'numeric|min:0|integer',
         'Nombres'           => 'required|string|max:60',
@@ -67,7 +67,7 @@ class Baptism extends Model
         'Rut.required' => 'El rut es un campo obligatorio',
         'Rut.string'   => 'El rut debe de ser una cadena de caracteres',
         'Rut.max'      => 'El campo rut es muy largo',
-        //'Rut.unique'   => 'El rut ingresado ya existe',
+        'Rut.unique'   => 'El rut ingresado ya existe',
         'Rut.regex'    => 'El Rut ingresado no es valido, ejemplo Rut valido: 1.111.111-1 o 11.111.111-K',
 
         //'NumLibro.required' => 'El número de libro es requerido',

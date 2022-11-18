@@ -56,7 +56,7 @@ class Marriage extends Model
     static $rules = [
         'Parroquia'               => 'required|string|max:60',
         'Impedimiento'            => 'required|string|max:60',
-        'RutEsposo'               => ['required','string','max:20','regex:/^([1-9]|[1-9][0-9]).([0-9]){3}.([0-9]){3}-([K]|[0-9])/'],
+        'RutEsposo'               => ['unique:marriages','required','string','max:20','regex:/^([1-9]|[1-9][0-9]).([0-9]){3}.([0-9]){3}-([K]|[0-9])/'],
         'ApellidoPaternoEsposo'   => 'required|string|max:60',
         'ApellidoMaternoEsposo'   => 'required|string|max:60',
         'EstadoEsposo'            => 'required|string|max:60',
@@ -66,7 +66,7 @@ class Marriage extends Model
         'ParroquiaBautismoEsposo' => 'required|string|max:60',
         'NumLibroBautismoEsposo'  => 'required|numeric|integer',
         'NumPagBautismoEsposo'    => 'required|numeric|integer',
-        'RutEsposa'               => ['required','string','max:20','regex:/^([1-9]|[1-9][0-9]).([0-9]){3}.([0-9]){3}-([K]|[0-9])/'],
+        'RutEsposa'               => ['unique:marriages','required','string','max:20','regex:/^([1-9]|[1-9][0-9]).([0-9]){3}.([0-9]){3}-([K]|[0-9])/'],
         'ApellidoPaternoEsposa'   => 'required|string|max:60',
         'ApellidoMaternoEsposa'   => 'required|string|max:60',
         'EstadoEsposa'            => 'required|string|max:60',

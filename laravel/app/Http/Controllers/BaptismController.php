@@ -99,7 +99,8 @@ class BaptismController extends Controller
      */
     public function update(Request $request, Baptism $baptism)
     {
-        request()->validate(Baptism::$rules, Baptism::$message);
+        request()->validate(array_slice(Baptism::$rules, 1), Baptism::$message);
+        request()->validate(['Rut' => ['required','string','max:20','regex:/^([1-9]|[1-9][0-9]).([0-9]){3}.([0-9]){3}-([K]|[0-9])/']], Baptism::$message);
 
         $baptism->update($request->all());
 

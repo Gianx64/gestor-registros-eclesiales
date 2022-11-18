@@ -99,7 +99,8 @@ class MarriageController extends Controller
      */
     public function update(Request $request, Marriage $marriage)
     {
-        request()->validate(Marriage::$rules, Marriage::$message);
+        request()->validate(array_slice(Marriage::$rules, 1), Marriage::$message);
+        request()->validate(['Rut' => ['required','string','max:20','regex:/^([1-9]|[1-9][0-9]).([0-9]){3}.([0-9]){3}-([K]|[0-9])/']], Marriage::$message);
 
         $marriage->update($request->all());
 

@@ -43,7 +43,7 @@ class Confirmation extends Model
 	use SoftDeletes;
     
     static $rules = [
-        'Rut'               => ['required','string','max:20','regex:/^([1-9]|[1-9][0-9]).([0-9]){3}.([0-9]){3}-([K]|[0-9])/'],
+        'Rut'               => ['unique:confirmations','required','string','max:20','regex:/^([1-9]|[1-9][0-9]).([0-9]){3}.([0-9]){3}-([K]|[0-9])/'],
         'NumLibro'          => 'max:11', 
         'NumPag'            => 'max:11',
         'Nombres'           => 'required|string|max:60',
@@ -70,7 +70,7 @@ class Confirmation extends Model
     static $message = [
         'Rut.required' => 'El Rut del Confirmado es requerido',
         'Rut.max'      => 'El campo Rut del Confirmado es muy largo',
-        //'Rut.unique'   => 'El Rut ingresado ya existe',
+        'Rut.unique'   => 'El Rut ingresado ya existe',
         'Rut.regex'    => 'El Rut ingresado no es valido, ejemplo Rut valido: 1.111.111-1 o 11.111.111-K',
 
         //'NumLibro.required' => 'El Numero de Libro es requerido',
