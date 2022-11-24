@@ -7,6 +7,7 @@ use App\Imports\ConfirmationsImport;
 use App\Models\Confirmation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Excel;
 
 /**
@@ -148,61 +149,7 @@ class ConfirmationController extends Controller
 	public function certificate(Confirmation $confirmation)
     {
 		$pdf = App::make('dompdf.wrapper');
-		$certificate = '<!DOCTYPE html>
-		<html lang="en">
-		<head>
-			<meta charset="UTF-8">
-			<meta name="viewport" content="width=device-width, initial-scale=1.0">
-			<meta http-equiv="X-UA-Compatible" content="ie=edge">
-			<title>Certificado de Confirmación</title>
-			<style>
-				img {
-					max-width: 20%;
-					height: auto;	
-				}
-			</style>
-		</head>
-		<body>
-			<header>
-				<div class="container">
-					<img
-						src="../../storage/app/public/utem.png" 
-						alt="Logo de la Parroquia"
-					>
-					<h1 style = "position: absolute; top: 5%; left: 30%;">Certificado de Confirmación</h1>
-					<hr>
-				</div>
-			</header>
-			<section>
-                <ul>
-                    <li>Número libro: #NumerodeLibro</li>
-                    <li>Número de página: #NumerodePagina</li>
-                    <li>Lugar de celebración: #LugardeCelebracion</li>
-                    <li>Celebrante: #Celebrante</li>
-                    <li>Fecha de celenbración: #FechadeCelebracion</li>
-                    <li>Confirmado: #Confirmado</li>
-                    <li>Apellido paterno: #ApellidoPaterno</li>
-                    <li>Apellido materno: #ApellidoMaterno</li>
-                    <li>Rut: #RutConfirmado</p></li>
-                    <li>Padre del confirmado: #PapaNombre #PapaApellido</li>
-                    <li>Madre del confirmado: #MamaNombre #MamaApellido</li>
-                    <li>Lugar de bautizo: #LugardeBautizo</li>
-                    <li>Fecha de bautizo: #FechadeBautizo</li>
-                    <li>Número de libro de bautizo: #NumeroLibroBautizo</li>
-                    <li>Página de libro de bautizo: #NumeroPaginaBautizo</li>
-                    <li>Notas: #Notas</li>
-                    <li>Doy fe: #DoyFe</li>
-                    <li>Parroco: #Parroco</li>	
-                </ul>
-			</section>
-			<footer>
-				<img 
-					src="../../storage/app/public/sello.png" 
-					alt="Firma y/o Sello"
-				>
-			</footer>
-		</body>
-		</html>';
+		$certificate = DB::table('certificates')->where('Nombre', 'confirmation')->value('Codigo');
 		$search = array(
 			'#NumerodeLibro',
 			'#NumerodePagina',

@@ -1,10 +1,13 @@
 <?php
 
-use App\Http\Controllers\BaptismController;
-use App\Http\Controllers\ConfirmationController;
-use App\Http\Controllers\MarriageController;
-use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\MarriageController;
+use App\Http\Controllers\ConfirmationController;
+use App\Http\Controllers\BaptismController;
+use App\Http\Controllers\CertificateController;
+use App\Http\Controllers\ChapelController;
+use App\Http\Controllers\ParishPriestController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -17,9 +20,6 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-Route::get('/', function () {
-    return view('welcome');
-});
 */
 
 // Rutas publicas
@@ -39,6 +39,21 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('roles', [RoleController::class, 'index'])->name('roles.index');
     Route::get('roles/create', [RoleController::class, 'create'])->name('roles.create');
     Route::get('roles/edit/{role}', [RoleController::class, 'edit'])->name('roles.edit');
+
+    /** -------------------------------------- RUTAS CERTIFICADOS --------------------------------------------- */
+    Route::get('certificates', [CertificateController::class, 'index'])->name('certificates.index');
+    Route::get('certificates/create', [CertificateController::class, 'create'])->name('certificates.create');
+    Route::get('certificates/edit/{certificate}', [CertificateController::class, 'edit'])->name('certificates.edit');
+
+    /** -------------------------------------- RUTAS CAPILLAS --------------------------------------------- */
+    Route::get('chapels', [ChapelController::class, 'index'])->name('chapels.index');
+    Route::get('chapels/create', [ChapelController::class, 'create'])->name('chapels.create');
+    Route::get('chapels/edit/{certificate}', [ChapelController::class, 'edit'])->name('chapels.edit');
+
+    /** -------------------------------------- RUTAS PARROCOS --------------------------------------------- */
+    Route::get('parishpriests', [ParishPriestController::class, 'index'])->name('parishpriests.index');
+    Route::get('parishpriests/create', [ParishPriestController::class, 'create'])->name('parishpriests.create');
+    Route::get('parishpriests/edit/{certificate}', [ParishPriestController::class, 'edit'])->name('parishpriests.edit');
 
     /** -------------------------------------- RUTAS MATRIMONIOS ------------------------------------------ */
     Route::get('marriages', [MarriageController::class, 'index'])->name('marriages.index');
@@ -69,6 +84,9 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     Route::apiResource('users', UserController::class); //->except('show')
     Route::apiResource('roles', RoleController::class);
+    Route::apiResource('certificates', CertificateController::class);
+    Route::apiResource('chapels', ChapelController::class);
+    Route::apiResource('parishpriests', ParishPriestController::class);
     Route::apiResource('marriages', MarriageController::class);
     Route::apiResource('confirmations', ConfirmationController::class);
     Route::apiResource('baptisms', BaptismController::class);
