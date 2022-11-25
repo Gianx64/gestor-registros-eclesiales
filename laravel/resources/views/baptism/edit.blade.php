@@ -17,17 +17,13 @@
     <section class="content container-fluid">
         <div class="">
             <div class="col-md-12">
-
-                @includeif('partials.errors')
-
+                @includeif('errors')
                 <div class="card card-default">
                     <div class="card-body">
                         {!! Form::model($baptism, ['route' => ['baptisms.update', $baptism], 
                             'method' => 'put', 'autocomplete' => 'off']) !!}
                             @csrf
-                            @include('errors')
                             @include('baptism.form')
-                            {{-- Guardar el nombre del usaurio que modifica el registro --}}
                             {!! Form::hidden('updated_by', auth()->user()->email) !!}
                             {!! Form::submit('Actualizar Registro', ['class' => 'btn btn-primary']) !!}
                         {!! Form::close() !!}

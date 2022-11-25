@@ -112,7 +112,7 @@ class Marriage extends Model
         'RutEsposo.max'      => 'El campo rut del esposo es muy largo',
         'RutEsposo.string'   => 'El rut del esposo debe de ser una cadena de caracteres',
         'RutEsposo.unique'   => 'El rut del esposo ingresado ya existe',
-        'RutEsposo.regex'    => 'El Rut ingresado no es valido, ejemplo Rut valido: 11.111.111-1 o 11.111.111-K',
+        'RutEsposo.regex'    => 'El Rut ingresado no es válido, ejemplo Rut valido: 11.111.111-1 o 11.111.111-K',
 
         'ApellidoPaternoEsposo.required' => 'El apellido paterno del esposo es requerido',
         'ApellidoPaternoEsposo.max'      => 'El campo apellido paterno del esposo es muy largo',
@@ -152,7 +152,7 @@ class Marriage extends Model
         'RutEsposa.max'      => 'El campo rut de la esposa es muy largo',
         'RutEsposa.string'   => 'El rut de la esposa debe de ser una cadena de caracteres',
         'RutEsposa.unique'   => 'El rut de la esposa ingresado ya existe',
-        'RutEsposa.regex'    => 'El Rut ingresado no es valido, ejemplo Rut valido: 11.111.111-1 o 11.111.111-K',
+        'RutEsposa.regex'    => 'El Rut ingresado no es válido, ejemplo Rut valido: 11.111.111-1 o 11.111.111-K',
 
         'ApellidoPaternoEsposa.required' => 'El apellido paterno de la esposa es requerido',
         'ApellidoPaternoEsposa.max'      => 'El campo apellido paterno de la esposa es muy largo',

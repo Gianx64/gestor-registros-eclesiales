@@ -17,13 +17,12 @@
     <section class="content container-fluid">
         <div class="row">
             <div class="col-md-12">
+                @includeif('errors')
                 <div class="card card-default">
                     <div class="card-body">
                         {!! Form::open(['route' => 'confirmations.store', 'autocomplete' => 'off']) !!}
                             @csrf
-                            @include('errors')
                             @include('confirmation.form')
-                            {{-- Guardar el nombre del usaurio que modifica el registro --}}
                             {!! Form::hidden('updated_by', auth()->user()->email) !!}
                             {!! Form::submit('Agregar Registro', ['class' => 'btn btn-primary']) !!}
                         {!! Form::close() !!}

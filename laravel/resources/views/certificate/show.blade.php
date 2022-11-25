@@ -27,7 +27,6 @@
                             <strong>Codigo:</strong>
                             {{ $certificate->Codigo }}
                         </div>
-
                     </div>
                 </div>
             </div>

@@ -21,6 +21,8 @@ class CreateChapelsTable extends Migration
             $table->string('Direccion', 60)
                   ->nullable()
                   ->comment('Dirección de la capilla.');
+            $table->string('updated_by')
+                  ->comment('Correo de usuario más reciente en manipular registro.');
             $table->timestamps();
         });
     }

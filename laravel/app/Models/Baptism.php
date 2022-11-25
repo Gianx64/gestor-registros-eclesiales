@@ -68,7 +68,7 @@ class Baptism extends Model
         'Rut.string'   => 'El rut debe de ser una cadena de caracteres',
         'Rut.max'      => 'El campo rut es muy largo',
         'Rut.unique'   => 'El rut ingresado ya existe',
-        'Rut.regex'    => 'El Rut ingresado no es valido, ejemplo Rut valido: 1.111.111-1 o 11.111.111-K',
+        'Rut.regex'    => 'El Rut ingresado no es válido, ejemplo Rut valido: 1.111.111-1 o 11.111.111-K',
 
         //'NumLibro.required' => 'El número de libro es requerido',
         'NumLibro.numeric'  => 'El valor debe ser un número',

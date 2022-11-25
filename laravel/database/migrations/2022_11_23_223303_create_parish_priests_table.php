@@ -18,7 +18,7 @@ class CreateParishPriestsTable extends Migration
             $table->string('Rut', 20)
                   ->unique()
                   ->comment('Rut del párroco.');
-            $table->string('Parroco', 60)
+            $table->string('Nombre', 60)
                   ->comment('Nombre completo del párroco.');
             $table->string('updated_by')
                   ->comment('Correo de usuario más reciente en manipular registro.');
