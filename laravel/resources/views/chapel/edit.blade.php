@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
-@section('title', 'Editar Certificado')
+@section('title', 'Editar Capilla')
 
 @section('content_header')
     <div class="row">
         <div class="col-8"> 
-            <h1>Editar Certificado</h1>
+            <h1>Editar Capilla</h1>
         </div>
         <div class="col">
-            <a class="btn btn-primary mr-2 float-right" href="{{ route('certificates.index') }}">Volver</a>
+            <a class="btn btn-primary mr-2 float-right" href="{{ route('chapels.index') }}">Volver</a>
         </div>
     </div>
 @stop
@@ -20,10 +20,10 @@
                 @includeif('errors')
                 <div class="card card-default">
                     <div class="card-body">
-                        {!! Form::model($certificate, ['route' => ['certificates.update', $certificate], 
+                        {!! Form::model($certificate, ['route' => ['chapels.update', $chapel], 
                             'method' => 'put', 'autocomplete' => 'off']) !!}
                             @csrf
-                            @include('certificate.form')
+                            @include('chapel.form')
                             {!! Form::hidden('updated_by', auth()->user()->email) !!}
                             {!! Form::submit('Actualizar Registro', ['class' => 'btn btn-primary']) !!}
                         {!! Form::close() !!}

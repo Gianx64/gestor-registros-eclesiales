@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Exports\BaptismsExport;
 use App\Imports\BaptismsImport;
+use App\Models\Chapel;
 use App\Models\Baptism;
+use App\Models\ParishPriest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
@@ -46,7 +48,10 @@ class BaptismController extends Controller
     public function create()
     {
         $baptism = new Baptism();
-        return view('baptism.create', compact('baptism'));
+        $chapels = Chapel::all();
+        $parishpriests = ParishPriest::all();
+
+        return view('baptism.create', compact('baptism', 'chapels', 'parishpriests'));
     }
 
     /**
@@ -87,8 +92,10 @@ class BaptismController extends Controller
     public function edit($id)
     {
         $baptism = Baptism::find($id);
+        $chapels = Chapel::all();
+        $parishpriests = ParishPriest::all()->pluck('Nombre', 'Nombre');
 
-        return view('baptism.edit', compact('baptism'));
+        return view('baptism.edit', compact('baptism', 'chapels', 'parishpriests'));
     }
 
     /**

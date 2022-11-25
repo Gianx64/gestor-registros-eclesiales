@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Exports\MarriagesExport;
 use App\Imports\MarriagesImport;
+use App\Models\Chapel;
 use App\Models\Marriage;
+use App\Models\ParishPriest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
@@ -46,7 +48,10 @@ class MarriageController extends Controller
     public function create()
     {
         $marriage = new Marriage();
-        return view('marriage.create', compact('marriage'));
+        $chapels = Chapel::all();
+        $parishpriests = ParishPriest::all();
+
+        return view('marriage.create', compact('marriage', 'chapels', 'parishpriests'));
     }
 
     /**
@@ -87,8 +92,10 @@ class MarriageController extends Controller
     public function edit($id)
     {
         $marriage = Marriage::find($id);
+        $chapels = Chapel::all();
+        $parishpriests = ParishPriest::all();
 
-        return view('marriage.edit', compact('marriage'));
+        return view('marriage.edit', compact('marriage', 'chapels', 'parishpriests'));
     }
 
     /**

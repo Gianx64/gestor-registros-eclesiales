@@ -14,9 +14,9 @@ return [
     |
     */
 
-    'title' => 'Parroquia San Vicente de Paúl',
+    'title' => '',
     'title_prefix' => '',
-    'title_postfix' => '',
+    'title_postfix' => ' | Parroquia San Vicente de Paúl',
 
     /*
     |--------------------------------------------------------------------------
@@ -334,61 +334,64 @@ return [
             'active' => ['roles/*']
         ],
         [
-            'text'    => 'Registros Eclesiales',
+            'text' => 'Lista de Certificados',
+            'route' => 'certificates.index',
+            'icon' => 'fas fa-scroll fa-fw',
+            'can' => 'certificates.index',
+            'active' => ['certificates/*']
+        ],
+        [
+            'text' => 'Lista de Capillas',
+            'route' => 'chapels.index',
+            'icon' => 'fas fa-place-of-worship fa-fw',
+            'can' => 'chapels.index',
+            'active' => ['chapels/*']
+        ],
+        [
+            'text' => 'Lista de Párrocos',
+            'route' => 'parishpriests.index',
+            'icon' => 'fas fa-hand-paper fa-fw',
+            'can' => 'parishpriests.index',
+            'active' => ['parishpriest/*']
+        ],
+        ['header' => 'Listas de Registros Eclesiales', 'can' => 'baptisms.index'],
+        [
+            'text' => 'Lista de Matrimonios',
+            'icon' => 'fas fa-venus-mars fa-fw',
+            'route' => 'marriages.index',
+            'can' => 'marriages.index',
+        ],
+        [
+            'text' => 'Lista de Confirmaciones',
+            'icon' => 'fas fa-cross fa-fw',
+            'route' => 'confirmations.index',
+            'can' => 'confirmations.index',
+        ],
+        [
+            'text' => 'Lista de Bautizos',
             'icon'    => 'fas fa-fw fa-bible',
+            'route' => 'baptisms.index',
+            'can' => 'baptisms.index',
+        ],
+        [
+            'text'    => 'Crear Registro Eclesial',
+            'icon'    => 'fas fa-fw fa-cross',
             'can' => 'marriages.index',
             'submenu' => [
                 [
-                    'text'    => 'Matrimonios',
-                    'icon' => 'fas fa-venus-mars fa-fw',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'Crear Nuevo Registro',
-                            'url'     => 'marriages/create',
-                            'can' => 'marriages.create',
-                        ],
-                        [
-                            'text' => 'Lista de Registros',
-                            'url'     => 'marriages',
-                            'can' => 'marriages.index',
-                        ],
-                    ],
+                    'text' => 'Nuevo Matrimonio',
+                    'route' => 'marriages.create',
+                    'can' => 'marriages.create',
                 ],
                 [
-                    'text'    => 'Confirmaciones',
-                    'icon' => 'fas fa-cross fa-fw',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'Crear Nuevo Registro',
-                            'url' => 'confirmations/create',
-                            'can' => 'confirmations.create',
-                        ],
-                        [
-                            'text' => 'Lista de Registros',
-                            'url' => 'confirmations',
-                            'can' => 'confirmations.index',
-                        ],
-                    ],
+                    'text' => 'Nueva Confirmación',
+                    'route' => 'confirmations.create',
+                    'can' => 'confirmations.create',
                 ],
                 [
-                    'text'    => 'Bautizos',
-                    'icon' => 'fas fa-fw fa-share',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'Crear Nuevo Registro',
-                            'url' => 'baptisms/create',
-                            'can' => 'baptisms.create',
-                        ],
-                        [
-                            'text' => 'Lista de Registros',
-                            'url' => 'baptisms',
-                            'can' => 'baptisms.index',
-
-                        ],
-                    ],
+                    'text' => 'Nuevo Bautizo',
+                    'route' => 'baptisms.create',
+                    'can' => 'baptisms.create',
                 ],
             ],
         ],

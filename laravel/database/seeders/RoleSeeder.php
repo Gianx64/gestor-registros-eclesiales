@@ -63,6 +63,71 @@ class RoleSeeder extends Seeder
 			'name' => 'roles.destroy',
 			'description' => 'Eliminar roles'])
 		->syncRoles([$role1]);
+
+		// ----------------------- Certificados ----------------------------
+		Permission::create([
+			'name' => 'certificates.index',
+			'description' => 'Ver lista de certificados'])
+		->syncRoles([$role1]);
+
+		Permission::create([
+			'name' => 'certificates.create',
+			'description' => 'Crear nuevos certificados'])
+		->syncRoles([$role1]);
+
+		Permission::create([
+			'name' => 'certificates.edit',
+			'description' => 'Editar certificados'])
+		->syncRoles([$role1]);
+
+		Permission::create([
+			'name' => 'certificates.destroy',
+			'description' => 'Eliminar certificados'])
+		->syncRoles([$role1]);
+
+
+		// ----------------------- Capillas ----------------------------
+		Permission::create([
+			'name' => 'chapels.index',
+			'description' => 'Ver lista de capillas'])
+		->syncRoles([$role1]);
+
+		Permission::create([
+			'name' => 'chapels.create',
+			'description' => 'Crear nuevas capillas'])
+		->syncRoles([$role1]);
+
+		Permission::create([
+			'name' => 'chapels.edit',
+			'description' => 'Editar capillas'])
+		->syncRoles([$role1]);
+
+		Permission::create([
+			'name' => 'chapels.destroy',
+			'description' => 'Eliminar capillas'])
+		->syncRoles([$role1]);
+
+
+		// ----------------------- Párrocos ----------------------------
+		Permission::create([
+			'name' => 'parishpriests.index',
+			'description' => 'Ver lista de párrocos'])
+		->syncRoles([$role1]);
+
+		Permission::create([
+			'name' => 'parishpriests.create',
+			'description' => 'Crear nuevos párrocos'])
+		->syncRoles([$role1]);
+
+		Permission::create([
+			'name' => 'parishpriests.edit',
+			'description' => 'Editar párrocos'])
+		->syncRoles([$role1]);
+
+		Permission::create([
+			'name' => 'parishpriests.destroy',
+			'description' => 'Eliminar párrocos'])
+		->syncRoles([$role1]);
 		
 		// ----------------------- Matrimonios ----------------------------
 		Permission::create([
@@ -93,6 +158,11 @@ class RoleSeeder extends Seeder
 		Permission::create([
 			'name' => 'marriages.export',
 			'description' => 'Exportar registros de matrimonios'
+		])->syncRoles([$role1, $role2]);
+
+		Permission::create([
+			'name' => 'marriages.import',
+			'description' => 'Importar registros de matrimonios'
 		])->syncRoles([$role1, $role2]);
 
 		// ----------------------- Confirmaciones ----------------------------
@@ -126,6 +196,11 @@ class RoleSeeder extends Seeder
 			'description' => 'Exportar registros de confirmaciones'
 		])->syncRoles([$role1, $role2]);
 
+		Permission::create([
+			'name' => 'confirmations.import',
+			'description' => 'Importar registros de confirmaciones'
+		])->syncRoles([$role1, $role2]);
+
 		// ----------------------- Bautizos ----------------------------
 		Permission::create([
 			'name' => 'baptisms.index',
@@ -155,6 +230,11 @@ class RoleSeeder extends Seeder
 		Permission::create([
 			'name' => 'baptisms.export',
 			'description' => 'Exportar registros de bautizos'
+		])->syncRoles([$role1, $role2]);
+
+		Permission::create([
+			'name' => 'baptisms.import',
+			'description' => 'Importar registros de bautizos'
 		])->syncRoles([$role1, $role2]);
     }
 }

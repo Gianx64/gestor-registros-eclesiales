@@ -71,7 +71,7 @@ class Confirmation extends Model
         'Rut.required' => 'El Rut del Confirmado es requerido',
         'Rut.max'      => 'El campo Rut del Confirmado es muy largo',
         'Rut.unique'   => 'El Rut ingresado ya existe',
-        'Rut.regex'    => 'El Rut ingresado no es valido, ejemplo Rut valido: 1.111.111-1 o 11.111.111-K',
+        'Rut.regex'    => 'El Rut ingresado no es válido, ejemplo Rut valido: 1.111.111-1 o 11.111.111-K',
 
         //'NumLibro.required' => 'El Numero de Libro es requerido',
         'NumLibro.numeric'  => 'El valor debe ser un número',

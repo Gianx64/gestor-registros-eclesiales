@@ -11,6 +11,13 @@ use Illuminate\Http\Request;
  */
 class CertificateController extends Controller
 {
+	public function __construct() {
+		$this->middleware('can:certificates.index')->only('index', 'show');
+		$this->middleware('can:certificates.edit')->only('edit', 'update');
+		$this->middleware('can:certificates.create')->only('create', 'store');
+		$this->middleware('can:certificates.destroy')->only('destroy');
+	}
+
     /**
      * Display a listing of the resource.
      *

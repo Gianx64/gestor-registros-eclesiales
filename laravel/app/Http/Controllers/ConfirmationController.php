@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Exports\ConfirmationsExport;
 use App\Imports\ConfirmationsImport;
+use App\Models\Chapel;
 use App\Models\Confirmation;
+use App\Models\ParishPriest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
@@ -46,7 +48,10 @@ class ConfirmationController extends Controller
     public function create()
     {
         $confirmation = new Confirmation();
-        return view('confirmation.create', compact('confirmation'));
+        $chapels = Chapel::all();
+        $parishpriests = ParishPriest::all();
+
+        return view('confirmation.create', compact('confirmation', 'chapels', 'parishpriests'));
     }
 
     /**
@@ -87,8 +92,10 @@ class ConfirmationController extends Controller
     public function edit($id)
     {
         $confirmation = Confirmation::find($id);
+        $chapels = Chapel::all();
+        $parishpriests = ParishPriest::all();
 
-        return view('confirmation.edit', compact('confirmation'));
+        return view('confirmation.edit', compact('confirmation', 'chapels', 'parishpriests'));
     }
 
     /**
