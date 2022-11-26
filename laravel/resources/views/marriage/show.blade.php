@@ -45,14 +45,14 @@
 					<td>{{$marriage->FecCel}}</td>
 				</tr>
 			</table>				
-			{{-- Impedimiento y Celebrante --}}
+			{{-- Impedimento y Celebrante --}}
 			<table class="table table-bordered mb-4">
 				<tr>
-					<th>Impedimiento</th>
+					<th>Impedimento</th>
 					<th>Celebrante</th>
 				</tr>
 				<tr>
-					<td>{{$marriage->Impedimiento}}</td>
+					<td>{{$marriage->Impedimento}}</td>
 					<td>{{$marriage->Celebrante}}</td>
 				</tr>
 			</table>

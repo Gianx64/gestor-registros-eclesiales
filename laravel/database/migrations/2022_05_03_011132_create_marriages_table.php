@@ -26,7 +26,7 @@ class CreateMarriagesTable extends Migration
                   ->comment('Número de página del matrimonio.');
             $table->string('Parroquia', 60)
                   ->comment('Nombre de parroquia que registró el matrimonio.');
-            $table->string('Impedimiento', 60)
+            $table->string('Impedimento', 60)
                   ->comment('Impedimento del matrimonio.');
             $table->string('RutEsposo', 20)
                   ->unique()

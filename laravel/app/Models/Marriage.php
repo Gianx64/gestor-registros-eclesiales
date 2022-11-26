@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property $NumLibro
  * @property $NumPag
  * @property $Parroquia
- * @property $Impedimiento
+ * @property $Impedimento
  * @property $RutEsposo
  * @property $NombresEsposo
  * @property $ApellidoPaternoEsposo
@@ -55,7 +55,7 @@ class Marriage extends Model
     
     static $rules = [
         'Parroquia'               => 'required|string|max:60',
-        'Impedimiento'            => 'required|string|max:60',
+        'Impedimento'            => 'required|string|max:60',
         'RutEsposo'               => ['unique:marriages','required','string','max:20','regex:/^([1-9]|[1-9][0-9]).([0-9]){3}.([0-9]){3}-([K]|[0-9])/'],
         'ApellidoPaternoEsposo'   => 'required|string|max:60',
         'ApellidoMaternoEsposo'   => 'required|string|max:60',
@@ -104,9 +104,9 @@ class Marriage extends Model
         'FecCel.required' => 'La fecha de celebración es requerida',
         'FecCel.date'     => 'La fecha de celebración debe de ser de tipo Date',
         
-        'Impedimiento.required' => 'El impedimiento es requerido',
-        'Impedimiento.max'      => 'El campo impedimiento es requerido',
-        'Impedimiento.string'   => 'El impedimiento debe ser una cadena de caracteres',
+        'Impedimento.required' => 'El impedimiento es requerido',
+        'Impedimento.max'      => 'El campo impedimiento es requerido',
+        'Impedimento.string'   => 'El impedimiento debe ser una cadena de caracteres',
         
         'RutEsposo.required' => 'El rut del esposo es requerido',
         'RutEsposo.max'      => 'El campo rut del esposo es muy largo',
@@ -214,7 +214,7 @@ class Marriage extends Model
      *
      * @var array
      */
-    protected $fillable = ['NumLibro','NumPag','Parroquia','Impedimiento','Celebrante','RutEsposo','NombresEsposo','ApellidoPaternoEsposo','ApellidoMaternoEsposo','EstadoEsposo','PapaNombresEsposo','MamaNombresEsposo','EdadEsposo','ParroquiaBautismoEsposo','NumLibroBautismoEsposo','NumPagBautismoEsposo','RutEsposa','NombresEsposa','ApellidoPaternoEsposa','ApellidoMaternoEsposa','EstadoEsposa','PapaNombresEsposa','MamaNombresEsposa','EdadEsposa','ParroquiaBautismoEsposa','NumLibroBautismoEsposa','NumPagBautismoEsposa','SiendoTestigo','LugCel','FecCel','Parroco','Notas','DoyFe','updated_by'];
+    protected $fillable = ['NumLibro','NumPag','Parroquia','Impedimento','Celebrante','RutEsposo','NombresEsposo','ApellidoPaternoEsposo','ApellidoMaternoEsposo','EstadoEsposo','PapaNombresEsposo','MamaNombresEsposo','EdadEsposo','ParroquiaBautismoEsposo','NumLibroBautismoEsposo','NumPagBautismoEsposo','RutEsposa','NombresEsposa','ApellidoPaternoEsposa','ApellidoMaternoEsposa','EstadoEsposa','PapaNombresEsposa','MamaNombresEsposa','EdadEsposa','ParroquiaBautismoEsposa','NumLibroBautismoEsposa','NumPagBautismoEsposa','SiendoTestigo','LugCel','FecCel','Parroco','Notas','DoyFe','updated_by'];
 
 
 

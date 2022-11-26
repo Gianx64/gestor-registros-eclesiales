@@ -14,8 +14,8 @@
 			{!! Form::date('FecCel', null, ['class' => 'form-control']) !!}
 		</div>
 		<div class="col-6">
-			{!! Form::label('Impedimiento', 'Impedimiento') !!}
-			{!! Form::text('Impedimiento', null, ['class' => 'form-control']) !!}
+			{!! Form::label('Impedimento', 'Impedimento') !!}
+			{!! Form::text('Impedimento', null, ['class' => 'form-control']) !!}
 		</div>
 	</div>
 </div>  
