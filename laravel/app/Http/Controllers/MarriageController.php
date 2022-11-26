@@ -25,6 +25,7 @@ class MarriageController extends Controller
 		$this->middleware('can:marriages.show')->only('show','certificate');
 		$this->middleware('can:marriages.destroy')->only('destroy');
 		$this->middleware('can:marriages.export')->only('exportMarriages');
+		$this->middleware('can:marriages.import')->only('importView', 'importMarriages');
 	}
 
     /**
@@ -49,7 +50,7 @@ class MarriageController extends Controller
     {
         $marriage = new Marriage();
         $chapels = Chapel::all();
-        $parishpriests = ParishPriest::all();
+        $parishpriests = ParishPriest::all()->pluck('Nombre', 'Nombre');
 
         return view('marriage.create', compact('marriage', 'chapels', 'parishpriests'));
     }
@@ -93,7 +94,7 @@ class MarriageController extends Controller
     {
         $marriage = Marriage::find($id);
         $chapels = Chapel::all();
-        $parishpriests = ParishPriest::all();
+        $parishpriests = ParishPriest::all()->pluck('Nombre', 'Nombre');
 
         return view('marriage.edit', compact('marriage', 'chapels', 'parishpriests'));
     }
@@ -156,46 +157,46 @@ class MarriageController extends Controller
 	public function certificate(Marriage $marriage)
     {
 		$pdf = App::make('dompdf.wrapper');
-		$certificate = DB::table('certificates')->where('Nombre', 'marriage')->value('Codigo');
+		$certificate = DB::table('certificates')->where('Nombre', 'matrimonio')->value('Codigo');
 		$search = array(
-			"#LugCel",
-			"#FecCel",
-			"#Impedimiento",
-			"#Celebrante",
-			"#NombresEsposo",
-			"#ApellidoPaternoEsposo",
-			"#ApellidoMaternoEsposo",
-			"#RutEsposo",
-			"#EstadoEsposo",
-			"#EdadEsposo",
-			"#PapaNombresEsposo",
-			"#MamaNombresEsposo",
-			"#ParroquiaBautismoEsposo",
-			"#NumLibroBautismoEsposo",
-			"#NumPagBautismoEsposo",
-			"#NombresEsposa",
-			"#ApellidoPaternoEsposa",
-			"#ApellidoMaternoEsposa",
-			"#RutEsposa",
-			"#EstadoEsposa",
-			"#EdadEsposa",
-			"#PapaNombresEsposa",
-			"#MamaNombresEsposa",
-			"#ParroquiaBautismoEsposa",
-			"#NumLibroBautismoEsposa",
-			"#NumPagBautismoEsposa",
-			"#SiendoTestigo",
-			"#Notas",
-			"#Parroco",
-			"#DoyFe",
-			"#Parroquia",
-			"#NumLibro",
-			"#NumPag",
+			'#LugardeCelebracion',
+			'#FechadeCelebracion',
+			'#Impedimento',
+			'#Celebrante',
+			'#NombresEsposo',
+			'#ApellidoPaternoEsposo',
+			'#ApellidoMaternoEsposo',
+			'#RutEsposo',
+			'#EstadoEsposo',
+			'#EdadEsposo',
+			'#PapaNombresEsposo',
+			'#MamaNombresEsposo',
+			'#ParroquiaBautismoEsposo',
+			'#NumLibroBautismoEsposo',
+			'#NumPagBautismoEsposo',
+			'#NombresEsposa',
+			'#ApellidoPaternoEsposa',
+			'#ApellidoMaternoEsposa',
+			'#RutEsposa',
+			'#EstadoEsposa',
+			'#EdadEsposa',
+			'#PapaNombresEsposa',
+			'#MamaNombresEsposa',
+			'#ParroquiaBautismoEsposa',
+			'#NumLibroBautismoEsposa',
+			'#NumPagBautismoEsposa',
+			'#SiendoTestigo',
+			'#Notas',
+			'#Parroco',
+			'#DoyFe',
+			'#Parroquia',
+			'#NumLibro',
+			'#NumPag',
 		);
 		$replace = array(
 			$marriage->LugCel,
 			$marriage->FecCel,
-			$marriage->Impedimiento,
+			$marriage->Impedimento,
 			$marriage->Celebrante,
 			$marriage->NombresEsposo,
 			$marriage->ApellidoPaternoEsposo,

@@ -25,6 +25,7 @@ class ConfirmationController extends Controller
 		$this->middleware('can:confirmations.show')->only('show','certificate');
 		$this->middleware('can:confirmations.destroy')->only('destroy');
 		$this->middleware('can:confirmations.export')->only('exportConfirmations');
+		$this->middleware('can:confirmations.import')->only('importView', 'importConfirmations');
 	}
 
     /**
@@ -49,7 +50,7 @@ class ConfirmationController extends Controller
     {
         $confirmation = new Confirmation();
         $chapels = Chapel::all();
-        $parishpriests = ParishPriest::all();
+        $parishpriests = ParishPriest::all()->pluck('Nombre', 'Nombre');
 
         return view('confirmation.create', compact('confirmation', 'chapels', 'parishpriests'));
     }
@@ -93,7 +94,7 @@ class ConfirmationController extends Controller
     {
         $confirmation = Confirmation::find($id);
         $chapels = Chapel::all();
-        $parishpriests = ParishPriest::all();
+        $parishpriests = ParishPriest::all()->pluck('Nombre', 'Nombre');
 
         return view('confirmation.edit', compact('confirmation', 'chapels', 'parishpriests'));
     }
@@ -156,14 +157,14 @@ class ConfirmationController extends Controller
 	public function certificate(Confirmation $confirmation)
     {
 		$pdf = App::make('dompdf.wrapper');
-		$certificate = DB::table('certificates')->where('Nombre', 'confirmation')->value('Codigo');
+		$certificate = DB::table('certificates')->where('Nombre', 'confirmacion')->value('Codigo');
 		$search = array(
 			'#NumerodeLibro',
 			'#NumerodePagina',
 			'#LugardeCelebracion',
 			'#Celebrante',
 			'#FechadeCelebracion',
-			'#Confirmado',
+			'#Nombres',
 			'#ApellidoPaterno',
 			'#ApellidoMaterno',
 			'#RutConfirmado',
@@ -177,7 +178,7 @@ class ConfirmationController extends Controller
 			'#NumeroPaginaBautizo',
 			'#Notas',
 			'#DoyFe',
-			'#Parroco'
+			'#Parroco',
 		);
 
 		$replace = array(

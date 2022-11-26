@@ -395,6 +395,12 @@ return [
                 ],
             ],
         ],
+        [
+            'text' => 'Importar Registros',
+            'icon'    => 'fas fa-fw fa-bible',
+            'route' => 'baptisms.import',
+            'can' => 'baptisms.import',
+        ],
     ],
 
     /*

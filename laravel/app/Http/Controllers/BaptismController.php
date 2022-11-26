@@ -25,6 +25,7 @@ class BaptismController extends Controller
 		$this->middleware('can:baptisms.show')->only('show','certificate');
 		$this->middleware('can:baptisms.destroy')->only('destroy');
 		$this->middleware('can:baptisms.export')->only('exportBaptisms');
+		$this->middleware('can:baptisms.import')->only('importView', 'importBaptisms');
 	}
 
     /**
@@ -156,14 +157,14 @@ class BaptismController extends Controller
 	public function certificate(Baptism $baptism)
     {
 		$pdf = App::make('dompdf.wrapper');
-		$certificate = DB::table('certificates')->where('Nombre', 'baptism')->value('Codigo');
+		$certificate = DB::table('certificates')->where('Nombre', 'bautismo')->value('Codigo');
 		$search = array(
 			'#NumerodeLibro',
 			'#NumerodePagina',
 			'#LugardeCelebracion',
-			'#Celebrante',
+			'#Ministro',
 			'#FechadeCelebracion',
-			'#Bautizado',
+			'#Nombres',
 			'#ApellidoPaterno',
 			'#ApellidoMaterno',
 			'#RutBautizado',
@@ -177,7 +178,7 @@ class BaptismController extends Controller
 			'#Madrina',
 			'#Notas',
 			'#DoyFe',
-			'#Parroco'
+			'#Parroco',
 		);
 
 		$replace = array(
