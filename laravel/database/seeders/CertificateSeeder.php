@@ -15,7 +15,7 @@ class CertificateSeeder extends Seeder
     public function run()
     {
         Certificate::create([
-            'Nombre' => 'marriage',
+            'Nombre' => 'matrimonio',
             'Codigo' => '<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -96,11 +96,11 @@ class CertificateSeeder extends Seeder
         <ul>					
             <li>Número de libro: #NumLibro</li>
             <li>Número de página: #NumPag</li>
-            <li>Lugar de celebración: #LugCel</li>
+            <li>Lugar de celebración: #LugardeCelebracion</li>
             <li>Parroquia: #Parroquia</li>
-            <li>Fecha de Celebración: #FecCel</li>
-            <li>Impedimiento: #Impedimiento</li>
-            <li>Celebrante: #Celebrante</li>
+            <li>Fecha de Celebración: #FechadeCelebracion</li>
+            <li>Impedimento: #Impedimento</li>
+            <li>Ministro: #Ministro</li>
             <li>Siendo testigo: #SiendoTestigo</li>
             <li>Notas: #Notas</li>
             <li>Parroco: #Parroco</li>
@@ -115,11 +115,12 @@ class CertificateSeeder extends Seeder
     </footer>
 </body>
 </html>',
+        'Tags' => '#LugardeCelebracion, #FechadeCelebracion, #Impedimento, #Ministro, #NombresEsposo, #ApellidoPaternoEsposo, #ApellidoMaternoEsposo, #RutEsposo, #EstadoEsposo, #EdadEsposo, #PapaNombresEsposo, #MamaNombresEsposo, #ParroquiaBautismoEsposo, #NumLibroBautismoEsposo, #NumPagBautismoEsposo, #NombresEsposa, #ApellidoPaternoEsposa, #ApellidoMaternoEsposa, #RutEsposa, #EstadoEsposa, #EdadEsposa, #PapaNombresEsposa, #MamaNombresEsposa, #ParroquiaBautismoEsposa, #NumLibroBautismoEsposa, #NumPagBautismoEsposa, #SiendoTestigo, #Notas, #Parroco, #DoyFe, #Parroquia, #NumLibro, #NumPag,',
         'updated_by' => ''
         ]);
         
         Certificate::create([
-            'Nombre' => 'confirmation',
+            'Nombre' => 'confirmacion',
             'Codigo' => '<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -152,7 +153,7 @@ class CertificateSeeder extends Seeder
             <li>Lugar de celebración: #LugardeCelebracion</li>
             <li>Celebrante: #Celebrante</li>
             <li>Fecha de celenbración: #FechadeCelebracion</li>
-            <li>Confirmado: #Confirmado</li>
+            <li>Nombres: #Nombres</li>
             <li>Apellido paterno: #ApellidoPaterno</li>
             <li>Apellido materno: #ApellidoMaterno</li>
             <li>Rut: #RutConfirmado</p></li>
@@ -175,11 +176,12 @@ class CertificateSeeder extends Seeder
     </footer>
 </body>
 </html>',
+        'Tags' => '#NumerodeLibro, #NumerodePagina, #LugardeCelebracion, #Celebrante, #FechadeCelebracion, #Nombres, #ApellidoPaterno, #ApellidoMaterno, #RutConfirmado, #PapaNombre, #PapaApellido, #MamaNombre, #MamaApellido, #LugardeBautizo, #FechadeBautizo, #NumeroLibroBautizo, #NumeroPaginaBautizo, #Notas, #DoyFe, #Parroco',
         'updated_by' => ''
         ]);
         
         Certificate::create([
-            'Nombre' => 'baptism',
+            'Nombre' => 'bautismo',
             'Codigo' => '<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -210,9 +212,9 @@ class CertificateSeeder extends Seeder
             <li>Número libro: #NumerodeLibro</li>
             <li>Número de página: #NumerodePagina</li>
             <li>Lugar de celebración: #LugardeCelebracion</li>
-            <li>Celebrante: #Celebrante</li>
+            <li>Ministro: #Ministro</li>
             <li>Fecha de celenbración: #FechadeCelebracion</li>
-            <li>Nombres: #Bautizado</li>
+            <li>Nombres: #Nombres</li>
             <li>Apellido paterno: #ApellidoPaterno</li>
             <li>Apellido materno: #ApellidoMaterno</li>
             <li>Rut: #RutBautizado</p></li>
@@ -235,6 +237,7 @@ class CertificateSeeder extends Seeder
     </footer>
 </body>
 </html>',
+        'Tags' => '#NumerodeLibro, #NumerodePagina, #LugardeCelebracion, #Ministro, #FechadeCelebracion, #Nombres, #ApellidoPaterno, #ApellidoMaterno, #RutBautizado, #LugardeNacimiento, #FechadeNacimiento, #PapaNombre, #PapaApellido, #MamaNombre, #MamaApellido, #Padrino, #Madrina, #Notas, #DoyFe, #Parroco',
         'updated_by' => ''
         ]);
     }

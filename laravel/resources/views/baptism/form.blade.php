@@ -12,7 +12,7 @@
 		<div class="col-6">
 			{!! Form::label('LugCel', 'Lugar de Celebración') !!}
 			{!! Form::text('LugCel', null, ['class' => 'form-control']) !!}
-			<!--{!! Form::select('LugCel',  $chapels->pluck('Nombre'), null, ['class' => 'form-control']) !!}-->
+			{!! Form::select('LugarCel',  $chapels, null, ['class' => 'form-control']) !!}
 		</div>
 	</div>
 </div>

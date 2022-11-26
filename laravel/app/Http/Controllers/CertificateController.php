@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Certificate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class CertificateController
@@ -15,7 +17,7 @@ class CertificateController extends Controller
 		$this->middleware('can:certificates.index')->only('index', 'show');
 		$this->middleware('can:certificates.edit')->only('edit', 'update');
 		$this->middleware('can:certificates.create')->only('create', 'store');
-		$this->middleware('can:certificates.destroy')->only('destroy');
+		//$this->middleware('can:certificates.destroy')->only('destroy');
 	}
 
     /**
@@ -66,9 +68,11 @@ class CertificateController extends Controller
      */
     public function show($id)
     {
-        $certificate = Certificate::find($id);
+		$pdf = App::make('dompdf.wrapper');
+		$certificate = DB::table('certificates')->where('id', $id)->value('Codigo');
+		$pdf->loadHTML($certificate);
 
-        return view('certificate.show', compact('certificate'));
+		return $pdf->stream('certificadoDePrueba.pdf');
     }
 
     /**
@@ -106,11 +110,11 @@ class CertificateController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Exception
      */
-    public function destroy($id)
+    /*public function destroy($id)
     {
         $certificate = Certificate::find($id)->delete();
 
         return redirect()->route('certificates.index')
             ->with('success', 'Certificado eliminado exitosamente');
-    }
+    }*/
 }
