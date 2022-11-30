@@ -20,7 +20,7 @@
                 @includeif('errors')
                 <div class="card card-default">
                     <div class="card-body">
-                        {!! Form::model($certificate, ['route' => ['chapels.update', $chapel], 
+                        {!! Form::model($chapel, ['route' => ['chapels.update', $chapel], 
                             'method' => 'put', 'autocomplete' => 'off']) !!}
                             @csrf
                             @include('chapel.form')

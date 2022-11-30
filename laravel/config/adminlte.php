@@ -363,7 +363,7 @@ return [
         ],
         [
             'text' => 'Lista de Confirmaciones',
-            'icon' => 'fas fa-cross fa-fw',
+            'icon' => 'fas fa-fw fa-check',
             'route' => 'confirmations.index',
             'can' => 'confirmations.index',
         ],
@@ -397,7 +397,7 @@ return [
         ],
         [
             'text' => 'Importar Registros',
-            'icon'    => 'fas fa-fw fa-bible',
+            'icon'    => 'fas fa-fw fa-file-import',
             'route' => 'baptisms.import',
             'can' => 'baptisms.import',
         ],

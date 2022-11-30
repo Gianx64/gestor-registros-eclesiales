@@ -16,7 +16,6 @@ class RoleSeeder extends Seeder
     public function run()
     {
 		//---------------------- ROLES ---------------------------
-
 		$role1 = Role::create(['name' => 'Administrador']);
 		$role2 = Role::create(['name' => 'Secretaria']);
 
@@ -42,93 +41,90 @@ class RoleSeeder extends Seeder
 			'description' => 'Eliminar usuarios'
 		])->syncRoles([$role1]);
 
-
 		// ----------------------- Roles ----------------------------
 		Permission::create([
 			'name' => 'roles.index',
-			'description' => 'Ver lista de roles'])
-		->syncRoles([$role1]);
+			'description' => 'Ver lista de roles'
+		])->syncRoles([$role1]);
 
 		Permission::create([
 			'name' => 'roles.create',
-			'description' => 'Crear nuevos roles'])
-		->syncRoles([$role1]);
+			'description' => 'Crear nuevos roles'
+		])->syncRoles([$role1]);
 
 		Permission::create([
 			'name' => 'roles.edit',
-			'description' => 'Editar roles'])
-		->syncRoles([$role1]);
+			'description' => 'Editar roles'
+		])->syncRoles([$role1]);
 
 		Permission::create([
 			'name' => 'roles.destroy',
-			'description' => 'Eliminar roles'])
-		->syncRoles([$role1]);
+			'description' => 'Eliminar roles'
+		])->syncRoles([$role1]);
 
 		// ----------------------- Certificados ----------------------------
 		Permission::create([
 			'name' => 'certificates.index',
-			'description' => 'Ver lista de certificados'])
-		->syncRoles([$role1]);
+			'description' => 'Ver lista de certificados'
+		])->syncRoles([$role1]);
 
 		Permission::create([
 			'name' => 'certificates.create',
-			'description' => 'Crear nuevos certificados'])
-		->syncRoles([$role1]);
+			'description' => 'Crear nuevos certificados'
+		])->syncRoles([$role1]);
 
 		Permission::create([
 			'name' => 'certificates.edit',
-			'description' => 'Editar certificados'])
-		->syncRoles([$role1]);
+			'description' => 'Editar certificados'
+		])->syncRoles([$role1]);
 
 		Permission::create([
 			'name' => 'certificates.destroy',
-			'description' => 'Eliminar certificados'])
-		->syncRoles([$role1]);
-
+			'description' => 'Eliminar certificados'
+		])->syncRoles([$role1]);
 
 		// ----------------------- Capillas ----------------------------
 		Permission::create([
 			'name' => 'chapels.index',
-			'description' => 'Ver lista de capillas'])
-		->syncRoles([$role1]);
+			'description' => 'Ver lista de capillas'
+		])->syncRoles([$role1, $role2]);
 
 		Permission::create([
 			'name' => 'chapels.create',
-			'description' => 'Crear nuevas capillas'])
-		->syncRoles([$role1]);
+			'description' => 'Crear nuevas capillas'
+		])->syncRoles([$role1, $role2]);
 
 		Permission::create([
 			'name' => 'chapels.edit',
-			'description' => 'Editar capillas'])
-		->syncRoles([$role1]);
+			'description' => 'Editar capillas'
+		])->syncRoles([$role1, $role2]);
 
 		Permission::create([
 			'name' => 'chapels.destroy',
-			'description' => 'Eliminar capillas'])
-		->syncRoles([$role1]);
-
+			'description' => 'Eliminar capillas'
+		])->syncRoles([$role1, $role2]);
 
 		// ----------------------- Párrocos ----------------------------
 		Permission::create([
 			'name' => 'parishpriests.index',
-			'description' => 'Ver lista de párrocos'])
-		->syncRoles([$role1]);
+			'description' => 'Ver lista de párrocos'
+		])->syncRoles([$role1, $role2]);
 
 		Permission::create([
 			'name' => 'parishpriests.create',
-			'description' => 'Crear nuevos párrocos'])
-		->syncRoles([$role1]);
+			'description' => 'Crear nuevos párrocos'
+		])->syncRoles([$role1, $role2]);
 
 		Permission::create([
 			'name' => 'parishpriests.edit',
-			'description' => 'Editar párrocos'])
-		->syncRoles([$role1]);
+			'description' => 'Editar párrocos'
+		])->syncRoles([$role1, $role2]);
 
 		Permission::create([
 			'name' => 'parishpriests.destroy',
-			'description' => 'Eliminar párrocos'])
-		->syncRoles([$role1]);
-		
+			'description' => 'Eliminar párrocos'
+		])->syncRoles([$role1, $role2]);
+
 		// ----------------------- Matrimonios ----------------------------
 		Permission::create([
 			'name' => 'marriages.index',

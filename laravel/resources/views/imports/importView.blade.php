@@ -16,15 +16,21 @@
 	@include('tableErrors')
 	<div class="container">
 		<div class="row">
-			<div class="col-6">
-				@include('imports.partials.formImportBaptism')
-			</div>
-			<div class="col-6">
-				@include('imports.partials.formImportConfirm')
-			</div>
+			@can('marriages.import')
 			<div class="col-6">
 				@include('imports.partials.formImportMarriage')
 			</div>
+			@endcan
+			@can('confirmations.import')
+			<div class="col-6">
+				@include('imports.partials.formImportConfirmation')
+			</div>
+			@endcan
+			@can('baptisms.import')
+			<div class="col-6">
+				@include('imports.partials.formImportBaptism')
+			</div>
+			@endcan
 		</div>
 	</div>
 @stop

@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 class ParishPriestController extends Controller
 {
 	public function __construct() {
-		$this->middleware('can:parishpriests.index')->only('index', 'show');
+		$this->middleware('can:parishpriests.index')->only('index');
 		$this->middleware('can:parishpriests.edit')->only('edit', 'update');
 		$this->middleware('can:parishpriests.create')->only('create', 'store');
 		$this->middleware('can:parishpriests.destroy')->only('destroy');
@@ -59,19 +59,6 @@ class ParishPriestController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $parishPriest = ParishPriest::find($id);
-
-        return view('parish-priest.show', compact('parishPriest'));
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int $id
@@ -91,12 +78,12 @@ class ParishPriestController extends Controller
      * @param  ParishPriest $parishPriest
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ParishPriest $parishPriest)
+    public function update(Request $request, ParishPriest $parishpriest)
     {
         request()->validate(array_slice(ParishPriest::$rules, 1), ParishPriest::$message);
         request()->validate(['Rut' => ['required','string','max:20','regex:/^([1-9]|[1-9][0-9]).([0-9]){3}.([0-9]){3}-([K]|[0-9])/']], ParishPriest::$message);
 
-        $parishPriest->update($request->all());
+        $parishpriest->update($request->all());
 
         return redirect()->route('parishpriests.index')
             ->with('success', 'Párroco editado exitosamente.');

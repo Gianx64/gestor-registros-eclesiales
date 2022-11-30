@@ -21,7 +21,7 @@ class MarriagesExport implements
             'NumLibro',
             'NumPag',
             'Parroquia',
-            'Impedimiento',
+            'Impedimento',
             'RutEsposo',
             'NombresEsposo',
             'ApellidoPaternoEsposo',

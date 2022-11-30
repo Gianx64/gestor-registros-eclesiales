@@ -25,15 +25,15 @@ class ParishPriest extends Model
     ];
 
     static $message = [
-        'Rut.required' => 'El rut es un campo obligatorio',
-        'Rut.string'   => 'El rut debe de ser una cadena de caracteres',
-        'Rut.max'      => 'El campo rut es muy largo',
-        'Rut.unique'   => 'El rut ingresado ya existe',
-        'Rut.regex'    => 'El Rut ingresado no es válido, ejemplo Rut valido: 1.111.111-1 o 11.111.111-K',
+      'Rut.required' => 'El rut es un campo obligatorio',
+      'Rut.string'   => 'El rut debe de ser una cadena de caracteres',
+      'Rut.max'      => 'El campo rut es muy largo',
+      'Rut.unique'   => 'El rut ingresado ya existe',
+      'Rut.regex'    => 'El Rut ingresado no es válido, ejemplo Rut valido: 1.111.111-1 o 11.111.111-K',
 
-        'Nombres.required' => 'Los nombres son requeridos',
-        'Nombres.max'      => 'El campo nombres es muy largo',
-        'Nombres.string'   => 'El nombre debe ser una cadena de caracteres',
+      'Nombres.required' => 'Los nombres son requeridos',
+      'Nombres.max'      => 'El campo nombres es muy largo',
+      'Nombres.string'   => 'El nombre debe ser una cadena de caracteres',
     ];
 
     protected $perPage = 20;
@@ -44,7 +44,4 @@ class ParishPriest extends Model
      * @var array
      */
     protected $fillable = ['Rut','Nombre','updated_by'];
-
-
-
 }

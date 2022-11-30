@@ -49,7 +49,7 @@ class ConfirmationController extends Controller
     public function create()
     {
         $confirmation = new Confirmation();
-        $chapels = Chapel::all();
+        $chapels = Chapel::all()->pluck('Nombre', 'Nombre');
         $parishpriests = ParishPriest::all()->pluck('Nombre', 'Nombre');
 
         return view('confirmation.create', compact('confirmation', 'chapels', 'parishpriests'));
@@ -93,7 +93,7 @@ class ConfirmationController extends Controller
     public function edit($id)
     {
         $confirmation = Confirmation::find($id);
-        $chapels = Chapel::all();
+        $chapels = Chapel::all()->pluck('Nombre', 'Nombre');
         $parishpriests = ParishPriest::all()->pluck('Nombre', 'Nombre');
 
         return view('confirmation.edit', compact('confirmation', 'chapels', 'parishpriests'));
@@ -162,8 +162,8 @@ class ConfirmationController extends Controller
 			'#NumerodeLibro',
 			'#NumerodePagina',
 			'#LugardeCelebracion',
-			'#Celebrante',
 			'#FechadeCelebracion',
+			'#Celebrante',
 			'#Nombres',
 			'#ApellidoPaterno',
 			'#ApellidoMaterno',
@@ -185,8 +185,8 @@ class ConfirmationController extends Controller
 			$confirmation->NumLibro,
 			$confirmation->NumPag,
 			$confirmation->LugCel,
-			$confirmation->Celebrante,
 			$confirmation->FecCel,
+			$confirmation->Celebrante,
 			$confirmation->Nombres,
 			$confirmation->ApellidoPaterno,
 			$confirmation->ApellidoMaterno,

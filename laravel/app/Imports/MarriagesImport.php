@@ -33,7 +33,7 @@ class MarriagesImport implements
             'NumLibro' => $row['NumLibro'],
             'NumPag' => $row['NumPag'],
             'Parroquia' => $row['Parroquia'],
-            'Impedimiento' => $row['Impedimiento'],
+            'Impedimento' => $row['Impedimento'],
             'RutEsposo' => $row['RutEsposo'],
             'NombresEsposo' => $row['NombresEsposo'],
             'ApellidoPaternoEsposo' => $row['ApellidoPaternoEsposo'],

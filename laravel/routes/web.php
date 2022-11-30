@@ -48,12 +48,12 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     /** -------------------------------------- RUTAS CAPILLAS --------------------------------------------- */
     Route::get('chapels', [ChapelController::class, 'index'])->name('chapels.index');
     Route::get('chapels/create', [ChapelController::class, 'create'])->name('chapels.create');
-    Route::get('chapels/edit/{certificate}', [ChapelController::class, 'edit'])->name('chapels.edit');
+    Route::get('chapels/edit/{chapel}', [ChapelController::class, 'edit'])->name('chapels.edit');
 
     /** -------------------------------------- RUTAS PARROCOS --------------------------------------------- */
     Route::get('parishpriests', [ParishPriestController::class, 'index'])->name('parishpriests.index');
     Route::get('parishpriests/create', [ParishPriestController::class, 'create'])->name('parishpriests.create');
-    Route::get('parishpriests/edit/{certificate}', [ParishPriestController::class, 'edit'])->name('parishpriests.edit');
+    Route::get('parishpriests/edit/{parishpriest}', [ParishPriestController::class, 'edit'])->name('parishpriests.edit');
 
     /** -------------------------------------- RUTAS MATRIMONIOS ------------------------------------------ */
     Route::get('marriages', [MarriageController::class, 'index'])->name('marriages.index');

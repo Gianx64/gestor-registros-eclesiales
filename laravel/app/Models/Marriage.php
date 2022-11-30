@@ -54,9 +54,10 @@ class Marriage extends Model
 	use SoftDeletes;
     
     static $rules = [
-        'Parroquia'               => 'required|string|max:60',
-        'Impedimento'            => 'required|string|max:60',
         'RutEsposo'               => ['unique:marriages','required','string','max:20','regex:/^([1-9]|[1-9][0-9]).([0-9]){3}.([0-9]){3}-([K]|[0-9])/'],
+        'RutEsposa'               => ['unique:marriages','required','string','max:20','regex:/^([1-9]|[1-9][0-9]).([0-9]){3}.([0-9]){3}-([K]|[0-9])/'],
+        'Parroquia'               => 'required|string|max:60',
+        'Impedimento'             => 'required|string|max:60',
         'ApellidoPaternoEsposo'   => 'required|string|max:60',
         'ApellidoMaternoEsposo'   => 'required|string|max:60',
         'EstadoEsposo'            => 'required|string|max:60',
@@ -66,7 +67,6 @@ class Marriage extends Model
         'ParroquiaBautismoEsposo' => 'required|string|max:60',
         'NumLibroBautismoEsposo'  => 'required|numeric|integer',
         'NumPagBautismoEsposo'    => 'required|numeric|integer',
-        'RutEsposa'               => ['unique:marriages','required','string','max:20','regex:/^([1-9]|[1-9][0-9]).([0-9]){3}.([0-9]){3}-([K]|[0-9])/'],
         'ApellidoPaternoEsposa'   => 'required|string|max:60',
         'ApellidoMaternoEsposa'   => 'required|string|max:60',
         'EstadoEsposa'            => 'required|string|max:60',
@@ -108,11 +108,11 @@ class Marriage extends Model
         'Impedimento.max'      => 'El campo impedimiento es requerido',
         'Impedimento.string'   => 'El impedimiento debe ser una cadena de caracteres',
         
-        'RutEsposo.required' => 'El rut del esposo es requerido',
-        'RutEsposo.max'      => 'El campo rut del esposo es muy largo',
-        'RutEsposo.string'   => 'El rut del esposo debe de ser una cadena de caracteres',
-        'RutEsposo.unique'   => 'El rut del esposo ingresado ya existe',
-        'RutEsposo.regex'    => 'El Rut ingresado no es válido, ejemplo Rut valido: 11.111.111-1 o 11.111.111-K',
+        'RutEsposo.required' => 'El RUT del esposo es requerido',
+        'RutEsposo.max'      => 'El campo RUT del esposo es muy largo',
+        'RutEsposo.string'   => 'El RUT del esposo debe de ser una cadena de caracteres',
+        'RutEsposo.unique'   => 'El RUT del esposo ingresado ya existe',
+        'RutEsposo.regex'    => 'El RUT del esposo ingresado no es válido, ejemplo RUT valido: 11.111.111-1 o 11.111.111-K',
 
         'ApellidoPaternoEsposo.required' => 'El apellido paterno del esposo es requerido',
         'ApellidoPaternoEsposo.max'      => 'El campo apellido paterno del esposo es muy largo',
@@ -148,11 +148,11 @@ class Marriage extends Model
         'NumPagBautismoEsposo.numeric'  => 'El número de la página del libro de bautizo del esposo debe ser un número',
         'NumPagBautismoEsposo.integer'  => 'El número de la página del libro de bautizo del esposo debe de un entero conocido',
         
-        'RutEsposa.required' => 'El rut de la esposa es requerido',
-        'RutEsposa.max'      => 'El campo rut de la esposa es muy largo',
-        'RutEsposa.string'   => 'El rut de la esposa debe de ser una cadena de caracteres',
-        'RutEsposa.unique'   => 'El rut de la esposa ingresado ya existe',
-        'RutEsposa.regex'    => 'El Rut ingresado no es válido, ejemplo Rut valido: 11.111.111-1 o 11.111.111-K',
+        'RutEsposa.required' => 'El RUT de la esposa es requerido',
+        'RutEsposa.max'      => 'El campo RUT de la esposa es muy largo',
+        'RutEsposa.string'   => 'El RUT de la esposa debe de ser una cadena de caracteres',
+        'RutEsposa.unique'   => 'El RUT de la esposa ingresado ya existe',
+        'RutEsposa.regex'    => 'El RUT de la esposa ingresado no es válido, ejemplo RUT valido: 11.111.111-1 o 11.111.111-K',
 
         'ApellidoPaternoEsposa.required' => 'El apellido paterno de la esposa es requerido',
         'ApellidoPaternoEsposa.max'      => 'El campo apellido paterno de la esposa es muy largo',

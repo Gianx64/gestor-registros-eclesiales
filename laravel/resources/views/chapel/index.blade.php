@@ -41,13 +41,16 @@
 											<td>{{ $chapel->Direccion }}</td>
 
                                             <td>
+                                                @can('chapels.edit')
+                                                <a class="btn btn-sm btn-success" href="{{ route('chapels.edit',$chapel->id) }}"><i class="fa fa-fw fa-edit"></i>Editar</a>
+                                                @endcan
+                                                @can('chapels.destroy')
                                                 <form action="{{ route('chapels.destroy',$chapel->id) }}" class="swal-delete" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('chapels.show',$chapel->id) }}"><i class="fa fa-fw fa-eye"></i>Mostrar</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('chapels.edit',$chapel->id) }}"><i class="fa fa-fw fa-edit"></i>Editar</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i>Eliminar</button>
                                                 </form>
+                                                @endcan
                                             </td>
                                         </tr>
                                     @endforeach

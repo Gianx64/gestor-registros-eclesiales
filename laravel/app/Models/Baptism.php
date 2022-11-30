@@ -64,11 +64,11 @@ class Baptism extends Model
     ];
 
     static $message = [
-        'Rut.required' => 'El rut es un campo obligatorio',
-        'Rut.string'   => 'El rut debe de ser una cadena de caracteres',
-        'Rut.max'      => 'El campo rut es muy largo',
-        'Rut.unique'   => 'El rut ingresado ya existe',
-        'Rut.regex'    => 'El Rut ingresado no es válido, ejemplo Rut valido: 1.111.111-1 o 11.111.111-K',
+        'Rut.required' => 'El RUT es un campo obligatorio',
+        'Rut.string'   => 'El RUT debe de ser una cadena de caracteres',
+        'Rut.max'      => 'El campo RUT es muy largo',
+        'Rut.unique'   => 'El RUT ingresado ya existe',
+        'Rut.regex'    => 'El RUT ingresado no es válido, ejemplo RUT valido: 1.111.111-1 o 11.111.111-K',
 
         //'NumLibro.required' => 'El número de libro es requerido',
         'NumLibro.numeric'  => 'El valor debe ser un número',

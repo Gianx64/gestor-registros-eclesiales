@@ -39,8 +39,12 @@
 											<td>{{ $certificate->Nombre }}</td>
 
                                             <td>
+                                                @can('certificates.index')
                                                 <a class="btn btn-sm btn-primary " href="{{ route('certificates.show',$certificate->id) }}"><i class="fa fa-fw fa-eye"></i>Mostrar</a>
+                                                @endcan
+                                                @can('certificates.edit')
                                                 <a class="btn btn-sm btn-success" href="{{ route('certificates.edit',$certificate->id) }}"><i class="fa fa-fw fa-edit"></i>Editar</a>
+                                                @endcan
                                                 @can(false)
                                                 <form action="{{ route('certificates.destroy',$certificate->id) }}" class="swal-delete" method="POST">
                                                     @csrf

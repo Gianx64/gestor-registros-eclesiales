@@ -49,8 +49,8 @@ class BaptismController extends Controller
     public function create()
     {
         $baptism = new Baptism();
-        $chapels = Chapel::all();
-        $parishpriests = ParishPriest::all();
+        $chapels = Chapel::all()->pluck('Nombre', 'Nombre');
+        $parishpriests = ParishPriest::all()->pluck('Nombre', 'Nombre');
 
         return view('baptism.create', compact('baptism', 'chapels', 'parishpriests'));
     }
@@ -93,7 +93,7 @@ class BaptismController extends Controller
     public function edit($id)
     {
         $baptism = Baptism::find($id);
-        $chapels = Chapel::all();
+        $chapels = Chapel::all()->pluck('Nombre', 'Nombre');
         $parishpriests = ParishPriest::all()->pluck('Nombre', 'Nombre');
 
         return view('baptism.edit', compact('baptism', 'chapels', 'parishpriests'));
@@ -162,8 +162,8 @@ class BaptismController extends Controller
 			'#NumerodeLibro',
 			'#NumerodePagina',
 			'#LugardeCelebracion',
-			'#Ministro',
 			'#FechadeCelebracion',
+			'#Ministro',
 			'#Nombres',
 			'#ApellidoPaterno',
 			'#ApellidoMaterno',
@@ -185,8 +185,8 @@ class BaptismController extends Controller
 			$baptism->NumLibro,
 			$baptism->NumPag,
 			$baptism->LugCel,
-			$baptism->Ministro,
 			$baptism->FecCel,
+			$baptism->Ministro,
 			$baptism->Nombres,
 			$baptism->ApellidoPaterno,
 			$baptism->ApellidoMaterno,

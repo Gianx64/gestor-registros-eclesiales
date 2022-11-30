@@ -49,7 +49,7 @@ class MarriageController extends Controller
     public function create()
     {
         $marriage = new Marriage();
-        $chapels = Chapel::all();
+        $chapels = Chapel::all()->pluck('Nombre', 'Nombre');
         $parishpriests = ParishPriest::all()->pluck('Nombre', 'Nombre');
 
         return view('marriage.create', compact('marriage', 'chapels', 'parishpriests'));
@@ -93,7 +93,7 @@ class MarriageController extends Controller
     public function edit($id)
     {
         $marriage = Marriage::find($id);
-        $chapels = Chapel::all();
+        $chapels = Chapel::all()->pluck('Nombre', 'Nombre');
         $parishpriests = ParishPriest::all()->pluck('Nombre', 'Nombre');
 
         return view('marriage.edit', compact('marriage', 'chapels', 'parishpriests'));
@@ -108,8 +108,9 @@ class MarriageController extends Controller
      */
     public function update(Request $request, Marriage $marriage)
     {
-        request()->validate(array_slice(Marriage::$rules, 1), Marriage::$message);
-        request()->validate(['Rut' => ['required','string','max:20','regex:/^([1-9]|[1-9][0-9]).([0-9]){3}.([0-9]){3}-([K]|[0-9])/']], Marriage::$message);
+        request()->validate(array_slice(Marriage::$rules, 2), Marriage::$message);
+        request()->validate(['RutEsposo' => ['required','string','max:20','regex:/^([1-9]|[1-9][0-9]).([0-9]){3}.([0-9]){3}-([K]|[0-9])/'],
+        					 'RutEsposa' => ['required','string','max:20','regex:/^([1-9]|[1-9][0-9]).([0-9]){3}.([0-9]){3}-([K]|[0-9])/']], Marriage::$message);
 
         $marriage->update($request->all());
 
@@ -159,6 +160,8 @@ class MarriageController extends Controller
 		$pdf = App::make('dompdf.wrapper');
 		$certificate = DB::table('certificates')->where('Nombre', 'matrimonio')->value('Codigo');
 		$search = array(
+			'#NumerodeLibro',
+			'#NumerodePagina',
 			'#LugardeCelebracion',
 			'#FechadeCelebracion',
 			'#Impedimento',
@@ -190,10 +193,10 @@ class MarriageController extends Controller
 			'#Parroco',
 			'#DoyFe',
 			'#Parroquia',
-			'#NumLibro',
-			'#NumPag',
 		);
 		$replace = array(
+			$marriage->NumLibro,
+			$marriage->NumPag,
 			$marriage->LugCel,
 			$marriage->FecCel,
 			$marriage->Impedimento,
@@ -225,8 +228,6 @@ class MarriageController extends Controller
 			$marriage->Parroco,
 			$marriage->DoyFe,
 			$marriage->Parroquia,
-			$marriage->NumLibro,
-			$marriage->NumPag,
 		);
 
 		$certificate = str_replace($search, $replace, $certificate);
