@@ -52,9 +52,11 @@ class CreateMarriagesTable extends Migration
                   ->comment('Parroquia de bautismo del esposo.');
             $table->integer('NumLibroBautismoEsposo')
                   ->unsigned()
+                  ->nullable()
                   ->comment('Número de libro de bautismo del esposo.');
             $table->integer('NumPagBautismoEsposo')
                   ->unsigned()
+                  ->nullable()
                   ->comment('Número de página de bautismo del esposo.');
             $table->string('RutEsposa', 20)
                   ->unique()
@@ -80,9 +82,11 @@ class CreateMarriagesTable extends Migration
                   ->comment('Parroquia de bautismo de la esposa.');
             $table->integer('NumLibroBautismoEsposa')
                   ->unsigned()
+                  ->nullable()
                   ->comment('Número de libro de bautismo de la esposa.');
             $table->integer('NumPagBautismoEsposa')
                   ->unsigned()
+                  ->nullable()
                   ->comment('Número de página de bautismo de la esposa.');
             $table->string('SiendoTestigo')
                   ->comment('Nombres completos de testigos del matrimonio.');
@@ -97,7 +101,8 @@ class CreateMarriagesTable extends Migration
             $table->string('Notas')
                   ->nullable()
                   ->comment('Notas adicionales del matrimonio.');
-            $table->string('DoyFe', 60);
+            $table->string('DoyFe', 60)
+                  ->comment('Nombre completo del párroco que firma el certificado.');
             $table->string('updated_by')
                   ->comment('Correo de usuario más reciente en manipular registro.');
             $table->softDeletes()

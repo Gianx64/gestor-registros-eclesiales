@@ -88,6 +88,12 @@ class UserController extends Controller
 
         return view('user.edit', compact('user', 'roles'));
     }
+    public function editself()
+    {
+        $user = User::find(auth()->user()->id);
+
+        return view('user.edit', compact('user'));
+    }
 
     /**
      * Update the specified resource in storage.
@@ -98,7 +104,8 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        request()->validate(User::$rules, User::$message);
+        request()->validate(array_slice(User::$rules, 1), User::$message);
+        request()->validate(['email' => 'required|string'], User::$message);
 
         $request['password']=Hash::make($request['password']); //Se guarda la contraseña encriptada
         $user->update($request->all());

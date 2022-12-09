@@ -11,8 +11,7 @@
 		</div>
 		<div class="col-6">
 			{!! Form::label('LugCel', 'Lugar de Celebración') !!}
-			{!! Form::text('LugCel', null, ['class' => 'form-control']) !!}
-			{!! Form::select('LugarCel',  $chapels, null, ['class' => 'form-control']) !!}
+			{!! Form::select('LugCel',  $chapels, null, ['class' => 'form-control']) !!}
 		</div>
 	</div>
 </div>
@@ -112,7 +111,7 @@
 		<div class="row">
 			<div class="col-6">
 				{!! Form::label('DoyFe', 'Doy Fé') !!}
-				{!! Form::text('DoyFe', null, ['class' => 'form-control']) !!}
+				{!! Form::select('DoyFe',  $parishpriests, null, ['class' => 'form-control']) !!}
 			</div>
 			<div class="col-6">
 				{!! Form::label('Parroco', 'Parroco') !!}

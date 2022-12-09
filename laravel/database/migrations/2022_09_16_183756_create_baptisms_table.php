@@ -67,7 +67,8 @@ class CreateBaptismsTable extends Migration
             $table->text('Notas')
                   ->nullable()
                   ->comment('Notas adicionales del bautizo.');
-            $table->string('DoyFe', 60);
+            $table->string('DoyFe', 60)
+                  ->comment('Nombre completo del párroco que firma el certificado.');
             $table->string('updated_by')
                   ->comment('Correo de usuario más reciente en manipular registro.');
             $table->softDeletes()

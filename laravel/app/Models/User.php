@@ -29,17 +29,17 @@ class User extends Authenticatable
     use HasRoles;
     
     static $rules = [
-		'name' => 'required|string',
-		'email' => 'required|string|unique:users,email',
-		'password' => 'required|string|confirmed',
+      'email' => 'required|string|unique:users,email',
+      'name' => 'required|string',
+      'password' => 'required|string|confirmed',
     ];
 
     static $message = [
-        'name.required' => 'El nombre de usuario es requerido',
-        'email.required' => 'El email es requerido',
-        'email.unique' => 'El email ya está registrado',
-        'password.required' => 'La contraseña es requerida',
-        'password.confirmed' => 'Las contraseñas no coinciden'
+      'name.required' => 'El nombre de usuario es requerido',
+      'email.required' => 'El email es requerido',
+      'email.unique' => 'El email ya está registrado',
+      'password.required' => 'La contraseña es requerida',
+      'password.confirmed' => 'Las contraseñas no coinciden'
     ];
 
     protected $perPage = 20;
@@ -51,6 +51,7 @@ class User extends Authenticatable
      */
     protected $fillable = ['name','email','password'];
 
-
-
+    public function adminlte_profile_url () {
+        return "users.editself";
+    }
 }

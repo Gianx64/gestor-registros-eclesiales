@@ -171,11 +171,11 @@
 	<div class="row">
 		<div class="col-6">
 			{!! Form::label('DoyFe', 'Doy Fe') !!}
-			{!! Form::text('DoyFe', null, ['class' => 'form-control']) !!}
+			{!! Form::select('DoyFe',  $parishpriests, null, ['class' => 'form-control']) !!}
 		</div>
 		<div class="col-6">
 			{!! Form::label('Parroco', 'Parroco') !!}
-			{!! Form::text('Parroco', null, ['class' => 'form-control']) !!}
+			{!! Form::select('Parroco',  $parishpriests, null, ['class' => 'form-control']) !!}
 		</div>
 	</div>
 </div>
