@@ -35,11 +35,11 @@ class User extends Authenticatable
     ];
 
     static $message = [
-      'name.required' => 'El nombre de usuario es requerido',
-      'email.required' => 'El email es requerido',
-      'email.unique' => 'El email ya está registrado',
-      'password.required' => 'La contraseña es requerida',
-      'password.confirmed' => 'Las contraseñas no coinciden'
+      'name.required' => 'El nombre de usuario es requerido.',
+      'email.required' => 'El email es requerido.',
+      'email.unique' => 'El email ya está registrado.',
+      'password.required' => 'La contraseña es requerida.',
+      'password.confirmed' => 'Las contraseñas no coinciden.'
     ];
 
     protected $perPage = 20;
@@ -52,6 +52,6 @@ class User extends Authenticatable
     protected $fillable = ['name','email','password'];
 
     public function adminlte_profile_url () {
-        return "users.editself";
+        return "users.editSelf";
     }
 }

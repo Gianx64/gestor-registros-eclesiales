@@ -31,7 +31,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     /** -------------------------------------- RUTAS USUARIOS --------------------------------------------- */
     Route::get('users', [UserController::class, 'index'])->name('users.index');
     Route::get('users/create', [UserController::class, 'create'])->name('users.create');
-    Route::get('profile/user', [UserController::class, 'editself'])->name('users.editself');
+    Route::get('profile/user', [UserController::class, 'editSelf'])->name('users.editSelf');
+    Route::put('profile/user', [UserController::class, 'updateSelf'])->name('users.updateSelf');
     Route::get('users/edit/{user}', [UserController::class, 'edit'])->name('users.edit');
     Route::get('users/assign/{user}', [UserController::class, 'assign'])->name('users.assign');
     Route::put('users/assign/{user}', [UserController::class, 'updateRole']);

@@ -88,11 +88,11 @@ class UserController extends Controller
 
         return view('user.edit', compact('user', 'roles'));
     }
-    public function editself()
+    public function editSelf()
     {
         $user = User::find(auth()->user()->id);
 
-        return view('user.edit', compact('user'));
+        return view('auth.passwords.reset', compact('user'));
     }
 
     /**
@@ -111,6 +111,18 @@ class UserController extends Controller
         $user->update($request->all());
 
         return redirect()->route('users.index')
+            ->with('success', 'Usuario actualizado exitosamente.');
+    }
+    public function updateSelf(Request $request)
+    {
+        request()->validate(array_slice(User::$rules, 1), User::$message);
+        request()->validate(['email' => 'required|string'], User::$message);
+
+        $request['password']=Hash::make($request['password']); //Se guarda la contraseña encriptada
+        
+        User::find(auth()->user()->id)->update($request->all());
+
+        return redirect()->route('home')
             ->with('success', 'Usuario actualizado exitosamente.');
     }
 

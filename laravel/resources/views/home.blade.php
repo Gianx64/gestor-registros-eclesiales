@@ -3,6 +3,11 @@
 @section('title', 'Página Inicial')
 
 @section('content_header')
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
     <h1>Página Inicial</h1>
 @stop
 
@@ -31,8 +36,12 @@
                 <p>
                     @auth
                         @if( auth()->user()->roles == '[]' )
-                        Usted no tiene permisos para utilizar el sitio web, por favor, contacte un administrador para que le asigne un rol.
+                        Usted no tiene permisos para utilizar el sitio web, por favor, contacte un administrador para que le asigne un rol.<br>
                         @endif
+                        Para cerrar sesión, seleccione su nombre en la barra superior y luego el botón "Salir".<br>
+                        Para editar sus datos de cuenta, seleccione su nombre en la barra superior y luego el botón "Perfil".<br>
+                    </p>
+                    <p>
                         @can('users.index')
                         Para ver la lista de usuarios, seleccione en la barra lateral "Usuarios" o haga <a href="users">click aquí.</a><br>
                         @endcan
