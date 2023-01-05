@@ -24,6 +24,7 @@
                             'method' => 'put', 'autocomplete' => 'off']) !!}
                             @csrf
                             @include('certificate.form')
+                            {!! Form::hidden('Nombre', $certificate->Nombre) !!}
                             {!! Form::hidden('updated_by', auth()->user()->email) !!}
                             {!! Form::submit('Actualizar Registro', ['class' => 'btn btn-primary']) !!}
                         {!! Form::close() !!}
